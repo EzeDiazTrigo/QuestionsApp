@@ -16,6 +16,7 @@ class MenuActivity : AppCompatActivity() {
         const val TYPE_KEY = "ACTUAL_TYPE"
         const val WHO_KEY:String = "WHO_IS"
         const val DEEP_KEY:String = "DEEP_QUEST"
+        const val MET_KEY:String = "MET_QUEST"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +25,11 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu2)
         val btnOne = findViewById<AppCompatButton>(R.id.btnOne)
         val btnTwo = findViewById<AppCompatButton>(R.id.btnTwo)
+        val btnThree = findViewById<AppCompatButton>(R.id.btnThree)
 
         btnOne.setOnClickListener {navigateToQuestions(WHO_KEY)}
         btnTwo.setOnClickListener{navigateToQuestions(DEEP_KEY)}
+        btnThree.setOnClickListener{navigateToQuestions(MET_KEY)}
     }
 
     fun navigateToQuestions(type:String){
