@@ -5,8 +5,10 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 import com.example.preguntas1.Menu.MenuActivity.Companion.DEEP_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.MET_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.TYPE_KEY
@@ -18,6 +20,7 @@ class PreguntasActivity : AppCompatActivity() {
 
     private lateinit var tvQuestion: TextView
     private lateinit var btnNext: AppCompatButton
+    private lateinit var cvQuestion: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -444,6 +447,7 @@ class PreguntasActivity : AppCompatActivity() {
         val type:String = intent.extras?.getString(TYPE_KEY) ?: ""
         tvQuestion = findViewById(R.id.Question)
         btnNext = findViewById(R.id.Next)
+        cvQuestion = findViewById(R.id.cvQuestion)
 
         when(type){
             WHO_KEY -> randomWhoIsQuestion(whoIsQuestions)
@@ -466,15 +470,18 @@ class PreguntasActivity : AppCompatActivity() {
     private fun randomWhoIsQuestion(whoIsQuestions: List<String>) {
         val random = Random.nextInt(0, whoIsQuestions.size+1)
         tvQuestion.text = whoIsQuestions[random]
+        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
     }
 
     private fun randomDeepQuestion(deepQuestions: List<String>) {
         val random = Random.nextInt(0, deepQuestions.size+1)
         tvQuestion.text = deepQuestions[random]
+        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
     }
 
     private fun randomMetQuestion(metQuestions: List<String>) {
         val random = Random.nextInt(0, metQuestions.size+1)
         tvQuestion.text = metQuestions[random]
+        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
     }
 }

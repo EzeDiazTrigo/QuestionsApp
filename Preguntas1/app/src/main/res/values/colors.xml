@@ -8,9 +8,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_card">#0A1240</color>
+    <color name="background_card">#6B739E</color>
     <color name="background_disable">#6C6C6C</color>
-    <color name="background_todo_app">#3F51B5</color>
+    <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
+
+    <color name="background_whois">#FFFFFF</color>
+    <color name="block_whois">#FF8526</color>
+    <color name="buttom_whois">#FF8526</color>
+    <color name="background_deep">#6D83FF</color>
+    <color name="block_deep">#AA3CDA</color>
+    <color name="buttom_deep">#AA3CDA</color>
+    <color name="background_met">#C3FF7D</color>
+    <color name="block_met">#8BC34A</color>
+    <color name="buttom_met">#8BC34A</color>
+    <color name="text">#000000</color>
+
 
 </resources>
