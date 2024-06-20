@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Preguntas1</string>
+    <string name="category">Categorias</string>
+    <string name="whois">Quien es...</string>
+    <string name="deep">Profundas</string>
+    <string name="next">Generar</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/background_card"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/category"
+        android:textColor="@color/white"
+        android:textSize="45dp"
+        android:layout_marginBottom="100dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btnOne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOne"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#F45"
+        android:text="@string/whois"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTwo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#528"
+        android:text="@string/deep"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/btnOne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnOne" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnThree"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#008F39"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOne" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFour"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#FF5722"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOne" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
