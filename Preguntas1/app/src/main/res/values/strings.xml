@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Preguntas1</string>
+    <string name="app_name">Questions</string>
     <string name="category">Modo de Juego</string>
     <string name="whois">Quien es... Grupal</string>
     <string name="deep">Profundas</string>
