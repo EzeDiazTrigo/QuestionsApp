@@ -11,11 +11,24 @@
     android:paddingVertical="60dp"
     tools:context=".Preguntas.PreguntasActivity">
 
+    <TextView
+        android:id="@+id/titleQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@id/cvQuestion"
+        android:text="@string/whois"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/textlight"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvQuestion"
         android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginBottom="100dp"
+        android:layout_height="300dp"
         android:foregroundGravity="center"
         app:cardBackgroundColor="@color/block_whois"
         app:cardCornerRadius="24dp"
@@ -35,27 +48,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/text"
+                android:padding="10dp"
+                android:textColor="@color/textdark"
                 android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="HOLA PREGUNTA"
-                android:padding="10dp"
 
                 />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Next"
-        android:layout_width="250dp"
-        android:layout_height="80dp"
-        android:text="@string/next"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

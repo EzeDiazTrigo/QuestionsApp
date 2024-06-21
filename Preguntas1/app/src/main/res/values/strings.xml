@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Preguntas1</string>
-    <string name="category">Categorias</string>
-    <string name="whois">Quien es...</string>
+    <string name="category">Modo de Juego</string>
+    <string name="whois">Quien es... Grupal</string>
     <string name="deep">Profundas</string>
     <string name="next">Generar</string>
-    <string name="met">Conocer</string>
+    <string name="met">Presentación</string>
+    <string name="plus">-</string>
+    <string name="random">Random</string>
+    <string name="lines">Un dibujo - 15 Lineas</string>
 </resources>

@@ -8,21 +8,25 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_card">#6B739E</color>
+    <color name="background_card">#0097B2</color>
     <color name="background_disable">#6C6C6C</color>
     <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
 
-    <color name="background_whois">#FFFFFF</color>
-    <color name="block_whois">#FF8526</color>
-    <color name="buttom_whois">#FF8526</color>
-    <color name="background_deep">#6D83FF</color>
-    <color name="block_deep">#D984FF</color>
-    <color name="buttom_deep">#D984FF</color>
-    <color name="background_met">#C3FF7D</color>
-    <color name="block_met">#8BC34A</color>
-    <color name="buttom_met">#8BC34A</color>
-    <color name="text">#000000</color>
+    <color name="block_whois">#FFBD59</color>
+    <color name="buttom_whois">#FFBD59</color>
+    <color name="block_deep">#C1FF72</color>
+    <color name="buttom_deep">#C1FF72</color>
+    <color name="block_met">#CAAFFF</color>
+    <color name="buttom_met">#CAAFFF</color>
+    <color name="block_plus">#FFDE59</color>
+    <color name="buttom_plus">#FFDE59</color>
+    <color name="block_random">#FF9B9B</color>
+    <color name="buttom_random">#FF9B9B</color>
+    <color name="block_15lines">#FFB5E2</color>
+    <color name="buttom_15lines">#FFB5E2</color>
+    <color name="textdark">#545454</color>
+    <color name="textlight">#FFFFFF</color>
 
 
 </resources>

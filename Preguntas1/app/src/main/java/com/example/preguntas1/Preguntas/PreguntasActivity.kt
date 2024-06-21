@@ -1,32 +1,32 @@
 package com.example.preguntas1.Preguntas
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.content.ContextCompat
 import com.example.preguntas1.Menu.MenuActivity.Companion.DEEP_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.MET_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.TYPE_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.WHO_KEY
+import com.example.preguntas1.Menu.MenuActivity.Companion.RANDOM_KEY
+import com.example.preguntas1.Menu.MenuActivity.Companion.LINES_KEY
 import com.example.preguntas1.R
 import kotlin.random.Random
 
 class PreguntasActivity : AppCompatActivity() {
 
     private lateinit var tvQuestion: TextView
-    private lateinit var btnNext: AppCompatButton
     private lateinit var cvQuestion: CardView
+    private lateinit var tvtitleQuestion: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_preguntas)
-        val deepQuestions:List<String> = listOf(
+        val deepQuestions: List<String> = listOf(
             "¿Eres más mental o emocional?",
             "¿Eres más mental o emocional?",
             "¿Te resulta fácil aceptar ayuda para lograr tus sueños?",
@@ -140,7 +140,7 @@ class PreguntasActivity : AppCompatActivity() {
             "¿Cuál es el recuerdo favorito que tienes de nosotros juntos?",
             "¿Te recargas estando rodeado de otras personas o pasando tiempo a solas?"
         )
-        val whoIsQuestions:List<String> = listOf(
+        val whoIsQuestions: List<String> = listOf(
             "¿Quién es más probable que atienda tu llamada a media noche?",
             "¿Quién es más probable que se sienta como en casa en tu casa?",
             "¿Quién se llevaría bien con los padres de todos?",
@@ -242,7 +242,8 @@ class PreguntasActivity : AppCompatActivity() {
             "¿Quien es el que siempre falta a las juntadas?",
             "¿Quien es el que cocina mejor del grupo?"
         )
-        val metQuestions:List<String> = listOf("¿Eres más mental o emocional?",
+        val metQuestions: List<String> = listOf(
+            "¿Eres más mental o emocional?",
             "¿Te resulta fácil aceptar ayuda para lograr tus sueños?",
             "¿Te arrepientes de no haber hecho algo en la vida?",
             "¿Qué es lo que te pone más nervioso?",
@@ -443,45 +444,200 @@ class PreguntasActivity : AppCompatActivity() {
             "¿A qué edad crees que empezaste a ser una persona madura?",
             "¿Cómo te gustaría que te recuerden cuando ya no estés?",
             "¿Consideras que tardas mucho en mostrar tus miedos y vulnerabilidades ante un amigo o una amiga?",
-            "¿Quién te ha influido más en esta vida?")
-        val type:String = intent.extras?.getString(TYPE_KEY) ?: ""
+            "¿Quién te ha influido más en esta vida?"
+        )
+        val linesIdeas: List<String> = listOf("Cara sonriente",
+            "Corazón",
+            "Estrella",
+            "Casa",
+            "Árbol",
+            "Pez",
+            "Flor",
+            "Sol",
+            "Luna",
+            "Montaña",
+            "Gato",
+            "Perro",
+            "Carro",
+            "Avión",
+            "Barco",
+            "Bicicleta",
+            "Globo",
+            "Pájaro",
+            "Mariposa",
+            "Reloj",
+            "Gafas",
+            "Sombrero",
+            "Taza",
+            "Libro",
+            "Lápiz",
+            "Cepillo",
+            "Televisión",
+            "Computadora",
+            "Teléfono",
+            "Lámpara",
+            "Cohete",
+            "Cuchara",
+            "Tenedor",
+            "Cama",
+            "Puente",
+            "Vela",
+            "Galleta",
+            "Huevo",
+            "Pollo",
+            "Loro",
+            "Dinosaurio",
+            "Castillo",
+            "Espejo",
+            "Ojo",
+            "Botella",
+            "Carta",
+            "Micrófono",
+            "Cárcel",
+            "Fantasma",
+            "Diamante",
+            "Diente",
+            "Coche de carreras",
+            "Piano",
+            "Batería (instrumento)",
+            "Guitarra",
+            "Violín",
+            "Nota musical",
+            "Mano",
+            "Pie",
+            "Chaqueta",
+            "Pantalones",
+            "Zapato",
+            "Camisa",
+            "Sombrero de copa",
+            "Paraguas",
+            "Lluvia",
+            "Nube",
+            "Relámpago",
+            "Nieve",
+            "Hielo",
+            "Fantasma",
+            "Alienígena",
+            "OVNI",
+            "Robot",
+            "Pastel",
+            "Helado",
+            "Caramelo",
+            "Pizza",
+            "Hamburguesa",
+            "Hot dog",
+            "Tazón de sopa",
+            "Sandwich",
+            "Fruta (manzana)",
+            "Vegetal (zanahoria)",
+            "Medalla",
+            "Copa de trofeo",
+            "Bandera",
+            "Escudo",
+            "Espada",
+            "Papiroflexia (grulla)",
+            "Sombrero de chef",
+            "Anillo",
+            "Llave",
+            "Cinta adhesiva",
+            "Enchufe",
+            "Cuchillo",
+            "Martillo",
+            "Sierra",
+            "Taladro",
+            "Linterna")
+        val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
         tvQuestion = findViewById(R.id.Question)
-        btnNext = findViewById(R.id.Next)
         cvQuestion = findViewById(R.id.cvQuestion)
+        tvtitleQuestion = findViewById(R.id.titleQuestion)
 
-        when(type){
+        when (type) {
             WHO_KEY -> randomWhoIsQuestion(whoIsQuestions)
             DEEP_KEY -> randomDeepQuestion(deepQuestions)
             MET_KEY -> randomMetQuestion(metQuestions)
+            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions)
+            LINES_KEY -> randomLinesIdea(linesIdeas)
         }
 
-        btnNext.setOnClickListener {generateQuestion(type, whoIsQuestions, deepQuestions, metQuestions)}
+        cvQuestion.setOnClickListener {
+            generateQuestion(
+                type,
+                whoIsQuestions,
+                deepQuestions,
+                metQuestions,
+                linesIdeas
+            )
+        }
 
     }
 
-    private fun generateQuestion(type: String, whoIsQuestions: List<String>, deepQuestions: List<String>, metQuestions: List<String>) {
-        when(type){
+    private fun generateQuestion(
+        type: String,
+        whoIsQuestions: List<String>,
+        deepQuestions: List<String>,
+        metQuestions: List<String>,
+        linesIdeas: List<String>
+    ) {
+        when (type) {
             WHO_KEY -> randomWhoIsQuestion(whoIsQuestions)
             DEEP_KEY -> randomDeepQuestion(deepQuestions)
             MET_KEY -> randomMetQuestion(metQuestions)
+            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions)
+            LINES_KEY -> randomLinesIdea(linesIdeas)
         }
     }
 
     private fun randomWhoIsQuestion(whoIsQuestions: List<String>) {
-        val random = Random.nextInt(0, whoIsQuestions.size+1)
+        val random = Random.nextInt(0, whoIsQuestions.size + 1)
         tvQuestion.text = whoIsQuestions[random]
+        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
+        tvtitleQuestion.text = getString(R.string.whois)
     }
 
     private fun randomDeepQuestion(deepQuestions: List<String>) {
-        val random = Random.nextInt(0, deepQuestions.size+1)
+        val random = Random.nextInt(0, deepQuestions.size + 1)
         tvQuestion.text = deepQuestions[random]
+        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
+        tvtitleQuestion.text = getString(R.string.deep)
     }
 
     private fun randomMetQuestion(metQuestions: List<String>) {
-        val random = Random.nextInt(0, metQuestions.size+1)
+        val random = Random.nextInt(0, metQuestions.size + 1)
         tvQuestion.text = metQuestions[random]
+        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
+        tvtitleQuestion.text = getString(R.string.met)
+    }
+
+    private fun randomRandomQuestion(whoIsQuestions: List<String>, deepQuestions: List<String>, metQuestions: List<String>) {
+        val randomList = Random.nextInt(0,3)
+        when(randomList){
+            0 -> {
+                val random = Random.nextInt(0, whoIsQuestions.size + 1)
+                tvQuestion.text = whoIsQuestions[random]
+            }
+            1 -> {
+                val random = Random.nextInt(0, deepQuestions.size + 1)
+                tvQuestion.text = deepQuestions[random]
+            }
+            2 -> {
+                val random = Random.nextInt(0, metQuestions.size + 1)
+                tvQuestion.text = metQuestions[random]
+            }
+        }
+        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
+        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
+        tvtitleQuestion.text = getString(R.string.random)
+    }
+
+    private fun randomLinesIdea(linesIdeas: List<String>) {
+        val random = Random.nextInt(0, linesIdeas.size + 1)
+        tvQuestion.text = linesIdeas[random]
+        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
+        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
+        tvtitleQuestion.text = getString(R.string.lines)
+        tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
     }
 }
