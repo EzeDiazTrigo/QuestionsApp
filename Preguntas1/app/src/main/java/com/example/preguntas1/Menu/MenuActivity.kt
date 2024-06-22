@@ -1,5 +1,6 @@
 package com.example.preguntas1.Menu
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -21,30 +22,46 @@ class MenuActivity : AppCompatActivity() {
         const val KNOW_KEY: String = "KNOW_ME"
     }
 
-    private lateinit var btnOne: CardView
-    private lateinit var btnTwo: CardView
-    private lateinit var btnThree: CardView
-    private lateinit var btnFour: CardView
-    private lateinit var btnFive: CardView
-    private lateinit var btnSix: CardView
+    private lateinit var btnWhois: CardView
+    private lateinit var btnDeep: CardView
+    private lateinit var btnMet: CardView
+    private lateinit var btnKnow: CardView
+    private lateinit var btnChoose: CardView
+    private lateinit var btnRandom: CardView
+    private lateinit var btnAddQuestion: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu2)
-        btnOne = findViewById(R.id.btnOne)
-        btnTwo = findViewById(R.id.btnTwo)
-        btnThree = findViewById(R.id.btnThree)
-        btnFour = findViewById(R.id.btnFour)
-        btnFive = findViewById(R.id.btnFive)
-        btnSix = findViewById(R.id.btnSix)
+        initialization()
+        initUI()
+    }
 
-        btnOne.setOnClickListener { navigateToQuestions(WHO_KEY) }
-        btnTwo.setOnClickListener { navigateToQuestions(DEEP_KEY) }
-        btnThree.setOnClickListener { navigateToQuestions(MET_KEY) }
-        btnFour.setOnClickListener { navigateToQuestions(KNOW_KEY) }
-        btnFive.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
-        btnSix.setOnClickListener  { navigateToQuestions(LINES_KEY)}
+    private fun showDialog(){
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_new_question)
+        dialog.show()
+    }
+
+    private fun initialization(){
+        btnWhois = findViewById(R.id.btnWhois)
+        btnDeep = findViewById(R.id.btnDeep)
+        btnMet = findViewById(R.id.btnMet)
+        btnKnow = findViewById(R.id.btnKnow)
+        btnChoose = findViewById(R.id.btnChoose)
+        btnRandom = findViewById(R.id.btnRandom)
+        btnAddQuestion = findViewById(R.id.btnAddQuestion)
+    }
+
+    private fun initUI(){
+        btnWhois.setOnClickListener { navigateToQuestions(WHO_KEY) }
+        btnDeep.setOnClickListener { navigateToQuestions(DEEP_KEY) }
+        btnMet.setOnClickListener { navigateToQuestions(MET_KEY) }
+        btnKnow.setOnClickListener { navigateToQuestions(KNOW_KEY) }
+        btnRandom.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
+        btnChoose.setOnClickListener  { navigateToQuestions(LINES_KEY) }
+        btnAddQuestion.setOnClickListener  { showDialog() }
     }
 
     private fun navigateToQuestions(type: String) {

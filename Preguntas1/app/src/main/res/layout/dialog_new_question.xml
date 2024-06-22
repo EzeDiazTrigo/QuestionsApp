@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background_card"
+    android:padding="10dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etQuestion"
+        android:hint="@string/add_question"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        />
+    <RadioGroup
+        android:id="@+id/rgGames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RadioButton
+            android:id="@+id/rbWhois"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/whois"
+            android:textColor="@color/white"
+            android:buttonTint="@color/buttom_whois"/>
+
+        <RadioButton
+            android:id="@+id/rbDeep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/deep"
+            android:textColor="@color/white"
+            android:buttonTint="@color/buttom_deep"/>
+
+        <RadioButton
+            android:id="@+id/rbMet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/met"
+            android:textColor="@color/white"
+            android:buttonTint="@color/buttom_met"/>
+
+        <RadioButton
+            android:id="@+id/rbPlus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:textColor="@color/white"
+            android:buttonTint="@color/buttom_plus"/>
+
+        <RadioButton
+            android:id="@+id/rbLines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lines"
+            android:textColor="@color/white"
+            android:buttonTint="@color/block_15lines"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textColor="@color/textdark"
+        android:backgroundTint="@color/white"/>
+
+
+</LinearLayout>

@@ -8,4 +8,6 @@
     <string name="plus">¿Cuanto me conocen?</string>
     <string name="random">Random</string>
     <string name="lines">¿A quien eligirias para...?</string>
+    <string name="add_question">Nueva Pregunta</string>
+    <string name="save">Guardar</string>
 </resources>

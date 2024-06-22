@@ -775,7 +775,7 @@ class PreguntasActivity : AppCompatActivity() {
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
         tvtitleQuestion.text = getString(R.string.lines)
-        tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
+        tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
     }
 
     private fun randomKnowQuestions(knowQuestions: List<String>) {

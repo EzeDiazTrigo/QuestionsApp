@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnOne"
+            android:id="@+id/btnWhois"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
@@ -50,20 +50,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/whois"
                     android:textColor="@color/textlight"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnTwo"
+            android:id="@+id/btnDeep"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="17dp"
             android:backgroundTint="@color/buttom_deep"
             app:cardCornerRadius="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnOne">
+            app:layout_constraintTop_toBottomOf="@+id/btnWhois">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -76,20 +76,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/deep"
                     android:textColor="@color/textdark"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnThree"
+            android:id="@+id/btnMet"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="17dp"
             android:backgroundTint="@color/buttom_met"
             app:cardCornerRadius="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnTwo">
+            app:layout_constraintTop_toBottomOf="@+id/btnDeep">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -102,20 +102,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/met"
                     android:textColor="@color/textlight"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnFour"
+            android:id="@+id/btnKnow"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="17dp"
             android:backgroundTint="@color/buttom_plus"
             app:cardCornerRadius="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnThree">
+            app:layout_constraintTop_toBottomOf="@+id/btnMet">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -128,20 +128,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/plus"
                     android:textColor="@color/textdark"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnFive"
+            android:id="@+id/btnRandom"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="17dp"
             android:backgroundTint="@color/buttom_random"
             app:cardCornerRadius="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnFour">
+            app:layout_constraintTop_toBottomOf="@+id/btnChoose">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -154,20 +154,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/random"
                     android:textColor="@color/textlight"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnSix"
+            android:id="@+id/btnChoose"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="17dp"
             android:backgroundTint="@color/buttom_15lines"
             app:cardCornerRadius="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnFive">
+            app:layout_constraintTop_toBottomOf="@+id/btnKnow">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -180,10 +180,40 @@
                     android:layout_height="wrap_content"
                     android:text="@string/lines"
                     android:textColor="@color/textdark"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnAddQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="17dp"
+            android:backgroundTint="@color/buttomSave"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRandom">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingHorizontal="15dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_question"
+                    android:textColor="@color/textdark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
