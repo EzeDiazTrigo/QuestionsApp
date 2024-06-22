@@ -13,6 +13,7 @@ import com.example.preguntas1.Menu.MenuActivity.Companion.TYPE_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.WHO_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.RANDOM_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.LINES_KEY
+import com.example.preguntas1.Menu.MenuActivity.Companion.KNOW_KEY
 import com.example.preguntas1.R
 import kotlin.random.Random
 
@@ -546,6 +547,90 @@ class PreguntasActivity : AppCompatActivity() {
             "Sierra",
             "Taladro",
             "Linterna")
+        val knowQuestions: List<String> = listOf("¿Cuál es mi color favorito?",
+            "¿Cuál es mi libro favorito?",
+            "¿Prefiero el café o el té?",
+            "¿Cuál es mi película favorita?",
+            "¿Cuál es mi banda/cantante favorito/a?",
+            "¿Prefiero los perros o los gatos?",
+            "¿Prefiero madrugar o trasnochar?",
+            "¿Cuál es mi hobbie favorito?",
+            "¿Cuál es mi bebida favorita?",
+            "¿Prefiero viajar en avión o en tren?",
+            "¿Cuál es mi animal favorito?",
+            "¿Prefiero un día lluvioso o soleado?",
+            "¿Cuál es mi helado favorito?",
+            "¿Cuál es mi cumpleaños?",
+            "¿Prefiero los libros físicos o los libros electrónicos?",
+            "¿Qué cosa me pone de mal humor rápidamente?",
+            "¿Cuál es mi fruta favorita?",
+            "¿Qué me hace feliz instantáneamente?",
+            "¿Cuál es mi género de literatura favorito?",
+            "¿Prefiero el chocolate blanco o negro?",
+            "¿Qué es lo que más valoro en una amistad?",
+            "¿Qué actividad me relaja más?",
+            "¿Cuál es mi serie animada favorita?",
+            "¿Qué es lo que más odio hacer?",
+            "¿Cuál es mi película de Disney favorita?",
+            "¿Prefiero la pizza a la pasta?",
+            "¿He vivido en más de una ciudad?",
+            "¿Soy una persona organizada?",
+            "¿Tengo algún tatuaje?",
+            "¿Me gustan los videojuegos?",
+            "¿Tengo algún pasatiempo relacionado con el arte?",
+            "¿Me gusta el fútbol?",
+            "¿Me gustan los parques de atracciones?",
+            "¿Me gustan los documentales?",
+            "¿Me gusta la cerveza?",
+            "¿Prefiero los libros de no ficción a los de ficción?",
+            "¿Me gusta la jardinería?",
+            "¿Prefiero los autos a las motos?",
+            "¿He participado en una carrera de autos?",
+            "¿Prefiero los relojes digitales a los analógicos?",
+            "¿He visitado alguna vez un museo de arte?",
+            "¿He hecho algún curso online?",
+            "¿Prefiero las bicicletas a los coches?",
+            "¿Me gustan los juegos de mesa?",
+            "¿Me gusta escribir?",
+            "¿Prefiero una vida larga sin amor o una vida corta llena de amor?",
+            "¿Prefiero la paz interior o el éxito profesional?",
+            "¿Prefiero perdonar fácilmente o guardar rencor?",
+            "¿Prefiero la honestidad brutal o las mentiras piadosas?",
+            "¿Preferiría tener un talento increíble en algo específico o ser bueno/a en muchas cosas?",
+            "¿Preferiría vivir en un mundo sin guerra o en un mundo sin enfermedades?",
+            "¿Prefiero tener muchos amigos superficiales o pocos amigos verdaderos?",
+            "¿Prefiero tomar decisiones basadas en la lógica o en la emoción?",
+            "¿Preferiría trabajar en algo que amo por poco dinero o en algo que odio por mucho dinero?",
+            "¿Prefiero vivir en el presente o planificar para el futuro?",
+            "¿Preferiría ser completamente libre o absolutamente seguro/a?",
+            "¿Prefiero seguir mis sueños aunque fracase o nunca intentarlo y no saberlo?",
+            "¿Preferiría vivir una vida sin tecnología o una vida sin amigos?",
+            "¿Prefiero encontrar el amor verdadero o una maleta con diez millones de dólares?",
+            "¿Prefiero experimentar un gran dolor físico o un gran dolor emocional?",
+            "¿Preferiría ser una persona brillante pero solitaria o una persona promedio con una vida social activa?",
+            "¿Prefiero ayudar a un amigo necesitado aunque me perjudique o protegerme y no ayudarle?",
+            "¿Preferiría vivir sin música o sin películas?",
+            "¿Prefiero tener un trabajo estable pero aburrido o un trabajo emocionante pero inestable?",
+            "¿Preferiría nunca volver a sentir tristeza o nunca volver a sentir dolor físico?",
+            "¿Prefiero luchar por una causa en la que creo o vivir una vida tranquila sin involucrarme?",
+            "¿Prefiero buscar la venganza o practicar el perdón?",
+            "¿Prefiero pasar una noche hablando con alguien que admiro o con alguien que amo?",
+            "¿Preferiría tener éxito en un área que no me apasiona o fracasar en algo que me apasiona?",
+            "¿Prefiero vivir una vida sin arrepentimientos o sin expectativas?",
+            "¿Preferiría tener una relación amorosa complicada pero apasionada o una relación sencilla pero sin pasión?",
+            "¿Prefiero ser un líder con muchos enemigos o un seguidor amado por todos?",
+            "¿Prefiero tener la oportunidad de conocerme completamente a mí mismo/a o conocer completamente a otra persona?",
+            "¿Prefiero escuchar a mi corazón o a mi mente?",
+            "¿Prefiero tener el respeto de todos o el amor de unos pocos?",
+            "¿Prefiero que me digan la verdad siempre o ser protegido/a por una mentira?",
+            "¿Prefiero ser conocido/a por mi inteligencia o por mi bondad?",
+            "¿Preferiría nunca experimentar la tristeza o nunca experimentar el amor?",
+            "¿Prefiero ser incapaz de mentir o incapaz de confiar?",
+            "¿Preferiría ser recordado/a por una sola cosa increíble o por una vida de bondad?",
+            "¿Prefiero saber la verdad aunque duela o vivir en una feliz ignorancia?",
+            "¿Prefiero ser capaz de amar profundamente pero ser vulnerable o no amar nunca y ser invulnerable?",
+            "¿Prefiero vivir en un lugar donde siempre es de día o donde siempre es de noche?",
+            "¿Prefiero vivir una vida sin amor romantico o una vida sin amistad?")
         val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
         tvQuestion = findViewById(R.id.Question)
         cvQuestion = findViewById(R.id.cvQuestion)
@@ -555,8 +640,9 @@ class PreguntasActivity : AppCompatActivity() {
             WHO_KEY -> randomWhoIsQuestion(whoIsQuestions)
             DEEP_KEY -> randomDeepQuestion(deepQuestions)
             MET_KEY -> randomMetQuestion(metQuestions)
-            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions)
+            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions)
             LINES_KEY -> randomLinesIdea(linesIdeas)
+            KNOW_KEY -> randomKnowQuestions(knowQuestions)
         }
 
         cvQuestion.setOnClickListener {
@@ -565,7 +651,8 @@ class PreguntasActivity : AppCompatActivity() {
                 whoIsQuestions,
                 deepQuestions,
                 metQuestions,
-                linesIdeas
+                linesIdeas,
+                knowQuestions
             )
         }
 
@@ -576,14 +663,16 @@ class PreguntasActivity : AppCompatActivity() {
         whoIsQuestions: List<String>,
         deepQuestions: List<String>,
         metQuestions: List<String>,
-        linesIdeas: List<String>
+        linesIdeas: List<String>,
+        knowQuestions: List<String>
     ) {
         when (type) {
             WHO_KEY -> randomWhoIsQuestion(whoIsQuestions)
             DEEP_KEY -> randomDeepQuestion(deepQuestions)
             MET_KEY -> randomMetQuestion(metQuestions)
-            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions)
+            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions)
             LINES_KEY -> randomLinesIdea(linesIdeas)
+            KNOW_KEY -> randomKnowQuestions(knowQuestions)
         }
     }
 
@@ -611,8 +700,8 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion.text = getString(R.string.met)
     }
 
-    private fun randomRandomQuestion(whoIsQuestions: List<String>, deepQuestions: List<String>, metQuestions: List<String>) {
-        val randomList = Random.nextInt(0,3)
+    private fun randomRandomQuestion(whoIsQuestions: List<String>, deepQuestions: List<String>, metQuestions: List<String>, knowQuestions: List<String>) {
+        val randomList = Random.nextInt(0,4)
         when(randomList){
             0 -> {
                 val random = Random.nextInt(0, whoIsQuestions.size + 1)
@@ -626,6 +715,10 @@ class PreguntasActivity : AppCompatActivity() {
                 val random = Random.nextInt(0, metQuestions.size + 1)
                 tvQuestion.text = metQuestions[random]
             }
+            3 -> {
+                val random = Random.nextInt(0, knowQuestions.size + 1)
+                tvQuestion.text = knowQuestions[random]
+            }
         }
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
@@ -638,6 +731,15 @@ class PreguntasActivity : AppCompatActivity() {
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
         tvtitleQuestion.text = getString(R.string.lines)
+        tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
+    }
+
+    private fun randomKnowQuestions(knowQuestions: List<String>) {
+        val random = Random.nextInt(0, knowQuestions.size + 1)
+        tvQuestion.text = knowQuestions[random]
+        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
+        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
+        tvtitleQuestion.text = getString(R.string.plus)
         tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
     }
 }

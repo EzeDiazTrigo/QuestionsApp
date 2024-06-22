@@ -18,11 +18,13 @@ class MenuActivity : AppCompatActivity() {
         const val MET_KEY: String = "MET_QUEST"
         const val RANDOM_KEY: String = "RANDOM"
         const val LINES_KEY: String = "LINES"
+        const val KNOW_KEY: String = "KNOW_ME"
     }
 
     private lateinit var btnOne: CardView
     private lateinit var btnTwo: CardView
     private lateinit var btnThree: CardView
+    private lateinit var btnFour: CardView
     private lateinit var btnFive: CardView
     private lateinit var btnSix: CardView
 
@@ -33,13 +35,15 @@ class MenuActivity : AppCompatActivity() {
         btnOne = findViewById(R.id.btnOne)
         btnTwo = findViewById(R.id.btnTwo)
         btnThree = findViewById(R.id.btnThree)
+        btnFour = findViewById(R.id.btnFour)
         btnFive = findViewById(R.id.btnFive)
         btnSix = findViewById(R.id.btnSix)
 
         btnOne.setOnClickListener { navigateToQuestions(WHO_KEY) }
         btnTwo.setOnClickListener { navigateToQuestions(DEEP_KEY) }
         btnThree.setOnClickListener { navigateToQuestions(MET_KEY) }
-        btnFive.setOnClickListener  { navigateToQuestions(RANDOM_KEY)}
+        btnFour.setOnClickListener { navigateToQuestions(KNOW_KEY) }
+        btnFive.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
         btnSix.setOnClickListener  { navigateToQuestions(LINES_KEY)}
     }
 
