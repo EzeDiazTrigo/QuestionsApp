@@ -3,6 +3,10 @@ package com.example.preguntas1.Menu
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -41,6 +45,23 @@ class MenuActivity : AppCompatActivity() {
     private fun showDialog(){
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_new_question)
+        val btnAddQuestion: Button = dialog.findViewById(R.id.btnAddQuestion)
+        val etAddQuestion: EditText = dialog.findViewById(R.id.etQuestion)
+        val rgAddQuestion: RadioGroup = dialog.findViewById(R.id.rgGames)
+        btnAddQuestion.setOnClickListener{
+            val selectedId = rgAddQuestion.checkedRadioButtonId
+            val selectedRadoButton:RadioButton = rgAddQuestion.findViewById(selectedId)
+            val type:String = when(selectedRadoButton.text){
+                getString(R.string.whois) -> WHO_KEY
+                getString(R.string.deep) -> DEEP_KEY
+                getString(R.string.met) -> MET_KEY
+                getString(R.string.plus) -> KNOW_KEY
+                getString(R.string.lines) -> LINES_KEY
+                else -> ""
+            }
+            dialog.hide()
+        }
+
         dialog.show()
     }
 

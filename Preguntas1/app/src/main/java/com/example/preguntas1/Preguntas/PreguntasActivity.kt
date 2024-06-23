@@ -1,6 +1,8 @@
 package com.example.preguntas1.Preguntas
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +18,10 @@ import com.example.preguntas1.Menu.MenuActivity.Companion.LINES_KEY
 import com.example.preguntas1.Menu.MenuActivity.Companion.KNOW_KEY
 import com.example.preguntas1.R
 import kotlin.random.Random
+import java.io.File
+import java.io.FileOutputStream
+import android.content.SharedPreferences
+
 
 class PreguntasActivity : AppCompatActivity() {
 
@@ -676,26 +682,53 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion = findViewById(R.id.cvQuestion)
         tvtitleQuestion = findViewById(R.id.titleQuestion)
 
-        when (type) {
-            WHO_KEY -> randomWhoIsQuestion(whoIsQuestions)
-            DEEP_KEY -> randomDeepQuestion(deepQuestions)
-            MET_KEY -> randomMetQuestion(metQuestions)
-            RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions, linesIdeas)
-            LINES_KEY -> randomLinesIdea(linesIdeas)
-            KNOW_KEY -> randomKnowQuestions(knowQuestions)
-        }
+        initializedLists(whoIsQuestions, deepQuestions, metQuestions, linesIdeas, knowQuestions)
+        generateQuestion(type, whoIsQuestions, deepQuestions, metQuestions, linesIdeas, knowQuestions)
 
         cvQuestion.setOnClickListener {
-            generateQuestion(
-                type,
-                whoIsQuestions,
-                deepQuestions,
-                metQuestions,
-                linesIdeas,
-                knowQuestions
-            )
+            generateQuestion(type, whoIsQuestions, deepQuestions, metQuestions, linesIdeas, knowQuestions)
         }
 
+
+    }
+
+    private fun initializedLists(whoIsQuestions: List<String>, deepQuestions: List<String>, metQuestions: List<String>, linesIdeas: List<String>, knowQuestions: List<String>) {
+        initializedSharedPreferences(this, WHO_KEY, whoIsQuestions)
+        initializedSharedPreferences(this, DEEP_KEY, deepQuestions)
+        initializedSharedPreferences(this, MET_KEY, metQuestions)
+        initializedSharedPreferences(this, LINES_KEY, linesIdeas)
+        initializedSharedPreferences(this, KNOW_KEY, knowQuestions)
+    }
+
+    private fun saveList(context: Context, key: String, list: List<String>) {
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("myAppPrefs", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        val stringList = list.joinToString(",")
+        editor.putString(key, stringList)
+        editor.apply()
+    }
+
+    private fun getList(context: Context, key: String): List<String>{
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("myAppPrefs", Context.MODE_PRIVATE)
+        val stringList = sharedPreferences.getString(key, "")
+        return stringList?.split(",")?.filter {it.isNotEmpty()}?: emptyList()
+    }
+
+    private fun addQuestion(context: Context, key: String, question: String){
+        val currentList = getList(context, key).toMutableList()
+        currentList.add(question)
+        saveList(context, key, currentList)
+    }
+
+    private fun initializedSharedPreferences(context: Context, key: String, list: List<String>){
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("myAppPrefs", Context.MODE_PRIVATE)
+        val isInitialized = sharedPreferences.getBoolean("isInitialized", false)
+        if(!isInitialized){
+            saveList(context, key, list)
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putBoolean("isInitialized", true)
+            editor.apply()
+        }
     }
 
     private fun generateQuestion(
