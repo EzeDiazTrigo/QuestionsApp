@@ -700,17 +700,18 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestionGeneral = findViewById(R.id.cvQuestionGeneral)
         cvPreQuest = findViewById(R.id.cvPreQuest)
         var actualQuestion: MutableWrapper<Int> = MutableWrapper(0)
+
         when (type) {
-            WHO_KEY -> randomWhoIsQuestion(whoIsQuestions, actualQuestion)
-            DEEP_KEY -> randomDeepQuestion(deepQuestions, actualQuestion)
-            MET_KEY -> randomMetQuestion(metQuestions, actualQuestion)
+            WHO_KEY -> initWhoIsQuestion(whoIsQuestions)
+            DEEP_KEY -> initDeepQuestion(deepQuestions)
+            MET_KEY -> initMetQuestion(metQuestions)
             RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions, linesIdeas)
-            LINES_KEY -> randomLinesIdea(linesIdeas, actualQuestion)
-            KNOW_KEY -> randomKnowQuestions(knowQuestions, actualQuestion)
+            LINES_KEY -> initLinesIdea(linesIdeas)
+            KNOW_KEY -> initKnowQuestions(knowQuestions)
         }
 
         cvQuestion.setOnClickListener {
-            generateQuestion(
+            nextQuestion(
                 type,
                 whoIsQuestions,
                 deepQuestions,
@@ -722,7 +723,7 @@ class PreguntasActivity : AppCompatActivity() {
         }
 
         cvPreQuest.setOnClickListener{
-            backToPreQuestion(
+            preQuestion(
                 type,
                 whoIsQuestions,
                 deepQuestions,
@@ -736,7 +737,7 @@ class PreguntasActivity : AppCompatActivity() {
 
     }
 
-    private fun backToPreQuestion(
+    private fun preQuestion(
         type: String,
         whoIsQuestions: List<String>,
         deepQuestions: List<String>,
@@ -746,16 +747,16 @@ class PreguntasActivity : AppCompatActivity() {
         actualQuestion: MutableWrapper<Int>
     ) {
         when (type) {
-            WHO_KEY -> backWhoIsQuestion(whoIsQuestions, actualQuestion)
-            DEEP_KEY -> backDeepQuestion(deepQuestions, actualQuestion)
-            MET_KEY -> backMetQuestion(metQuestions, actualQuestion)
+            WHO_KEY -> { tvQuestion.text = whoIsQuestions[lessActual(actualQuestion)] }
+            DEEP_KEY -> tvQuestion.text = deepQuestions[lessActual(actualQuestion)]
+            MET_KEY -> tvQuestion.text = metQuestions[lessActual(actualQuestion)]
             RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions, linesIdeas)
-            LINES_KEY -> backLinesIdea(linesIdeas, actualQuestion)
-            KNOW_KEY -> backKnowQuestions(knowQuestions, actualQuestion)
+            LINES_KEY -> tvQuestion.text = linesIdeas[lessActual(actualQuestion)]
+            KNOW_KEY -> tvQuestion.text = knowQuestions[lessActual(actualQuestion)]
         }
     }
 
-    private fun generateQuestion(
+    private fun nextQuestion(
         type: String,
         whoIsQuestions: List<String>,
         deepQuestions: List<String>,
@@ -765,18 +766,17 @@ class PreguntasActivity : AppCompatActivity() {
         actualQuestion: MutableWrapper<Int>
     ) {
         when (type) {
-            WHO_KEY -> randomWhoIsQuestion(whoIsQuestions, actualQuestion)
-            DEEP_KEY -> randomDeepQuestion(deepQuestions, actualQuestion)
-            MET_KEY -> randomMetQuestion(metQuestions, actualQuestion)
+            WHO_KEY -> { tvQuestion.text = whoIsQuestions[addActual(actualQuestion)] }
+            DEEP_KEY -> tvQuestion.text = deepQuestions[addActual(actualQuestion)]
+            MET_KEY -> tvQuestion.text = metQuestions[addActual(actualQuestion)]
             RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions, linesIdeas)
-            LINES_KEY -> randomLinesIdea(linesIdeas, actualQuestion)
-            KNOW_KEY -> randomKnowQuestions(knowQuestions, actualQuestion)
+            LINES_KEY -> tvQuestion.text = linesIdeas[addActual(actualQuestion)]
+            KNOW_KEY -> tvQuestion.text = knowQuestions[addActual(actualQuestion)]
         }
     }
 
-    private fun randomWhoIsQuestion(whoIsQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = addActual(actualQuestion)
-        tvQuestion.text = whoIsQuestions[actual]
+    private fun initWhoIsQuestion(whoIsQuestions: List<String>) {
+        tvQuestion.text = whoIsQuestions[0]
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
@@ -784,20 +784,8 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion.text = getString(R.string.whois)
     }
 
-    private fun backWhoIsQuestion(whoIsQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = lessActual(actualQuestion)
-        tvQuestion.text = whoIsQuestions[actual]
-        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
-        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
-        cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
-        cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
-        tvtitleQuestion.text = getString(R.string.whois)
-    }
-
-
-    private fun randomDeepQuestion(deepQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = addActual(actualQuestion)
-        tvQuestion.text = deepQuestions[actual]
+    private fun initDeepQuestion(deepQuestions: List<String>) {
+        tvQuestion.text = deepQuestions[0]
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
@@ -805,29 +793,8 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion.text = getString(R.string.deep)
     }
 
-    private fun backDeepQuestion(deepQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = lessActual(actualQuestion)
-        tvQuestion.text = deepQuestions[actual]
-        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
-        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
-        cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
-        cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
-        tvtitleQuestion.text = getString(R.string.deep)
-    }
-
-    private fun randomMetQuestion(metQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = addActual(actualQuestion)
-        tvQuestion.text = metQuestions[actual]
-        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
-        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
-        cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
-        cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
-        tvtitleQuestion.text = getString(R.string.met)
-    }
-
-    private fun backMetQuestion(metQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = lessActual(actualQuestion)
-        tvQuestion.text = metQuestions[actual]
+    private fun initMetQuestion(metQuestions: List<String>) {
+        tvQuestion.text = metQuestions[0]
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textlight))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
@@ -866,9 +833,8 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion.text = getString(R.string.random)
     }
 
-    private fun randomLinesIdea(linesIdeas: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = addActual(actualQuestion)
-        tvQuestion.text = linesIdeas[actual]
+    private fun initLinesIdea(linesIdeas: List<String>) {
+        tvQuestion.text = linesIdeas[0]
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
@@ -877,20 +843,8 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
     }
 
-    private fun backLinesIdea(linesIdeas: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = lessActual(actualQuestion)
-        tvQuestion.text = linesIdeas[actual]
-        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
-        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
-        cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
-        cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
-        tvtitleQuestion.text = getString(R.string.lines)
-        tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
-    }
-
-    private fun randomKnowQuestions(knowQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        var actual = addActual(actualQuestion)
-        tvQuestion.text = knowQuestions[actual]
+    private fun initKnowQuestions(knowQuestions: List<String>) {
+        tvQuestion.text = knowQuestions[0]
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
@@ -899,14 +853,4 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
     }
 
-    private fun backKnowQuestions(knowQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
-        val actual = lessActual(actualQuestion)
-        tvQuestion.text = knowQuestions[actual]
-        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
-        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
-        cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
-        cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
-        tvtitleQuestion.text = getString(R.string.plus)
-        tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
-    }
 }
