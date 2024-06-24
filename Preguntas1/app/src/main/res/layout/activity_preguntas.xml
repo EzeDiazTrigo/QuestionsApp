@@ -24,9 +24,34 @@
         android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/textlight"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPreQuest"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/block_whois"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cvQuestion"
+        app:layout_constraintStart_toStartOf="parent">
 
+
+    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cvQuestion"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/block_whois"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cvPreQuest"
+        >
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvQuestionGeneral"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:foregroundGravity="center"

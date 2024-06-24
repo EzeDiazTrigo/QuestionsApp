@@ -28,7 +28,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var btnKnow: CardView
     private lateinit var btnChoose: CardView
     private lateinit var btnRandom: CardView
-    private lateinit var btnAddQuestion: CardView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +38,11 @@ class MenuActivity : AppCompatActivity() {
         initUI()
     }
 
-    private fun showDialog(){
+    /*private fun showDialog(){
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_new_question)
         dialog.show()
-    }
+    }*/
 
     private fun initialization(){
         btnWhois = findViewById(R.id.btnWhois)
@@ -51,7 +51,7 @@ class MenuActivity : AppCompatActivity() {
         btnKnow = findViewById(R.id.btnKnow)
         btnChoose = findViewById(R.id.btnChoose)
         btnRandom = findViewById(R.id.btnRandom)
-        btnAddQuestion = findViewById(R.id.btnAddQuestion)
+
     }
 
     private fun initUI(){
@@ -61,7 +61,7 @@ class MenuActivity : AppCompatActivity() {
         btnKnow.setOnClickListener { navigateToQuestions(KNOW_KEY) }
         btnRandom.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
         btnChoose.setOnClickListener  { navigateToQuestions(LINES_KEY) }
-        btnAddQuestion.setOnClickListener  { showDialog() }
+
     }
 
     private fun navigateToQuestions(type: String) {
