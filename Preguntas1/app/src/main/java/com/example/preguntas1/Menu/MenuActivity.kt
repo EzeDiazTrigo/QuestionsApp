@@ -38,12 +38,6 @@ class MenuActivity : AppCompatActivity() {
         initUI()
     }
 
-    /*private fun showDialog(){
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_new_question)
-        dialog.show()
-    }*/
-
     private fun initialization(){
         btnWhois = findViewById(R.id.btnWhois)
         btnDeep = findViewById(R.id.btnDeep)

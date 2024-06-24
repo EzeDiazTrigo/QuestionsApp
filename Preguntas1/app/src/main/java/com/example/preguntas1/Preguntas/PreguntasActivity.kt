@@ -1,5 +1,6 @@
 package com.example.preguntas1.Preguntas
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.TypedValue
 import android.widget.TextView
@@ -37,12 +38,14 @@ class PreguntasActivity : AppCompatActivity() {
     private lateinit var tvtitleQuestion: TextView
     private lateinit var cvPreQuest: CardView
     private lateinit var cvQuestionGeneral: CardView
+    private lateinit var cvDelete: CardView
+    private lateinit var cvAdd: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_preguntas)
-        val deepQuestionsOriginal: List<String> = listOf(
+        val deepQuestionsOriginal: MutableList<String> = mutableListOf(
             "¿Eres más mental o emocional?",
             "¿Eres más mental o emocional?",
             "¿Te resulta fácil aceptar ayuda para lograr tus sueños?",
@@ -156,7 +159,7 @@ class PreguntasActivity : AppCompatActivity() {
             "¿Cuál es el recuerdo favorito que tienes de nosotros juntos?",
             "¿Te recargas estando rodeado de otras personas o pasando tiempo a solas?"
         )
-        val whoIsQuestionsOriginal: List<String> = listOf(
+        val whoIsQuestionsOriginal: MutableList<String> = mutableListOf(
             "¿Quién es más probable que atienda tu llamada a media noche?",
             "¿Quién es más probable que se sienta como en casa en tu casa?",
             "¿Quién se llevaría bien con los padres de todos?",
@@ -258,7 +261,7 @@ class PreguntasActivity : AppCompatActivity() {
             "¿Quien es el que siempre falta a las juntadas?",
             "¿Quien es el que cocina mejor del grupo?"
         )
-        val metQuestionsOriginal: List<String> = listOf(
+        val metQuestionsOriginal: MutableList<String> = mutableListOf(
             "¿Eres más mental o emocional?",
             "¿Te resulta fácil aceptar ayuda para lograr tus sueños?",
             "¿Te arrepientes de no haber hecho algo en la vida?",
@@ -462,7 +465,7 @@ class PreguntasActivity : AppCompatActivity() {
             "¿Consideras que tardas mucho en mostrar tus miedos y vulnerabilidades ante un amigo o una amiga?",
             "¿Quién te ha influido más en esta vida?"
         )
-        val linesIdeasOriginal: List<String> = listOf("¿A quién elegirías para sobrevivir en una isla desierta contigo?",
+        val linesIdeasOriginal: MutableList<String> = mutableListOf("¿A quién elegirías para sobrevivir en una isla desierta contigo?",
             "¿A quién elegirías para organizar tu boda?",
             "¿A quién elegirías para cuidar a tus mascotas?",
             "¿A quién elegirías para ser tu compañero de viaje?",
@@ -602,7 +605,7 @@ class PreguntasActivity : AppCompatActivity() {
             "¿A quién elegirías para ser tu compañero de esquí?",
             "¿A quién elegirías para ayudarte a planear una fiesta infantil?",
             "¿A quién elegirías para ser tu compañero de cata de vinos?")
-        val knowQuestionsOriginal: List<String> = listOf("¿Cuál es mi color favorito?",
+        val knowQuestionsOriginal: MutableList<String> = mutableListOf("¿Cuál es mi color favorito?",
             "¿Cuál es mi libro favorito?",
             "¿Prefiero el café o el té?",
             "¿Cuál es mi película favorita?",
@@ -699,6 +702,8 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion = findViewById(R.id.titleQuestion)
         cvQuestionGeneral = findViewById(R.id.cvQuestionGeneral)
         cvPreQuest = findViewById(R.id.cvPreQuest)
+        cvAdd = findViewById(R.id.cvAddQuestion)
+        cvDelete = findViewById(R.id.cvDeleteQuestion)
         var actualQuestion: MutableWrapper<Int> = MutableWrapper(0)
 
         when (type) {
@@ -734,7 +739,16 @@ class PreguntasActivity : AppCompatActivity() {
             )
         }
 
+        cvAdd.setOnClickListener{
+            showDialog()
+        }
 
+    }
+
+    private fun showDialog(){
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_new_question)
+        dialog.show()
     }
 
     private fun preQuestion(
@@ -781,6 +795,8 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
+        cvAdd.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
+        cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_whois))
         tvtitleQuestion.text = getString(R.string.whois)
     }
 
@@ -790,6 +806,8 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
+        cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
+        cvAdd.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_deep))
         tvtitleQuestion.text = getString(R.string.deep)
     }
 
@@ -799,6 +817,8 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
+        cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
+        cvAdd.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_met))
         tvtitleQuestion.text = getString(R.string.met)
     }
 
@@ -830,6 +850,8 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
+        cvAdd.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
+        cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
         tvtitleQuestion.text = getString(R.string.random)
     }
 
@@ -839,6 +861,8 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
+        cvAdd.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
+        cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_15lines))
         tvtitleQuestion.text = getString(R.string.lines)
         tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
     }
@@ -849,6 +873,8 @@ class PreguntasActivity : AppCompatActivity() {
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
+        cvAdd.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
+        cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
         tvtitleQuestion.text = getString(R.string.plus)
         tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
     }
