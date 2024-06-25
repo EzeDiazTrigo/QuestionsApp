@@ -1,6 +1,7 @@
 package com.example.preguntas1.Preguntas
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
 import android.widget.TextView
@@ -19,8 +20,10 @@ import com.example.preguntas1.R
 import kotlin.random.Random
 data class MutableWrapper<Int>(var value: Int)
 
-fun addActual(wrapper: MutableWrapper<Int>):Int {
-    wrapper.value += 1
+fun addActual(wrapper: MutableWrapper<Int>, limit: Int):Int {
+    if(wrapper.value < (limit-1)){
+        wrapper.value += 1
+    }
     return wrapper.value
 }
 
@@ -45,7 +48,7 @@ class PreguntasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_preguntas)
-        val deepQuestionsOriginal: MutableList<String> = mutableListOf(
+        /*val deepQuestionsOriginal: MutableList<String> = mutableListOf(
             "¿Eres más mental o emocional?",
             "¿Eres más mental o emocional?",
             "¿Te resulta fácil aceptar ayuda para lograr tus sueños?",
@@ -158,7 +161,10 @@ class PreguntasActivity : AppCompatActivity() {
             "¿Qué es lo que más te gusta de nuestra amistad? ¿Qué te gustaría mejorar?",
             "¿Cuál es el recuerdo favorito que tienes de nosotros juntos?",
             "¿Te recargas estando rodeado de otras personas o pasando tiempo a solas?"
-        )
+        )*/
+        val context = applicationContext
+        val deepQuestionsOriginal: MutableList<String> = mutableListOf()
+        readStringFiles(deepQuestionsOriginal, context)
         val whoIsQuestionsOriginal: MutableList<String> = mutableListOf(
             "¿Quién es más probable que atienda tu llamada a media noche?",
             "¿Quién es más probable que se sienta como en casa en tu casa?",
@@ -780,12 +786,12 @@ class PreguntasActivity : AppCompatActivity() {
         actualQuestion: MutableWrapper<Int>
     ) {
         when (type) {
-            WHO_KEY -> { tvQuestion.text = whoIsQuestions[addActual(actualQuestion)] }
-            DEEP_KEY -> tvQuestion.text = deepQuestions[addActual(actualQuestion)]
-            MET_KEY -> tvQuestion.text = metQuestions[addActual(actualQuestion)]
+            WHO_KEY -> { tvQuestion.text = whoIsQuestions[addActual(actualQuestion, whoIsQuestions.size)] }
+            DEEP_KEY -> tvQuestion.text = deepQuestions[addActual(actualQuestion, deepQuestions.size)]
+            MET_KEY -> tvQuestion.text = metQuestions[addActual(actualQuestion, metQuestions.size)]
             RANDOM_KEY -> randomRandomQuestion(whoIsQuestions, deepQuestions, metQuestions, knowQuestions, linesIdeas)
-            LINES_KEY -> tvQuestion.text = linesIdeas[addActual(actualQuestion)]
-            KNOW_KEY -> tvQuestion.text = knowQuestions[addActual(actualQuestion)]
+            LINES_KEY -> tvQuestion.text = linesIdeas[addActual(actualQuestion, linesIdeas.size)]
+            KNOW_KEY -> tvQuestion.text = knowQuestions[addActual(actualQuestion, knowQuestions.size)]
         }
     }
 
@@ -877,6 +883,20 @@ class PreguntasActivity : AppCompatActivity() {
         cvDelete.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_plus))
         tvtitleQuestion.text = getString(R.string.plus)
         tvtitleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
+    }
+
+    private fun readStringFiles(lista: MutableList<String>, context: Context){
+
+        var i = 1
+        var resourseId: Int
+        do{
+            resourseId = context.resources.getIdentifier("deepQuestion$i", "string", context.packageName)
+            if(resourseId != 0){
+                val stringFromResource = context.getString(resourseId)
+                lista.add(stringFromResource)
+                i++
+            }
+        }while (resourseId != 0)
     }
 
 }

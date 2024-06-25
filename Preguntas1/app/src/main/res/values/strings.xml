@@ -10,4 +10,128 @@
     <string name="lines">¿A quien eligirias para...?</string>
     <string name="add_question">Nueva Pregunta</string>
     <string name="save">Guardar</string>
+
+    <!-- Whosis -->
+
+    <!-- Deep -->
+    <string name="deepQuestion1">¿Eres más mental o emocional?</string>
+    <string name="deepQuestion2">¿Eres más mental o emocional?</string>
+    <string name="deepQuestion3">¿Te resulta fácil aceptar ayuda para lograr tus sueños?</string>
+    <string name="deepQuestion4">¿Te arrepientes de no haber hecho algo en la vida?</string>
+    <string name="deepQuestion5">¿Qué es lo que te pone más nervioso?</string>
+    <string name="deepQuestion6">¿Cómo es la relación con tus padres?</string>
+    <string name="deepQuestion7">¿Te castigaban mucho cuando eras pequeño?</string>
+    <string name="deepQuestion8">¿Cuál ha sido la mejor época de tu vida? ¿Y la peor?</string>
+    <string name="deepQuestion9">¿Qué pesadillas te han provocado sudores más fríos?</string>
+    <string name="deepQuestion10"> ¿Cómo te describirías a ti mismo?</string>
+    <string name="deepQuestion11"> ¿Qué es lo que más valoras en una amistad?</string>
+    <string name="deepQuestion12"> ¿Cuándo fue la última vez que lloraste delante de otra persona?</string>
+    <string name="deepQuestion13"> ¿Qué significa para ti nuestra amistad?</string>
+    <string name="deepQuestion14"> ¿Cómo te gusta ser reconfortado o animado cuando estás triste o enfadado?</string>
+    <string name="deepQuestion15"> ¿Cuál es el momento de tu vida que más te puso a prueba?</string>
+    <string name="deepQuestion16"> ¿Te arrepientes de algo? Si es así, ¿de qué?</string>
+    <string name="deepQuestion17"> Si tuvieras todo el valor posible para hacer aquello que más te asusta, ¿qué harías?</string>
+    <string name="deepQuestion18"> ¿Qué pensamientos te dificultan dormir por las noches?</string>
+    <string name="deepQuestion19"> ¿Qué es lo que más te estresa en la vida?</string>
+    <string name="deepQuestion20"> ¿Cuál es la peor decisión que has cometido?</string>
+    <string name="deepQuestion21"> ¿Cuál fue tu primera amistad? ¿Sigue en tu vida?</string>
+    <string name="deepQuestion22"> ¿Qué objeto tiene para ti mayor valor sentimental?</string>
+    <string name="deepQuestion23"> ¿Cómo puedo ser un mejor amigo para ti?</string>
+    <string name="deepQuestion24"> Si pudieras cambiar una sola cosa sobre ti, ¿cuál sería?</string>
+    <string name="deepQuestion25"> ¿Qué es lo que más te hace llorar?</string>
+    <string name="deepQuestion26"> ¿Tienes alguna manía extraña que no conozco?</string>
+    <string name="deepQuestion27"> ¿Quién es la persona más importante de tu vida?</string>
+    <string name="deepQuestion28"> ¿Qué fue lo primero que pensaste de mí nada más conocernos?</string>
+    <string name="deepQuestion29"> ¿Qué es lo que realmente te saca de tus casillas?</string>
+    <string name="deepQuestion30"> ¿Te resulta fácil confiar en alguien?</string>
+    <string name="deepQuestion31"> ¿Podrías perdonar a alguien que te ha sido infiel si te enteraras que de todas maneras te ama?</string>
+    <string name="deepQuestion32"> ¿Qué persona ha ejercido una influencia decisiva en ti?</string>
+    <string name="deepQuestion33"> ¿Qué es lo que más te gusta de mí?</string>
+    <string name="deepQuestion34"> ¿Qué es aquello que me hace diferente del resto de personas?</string>
+    <string name="deepQuestion35"> ¿Cuándo fue la última vez que te pusiste triste?</string>
+    <string name="deepQuestion36"> ¿Por qué acabó tu última relación?</string>
+    <string name="deepQuestion37"> ¿Que te hace sentir culpa?</string>
+    <string name="deepQuestion38"> ¿Qué cualidades valoras más en alguien?</string>
+    <string name="deepQuestion39"> ¿Cómo me describirías?</string>
+    <string name="deepQuestion40"> ¿Hay algo que pienses que los demás piensan de ti y no es cierto?</string>
+    <string name="deepQuestion41"> ¿Qué cuatro adjetivos te dicen cómo eres?</string>
+    <string name="deepQuestion42"> ¿Qué es lo que más te gusta sobre tu persona?</string>
+    <string name="deepQuestion43"> ¿Qué es lo que te ha decepcionado más en una amistad?</string>
+    <string name="deepQuestion44"> ¿De qué estás más orgulloso en esta vida?</string>
+    <string name="deepQuestion45"> ¿De que te arrepientes?</string>
+    <string name="deepQuestion46"> ¿Cómo lidias con la ansiedad?</string>
+    <string name="deepQuestion47"> ¿Cómo lidias con el estres?</string>
+    <string name="deepQuestion48"> ¿Con qué tipo de personas sientes más inseguridad o timidez?</string>
+    <string name="deepQuestion49"> ¿Contratarías a un amigo en tu empresa?</string>
+    <string name="deepQuestion50"> ¿Preferirías tener un gran talento innato para una actividad, o la capacidad para poder esforzarte mucho?</string>
+    <string name="deepQuestion51"> ¿Cuál es tu principal miedo irracional?</string>
+    <string name="deepQuestion52"> Del 1 al 100 que tan estresado/a te sentis</string>
+    <string name="deepQuestion53"> Del 1 al 100 en que nivel esta tu autoestima</string>
+    <string name="deepQuestion54"> Del 1 al 100 cuanta ansiedad consideras tener actualmente</string>
+    <string name="deepQuestion55"> Del 1 al 100 que tanto confias en vos mismo/a</string>
+    <string name="deepQuestion56"> ¿A qué le tiene más miedo?</string>
+    <string name="deepQuestion57"> ¿Cuáles son tus mayores prioridades en la vida?</string>
+    <string name="deepQuestion58"> ¿A quién te pareces más en tu familia?</string>
+    <string name="deepQuestion59"> ¿Cómo te enfrentas a los disgustos?</string>
+    <string name="deepQuestion60"> ¿Qué es lo que más te apetece hacer cada día?</string>
+    <string name="deepQuestion61"> ¿Cuál ha sido tu momento de mayor orgullo?</string>
+    <string name="deepQuestion62"> ¿Has perdido a alguien cercano?</string>
+    <string name="deepQuestion63"> ¿Eres espiritual?</string>
+    <string name="deepQuestion64"> ¿Crees que eres honesto contigo mismo?</string>
+    <string name="deepQuestion65"> ¿Quién narraría un audiolibro sobre tu vida?</string>
+    <string name="deepQuestion66"> Si pudieras cambiar algo de tu vida inmediatamente, ¿qué sería?</string>
+    <string name="deepQuestion67"> ¿Cuál es tu mayor habilidad?</string>
+    <string name="deepQuestion68"> ¿Qué afición siempre has querido practicar?</string>
+    <string name="deepQuestion69"> ¿Cómo esperas que te perciba la gente?</string>
+    <string name="deepQuestion70"> ¿Qué es lo que más te alegra?</string>
+    <string name="deepQuestion71"> ¿Ha perdido alguna vez a un mejor amigo?</string>
+    <string name="deepQuestion72"> ¿Qué es lo que te hace sentir más visto?</string>
+    <string name="deepQuestion73"> ¿Crees que guardar secretos es malo?</string>
+    <string name="deepQuestion74"> ¿Cuándo te sientes más libre?</string>
+    <string name="deepQuestion75"> ¿Crees que es bueno guardar rencor?</string>
+    <string name="deepQuestion76"> ¿Qué es lo más loco que has hecho por otra persona y por qué lo hiciste?</string>
+    <string name="deepQuestion77"> ¿Eres pesimista u optimista?</string>
+    <string name="deepQuestion78"> ¿Cuándo fue la última vez que lloraste?</string>
+    <string name="deepQuestion79"> ¿Cuál es el lugar más impresionante que has visitado en persona?</string>
+    <string name="deepQuestion80"> ¿Qué crees que la gente asume automáticamente cuando te conoce por primera vez?</string>
+    <string name="deepQuestion81"> ¿Qué desearías saber cuando eras más joven?</string>
+    <string name="deepQuestion82"> ¿Cuál es la mejor mala decisión que has tomado en tu vida?</string>
+    <string name="deepQuestion83"> ¿Qué intentarías si supiera que no va a fracasar?</string>
+    <string name="deepQuestion84"> ¿Cuándo fue la última vez que intentaste algo nuevo?</string>
+    <string name="deepQuestion85"> ¿Con quién te comparas más?</string>
+    <string name="deepQuestion86"> ¿Hay alguna lección importante que hayas aprendido por las malas?</string>
+    <string name="deepQuestion87"> ¿A qué desearías dedicar más tiempo?</string>
+    <string name="deepQuestion88"> ¿Hay algo en lo que sabes que te equivocas?</string>
+    <string name="deepQuestion89"> ¿Cuál es tu mayor creencia ciega?</string>
+    <string name="deepQuestion90"> ¿Cuál ha sido el momento más decisivo de tu vida hasta ahora?</string>
+    <string name="deepQuestion91"> ¿Alguna vez se ha hecho realidad tu miedo más profundo?</string>
+    <string name="deepQuestion92"> ¿Merece todo el mundo una segunda oportunidad?</string>
+    <string name="deepQuestion93"> ¿Cuál es el encuentro más extraño que has tenido?</string>
+    <string name="deepQuestion94"> ¿Qué es lo que te hace sentir más vivo?</string>
+    <string name="deepQuestion95"> ¿Cuándo fue la última vez que te sentiste perdido?</string>
+    <string name="deepQuestion96"> ¿Qué es lo que más te gusta de ti mismo?</string>
+    <string name="deepQuestion97"> ¿Cuál es la pregunta que más miedo te da?</string>
+    <string name="deepQuestion98"> ¿Qué es lo que más te gusta de tu personalidad?</string>
+    <string name="deepQuestion99"> ¿Qué has hecho como adulto de lo que tu yo más joven estaría orgulloso?</string>
+    <string name="deepQuestion100">	Cuéntame un día en que fuiste feliz</string>
+    <string name="deepQuestion101">	¿A qué lugar te gustaría volver a viajar?</string>
+    <string name="deepQuestion102">	¿Qué te pone la piel de gallina?</string>
+    <string name="deepQuestion103">	¿Cuál es tu lenguaje del amor?</string>
+    <string name="deepQuestion104">	¿Cuál es la forma de expresión personal que no te has atrevido a explorar?</string>
+    <string name="deepQuestion105">	¿Qué recuerdo te hace sonreír instantáneamente?</string>
+    <string name="deepQuestion106">	¿De qué cosa crees que sentirás nostalgia dentro de 30 años?</string>
+    <string name="deepQuestion107">	¿Tienes algún recuerdo de tu infancia que siempre estará contigo?</string>
+    <string name="deepQuestion108">	¿Cómo te sientes mejor apoyado en los momentos difíciles?</string>
+    <string name="deepQuestion109">	¿Qué te gustaría que la gente entendiera mejor de ti?</string>
+    <string name="deepQuestion110">	¿Qué es lo que más te gusta de nuestra amistad? ¿Qué te gustaría mejorar?</string>
+    <string name="deepQuestion111">	¿Cuál es el recuerdo favorito que tienes de nosotros juntos?</string>
+    <string name="deepQuestion112">	¿Te recargas estando rodeado de otras personas o pasando tiempo a solas</string>
+    <!-- Met -->
+
+    <!-- Know -->
+
+    <!-- Plus -->
+
+    <!-- Lines -->
+
 </resources>
