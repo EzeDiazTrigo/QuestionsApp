@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/plus"
                     android:textColor="@color/textdark"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
@@ -153,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/random"
-                    android:textColor="@color/textlight"
+                    android:textColor="@color/textdark"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -179,8 +179,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lines"
-                    android:textColor="@color/textdark"
-                    android:textSize="20sp"
+                    android:textColor="@color/textlight"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>

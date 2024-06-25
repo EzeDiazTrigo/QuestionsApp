@@ -21,10 +21,10 @@
     <color name="buttom_met">#CAAFFF</color>
     <color name="block_plus">#FFDE59</color>
     <color name="buttom_plus">#FFDE59</color>
-    <color name="block_random">#FF9B9B</color>
-    <color name="buttom_random">#FF9B9B</color>
-    <color name="block_15lines">#FFB5E2</color>
-    <color name="buttom_15lines">#FFB5E2</color>
+    <color name="block_random">#FFB5E2</color>
+    <color name="buttom_random">#FFB5E2</color>
+    <color name="block_15lines">#FF9B9B</color>
+    <color name="buttom_15lines">#FF9B9B</color>
     <color name="textdark">#545454</color>
     <color name="textlight">#FFFFFF</color>
     <color name="buttomSave">#E6FFA3</color>
