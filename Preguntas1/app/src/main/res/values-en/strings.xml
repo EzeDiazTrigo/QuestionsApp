@@ -2,11 +2,11 @@
 <resources>
     <string name="app_name">Questions</string>
     <string name="category">Game Modes</string>
-    <string name="whois">Who is...?</string>
-    <string name="deep">Deep Questions</string>
+    <string name="whois">Most likely to</string>
+    <string name="deep">Deep</string>
     <string name="next">Next</string>
-    <string name="met">Introduction Questions</string>
-    <string name="plus">How well do you know me?</string>
+    <string name="met">About me</string>
+    <string name="plus">Friendship Test</string>
     <string name="random">Random</string>
     <string name="lines">Who would you choose to...?</string>
     <string name="add_question">New Question</string>
