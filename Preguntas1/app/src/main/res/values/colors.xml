@@ -28,6 +28,10 @@
     <color name="textdark">#545454</color>
     <color name="textlight">#FFFFFF</color>
     <color name="buttomSave">#E6FFA3</color>
+    <color name="block_debate">#AEC8FF</color>
+    <color name="buttom_debate">#AEC8FF</color>
+    <color name="block_select">#9C7D73</color>
+    <color name="buttom_select">#9C7D73</color>
 
 
 </resources>

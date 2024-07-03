@@ -79,7 +79,7 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:textColor="@color/textdark"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

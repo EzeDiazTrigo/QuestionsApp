@@ -20,6 +20,7 @@ class MenuActivity : AppCompatActivity() {
         const val RANDOM_KEY: String = "RANDOM"
         const val LINES_KEY: String = "LINES"
         const val KNOW_KEY: String = "KNOW_ME"
+        const val DEBATE_KEY: String = "DEBATE"
     }
 
     private lateinit var btnWhois: CardView
@@ -28,6 +29,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var btnKnow: CardView
     private lateinit var btnChoose: CardView
     private lateinit var btnRandom: CardView
+    private lateinit var btnDebate: CardView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +47,7 @@ class MenuActivity : AppCompatActivity() {
         btnKnow = findViewById(R.id.btnKnow)
         btnChoose = findViewById(R.id.btnChoose)
         btnRandom = findViewById(R.id.btnRandom)
-
+        btnDebate = findViewById(R.id.btnDebate)
     }
 
     private fun initUI(){
@@ -55,7 +57,7 @@ class MenuActivity : AppCompatActivity() {
         btnKnow.setOnClickListener { navigateToQuestions(KNOW_KEY) }
         btnRandom.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
         btnChoose.setOnClickListener  { navigateToQuestions(LINES_KEY) }
-
+        btnDebate.setOnClickListener { navigateToQuestions(DEBATE_KEY) }
     }
 
     private fun navigateToQuestions(type: String) {
