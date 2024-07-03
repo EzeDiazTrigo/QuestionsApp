@@ -99,7 +99,6 @@ class PreguntasActivity : AppCompatActivity() {
         readStringFiles(knowQuestionsOriginal, context, getString(R.string.knowQuestion))
     }
 
-
     private fun preQuestion(type: String, whoIsQuestions: List<String>, deepQuestions: List<String>, metQuestions: List<String>, linesIdeas: List<String>, knowQuestions: List<String>, actualQuestion: MutableWrapper<Int>) {
         when (type) {
             WHO_KEY -> { tvQuestion.text = whoIsQuestions[lessActual(actualQuestion)] }
