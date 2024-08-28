@@ -116,13 +116,13 @@
     <string name="whoisQuestion91">Who is most likely to apologize first?</string>
     <string name="whoisQuestion92">Who is most likely to organize the most fun outings?</string>
     <string name="whoisQuestion93">Who is most likely to tell the same story over and over again?</string>
-    <string name="whoisQuestion94">Who is most likely to cancel an outing?</string>
+    <string name="whoisQuestion94">Who cooks the best in the group?</string>
     <string name="whoisQuestion95">Who is most likely to eat from someone else\'s plate?</string>
     <string name="whoisQuestion96">Who falls asleep the earliest?</string>
     <string name="whoisQuestion97">Who is the one who always proposes outings?</string>
     <string name="whoisQuestion98">Who is the group\'s psychologist?</string>
     <string name="whoisQuestion99">Who is the one who always misses the gatherings?</string>
-    <string name="whoisQuestion100">Who cooks the best in the group?</string>
+
     <!-- Deep -->
     <string name="deepQuestion1">Are you more mental or emotional?</string>
     <string name="deepQuestion2">Are you more mental or emotional?</string>
@@ -135,7 +135,7 @@
     <string name="deepQuestion9">What nightmares have caused you the coldest sweats?</string>
     <string name="deepQuestion10">How would you describe yourself?</string>
     <string name="deepQuestion11">What do you value most in a friendship?</string>
-    <string name="deepQuestion12">When was the last time you cried in front of someone else?</string>
+    <string name="deepQuestion12">From 1 to 100, How much do you know yourself?</string>
     <string name="deepQuestion13">What does our friendship mean to you?</string>
     <string name="deepQuestion14">How do you like to be comforted or cheered up when you are sad or angry?</string>
     <string name="deepQuestion15">What is the moment in your life that has tested you the most?</string>
@@ -236,6 +236,7 @@
     <string name="deepQuestion110">What do you like most about our friendship? What would you like to improve?</string>
     <string name="deepQuestion111">What is your favourite memory of us together?</string>
     <string name="deepQuestion112">Do you recharge by being around other people or spending time alone?</string>
+
     <!-- Met -->
     <string name="metQuestion1">Are you more mental or emotional?</string>
     <string name="metQuestion2">Do you find it easy to accept help to achieve your dreams?</string>
@@ -448,7 +449,7 @@
     <string name="metQuestion209">Do you have a knack for solving puzzles or riddles?</string>
     <string name="metQuestion210">Can you speak any language that few people know about?</string>
     <string name="metQuestion211">Do you have any skills in magic or card tricks?</string>
-    <string name="metQuestion212">Are you able to do any complicated crafts, such as origami?</string>
+    <string name="metQuestion212">Can you make any kind of art with recycled materials?</string>
     <string name="metQuestion213">Do you have any special culinary talents, like making decorative cakes?</string>
     <string name="metQuestion214">Can you do any tricks with your tongue, such as touching your nose with it?</string>
     <string name="metQuestion215">Are you good at any type of writing, such as poetry or stories?</string>
@@ -462,8 +463,8 @@
     <string name="metQuestion223">Can you do any kind of crafts, such as wood carving?</string>
     <string name="metQuestion224">Do you have any talent for acting or theatre?</string>
     <string name="metQuestion225">Are you able to solve Rubik\'s cubes quickly?</string>
-    <string name="metQuestion226">Can you do any advanced origami?</string>
-    <string name="metQuestion227">Do you have a knack for making balloon figures?</string>
+    <string name="metQuestion226">Do you have any talent for organising trips or itineraries?</string>
+    <string name="metQuestion227">Are you good at any type of strategy game, such as chess?</string>
     <string name="metQuestion228">Can you do any acrobatics or contortionism?</string>
     <string name="metQuestion229">Are you good at any type of DIY or carpentry?</string>
     <string name="metQuestion230">Can you do any cartoon voices?</string>
@@ -531,14 +532,8 @@
     <string name="metQuestion292">Can you choreograph any kind of ice skating routine?</string>
     <string name="metQuestion293">Do you have a knack for tattoo design?</string>
     <string name="metQuestion294">Are you able to do any kind of plumbing or electrical work?</string>
-    <string name="metQuestion295">Can you make any kind of art with recycled materials?</string>
-    <string name="metQuestion296">Do you have any talent for organising trips or itineraries?</string>
-    <string name="metQuestion297">Are you good at any type of strategy game, such as chess?</string>
-    <string name="metQuestion298">Can you do any kind of pottery on a wheel?</string>
-    <string name="metQuestion299">Do you have a knack for creating perfumes or fragrances?</string>
-    <string name="metQuestion300">Are you able to do any kind of welding work?</string>
-    <string name="metQuestion301">Can you do any kind of vertical or hydroponic gardening?</string>
-    <string name="metQuestion302">Do you have any talent for creating digital content, such as blogs or vlogs?</string>
+
+    
     <!-- Know -->
     <string name="knowQuestion1">What is my favourite colour?</string>
     <string name="knowQuestion2">What is my favourite book?</string>

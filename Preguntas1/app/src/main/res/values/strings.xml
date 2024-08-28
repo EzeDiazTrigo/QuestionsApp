@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Questions</string>
-    <string name="category">Modo de Juego</string>
+    <string name="category">Modos de Juego</string>
     <string name="whois">Quien es... Grupal</string>
     <string name="deep">Profundas</string>
     <string name="next">Generar</string>
@@ -29,10 +29,10 @@
     <string name="whoisQuestion4">¿Quién es más probable que le organice una fiesta sorpresa a alguien?</string>
     <string name="whoisQuestion5">¿Quién tiene más probabilidades de ser un gran chófer profesional?</string>
     <string name="whoisQuestion6">¿Quién es más probable que haga a mano tu regalo de cumpleaños?</string>
-    <string name="whoisQuestion7">¿Quién es más probable que haga reír a alguien cuando se siente triste?</string>
+    <string name="whoisQuestion7">¿Quién es más probable que haga sentir mejor a alguien cuando se siente triste?</string>
     <string name="whoisQuestion8">¿Quién es más probable que te haga una torta por tu cumpleaños?</string>
     <string name="whoisQuestion9">¿A quién es más probable que se le ocurra apodos para todos?</string>
-    <string name="whoisQuestion10">¿Quién es más probable que responda un mensaje de texto o correo electrónico de inmediato?</string>
+    <string name="whoisQuestion10">¿Quién es más probable que responda un mensaje de inmediato?</string>
     <string name="whoisQuestion11">¿Quién es más probable que te preste su libro favorito?</string>
     <string name="whoisQuestion12">¿Quién es más probable que se olvide de devolver un libro que pidió prestado?</string>
     <string name="whoisQuestion13">¿Quién es más probable que se quede despierto toda la noche mirando su teléfono?</string>
@@ -46,7 +46,7 @@
     <string name="whoisQuestion21">¿Quién es más probable que pierda un vuelo?</string>
     <string name="whoisQuestion22">¿Quién tiene más probabilidades de dar el mejor regalo del Amigo Invisible?</string>
     <string name="whoisQuestion23">¿Quién es más probable que tenga a su mascota en su regazo durante una reunión o llamada?</string>
-    <string name="whoisQuestion24">¿Quién es más probable que se olvide de silenciar su micrófono durante una reunión o conferencia telefónica?</string>
+    <string name="whoisQuestion24">¿Quién es más probable que se olvide de silenciar su micrófono durante una reunión?</string>
     <string name="whoisQuestion25">¿Quién es más probable que diga algo importante mientras está silenciado en una llamada?</string>
     <string name="whoisQuestion26">¿Quién tiene más probabilidades de tener 20 pestañas abiertas en su escritorio?</string>
     <string name="whoisQuestion27">¿Quién tiene más probabilidades de hacer trampa en un juego de mesa?</string>
@@ -116,17 +116,16 @@
     <string name="whoisQuestion91">¿Quién es mas probable que pida perdón primero?</string>
     <string name="whoisQuestion92">¿Quién es mas probable que organice las salidas más divertidas?</string>
     <string name="whoisQuestion93">¿Quién es más proable que cuente una historia una y otra vez?</string>
-    <string name="whoisQuestion94">¿Quién tiene más probabilidades de cancelar una salida?</string>
+    <string name="whoisQuestion94">¿Quien es el que cocina mejor del grupo?</string>
     <string name="whoisQuestion95">¿Quién tiene más probabilidades de comer del plato de otra persona?</string>
     <string name="whoisQuestion96">¿Quién se duerme mas temprano?</string>
     <string name="whoisQuestion97">¿Quien es el que siempre propone salidas?</string>
     <string name="whoisQuestion98">¿Quien es el psicologo del grupo?</string>
     <string name="whoisQuestion99">¿Quien es el que siempre falta a las juntadas?</string>
-    <string name="whoisQuestion100">¿Quien es el que cocina mejor del grupo?</string>
     <!-- Deep -->
-    <string name="deepQuestion1">¿Eres más mental o emocional?</string>
+    <string name="deepQuestion1"> Del 1 al 100 ¿Que tanto te conoces a ti mismo?</string>
     <string name="deepQuestion2">¿Eres más mental o emocional?</string>
-    <string name="deepQuestion3">¿Te resulta fácil aceptar ayuda para lograr tus sueños?</string>
+    <string name="deepQuestion3">¿Te resulta fácil aceptar ayuda de otros para lograr tus sueños?</string>
     <string name="deepQuestion4">¿Te arrepientes de no haber hecho algo en la vida?</string>
     <string name="deepQuestion5">¿Qué es lo que te pone más nervioso?</string>
     <string name="deepQuestion6">¿Cómo es la relación con tus padres?</string>
@@ -236,6 +235,7 @@
     <string name="deepQuestion110">	¿Qué es lo que más te gusta de nuestra amistad? ¿Qué te gustaría mejorar?</string>
     <string name="deepQuestion111">	¿Cuál es el recuerdo favorito que tienes de nosotros juntos?</string>
     <string name="deepQuestion112">	¿Te recargas estando rodeado de otras personas o pasando tiempo a solas?</string>
+
     <!-- Met -->
     <string name="metQuestion1">¿Eres más mental o emocional?</string>
     <string name="metQuestion2">¿Te resulta fácil aceptar ayuda para lograr tus sueños?</string>
@@ -248,7 +248,7 @@
     <string name="metQuestion9">¿Cómo te describirías a ti mismo?</string>
     <string name="metQuestion10">¿Qué es lo que más valoras en una amistad?</string>
     <string name="metQuestion11">¿Cuándo fue la última vez que lloraste delante de otra persona?</string>
-    <string name="metQuestion12">¿Qué significa para ti nuestra amistad?</string>
+    <string name="metQuestion12">¿Tienes algún talento para la creación de contenido digital?</string>
     <string name="metQuestion13">¿Cómo te gusta ser reconfortado o animado cuando estás triste o enfadado?</string>
     <string name="metQuestion14">¿Cuál es el momento de tu vida que más te puso a prueba?</string>
     <string name="metQuestion15">¿Te arrepientes de algo? Si es así, ¿de qué?</string>
@@ -301,7 +301,7 @@
     <string name="metQuestion62">¿Prefieres pasar frío o calor?</string>
     <string name="metQuestion63">¿Cuál es la canción que te gustaría cantar en un karaoke a pleno pulmón?</string>
     <string name="metQuestion64">¿A qué país te gustaría viajar la próxima vez?</string>
-    <string name="metQuestion65">¿Cómo te consideras en el sexo?</string>
+    <string name="metQuestion65">¿Puedes hacer algún tipo de jardinería vertical o hidropónica?</string>
     <string name="metQuestion66">¿Te cuesta ligar?</string>
     <string name="metQuestion67">¿Qué hiciste de joven que ahora no te atreverías a hacer ni de coña?</string>
     <string name="metQuestion68">¿Cambiarías tu vida por la de alguien que conoces?</string>
@@ -332,7 +332,7 @@
     <string name="metQuestion93">¿Cuáles son tus prioridades en este momento exacto de tu vida?</string>
     <string name="metQuestion94">¿Soñabas algo de pequeño que, a estas alturas, ya hayas cumplido?</string>
     <string name="metQuestion95">¿Cómo te gusta pasar tu tiempo libre?</string>
-    <string name="metQuestion96">¿Qué harías mañana si ganaras hoy un millón de euros?</string>
+    <string name="metQuestion96">¿Qué harías mañana si ganaras hoy un millón de dolares?</string>
     <string name="metQuestion97">¿Cuál fue el día más feliz de tu vida?</string>
     <string name="metQuestion98">¿Qué es lo primero que haces por la mañana?</string>
     <string name="metQuestion99">¿Qué es lo que más le sorprende a la gente de ti cuando te conoce?</string>
@@ -443,10 +443,10 @@
     <string name="metQuestion204">¿Puedes tocar algún instrumento musical que nadie sabe?</string>
     <string name="metQuestion205">¿Tienes habilidad para algún deporte poco conocido?</string>
     <string name="metQuestion206">¿Puedes hacer alguna imitación de personajes famosos?</string>
-    <string name="metQuestion207">¿Tienes algún talento artístico, como pintar o dibujar, que pocos conocen?</string>
+    <string name="metQuestion207">¿Tienes algún talento artístico, como pintar o dibujar?</string>
     <string name="metQuestion208">¿Eres bueno en algún tipo de danza específica?</string>
     <string name="metQuestion209">¿Tienes habilidad para resolver acertijos o rompecabezas?</string>
-    <string name="metQuestion210">¿Puedes hablar algún idioma que pocas personas conocen?</string>
+    <string name="metQuestion210">¿Puedes hablar algún otro idioma?</string>
     <string name="metQuestion211">¿Tienes alguna habilidad para la magia o los trucos de cartas?</string>
     <string name="metQuestion212">¿Eres capaz de hacer alguna manualidad complicada, como origami?</string>
     <string name="metQuestion213">¿Tienes algún talento culinario especial, como hacer pasteles decorativos?</string>
@@ -457,18 +457,18 @@
     <string name="metQuestion218">¿Eres capaz de doblar partes de tu cuerpo de forma inusual?</string>
     <string name="metQuestion219">¿Tienes algún talento en el canto que nadie sabe?</string>
     <string name="metQuestion220">¿Puedes hacer algún sonido con tu boca que otros no pueden?</string>
-    <string name="metQuestion221">¿Eres bueno en algún tipo de estrategia o juego de mesa?</string>
+    <string name="metQuestion221">¿Eres bueno en algún tipo de juego de estrategia o juego de mesa?</string>
     <string name="metQuestion222">¿Tienes habilidad para coser o tejer?</string>
     <string name="metQuestion223">¿Puedes hacer algún tipo de artesanía, como tallado en madera?</string>
     <string name="metQuestion224">¿Tienes algún talento para la actuación o el teatro?</string>
-    <string name="metQuestion225">¿Eres capaz de resolver cubos de Rubik rápidamente?</string>
-    <string name="metQuestion226">¿Puedes hacer algún tipo de origami avanzado?</string>
+    <string name="metQuestion225">¿Eres capaz de resolver cubos de Rubik?</string>
+    <string name="metQuestion226">¿Puedes hacer algún tipo de trabajo de cerámica en torno?</string>
     <string name="metQuestion227">¿Tienes habilidad para hacer figuras con globos?</string>
     <string name="metQuestion228">¿Puedes hacer algún tipo de acrobacia o contorsionismo?</string>
-    <string name="metQuestion229">¿Eres bueno en algún tipo de bricolaje o carpintería?</string>
+    <string name="metQuestion229">¿Eres bueno en algún tipo de carpintería?</string>
     <string name="metQuestion230">¿Puedes hacer alguna voz de dibujos animados?</string>
-    <string name="metQuestion231">¿Tienes habilidad para decorar pasteles o galletas?</string>
-    <string name="metQuestion232">¿Puedes hacer algún tipo de tejido, como macramé?</string>
+    <string name="metQuestion231">¿Tienes habilidad para la creación de perfumes o fragancias?</string>
+    <string name="metQuestion232">¿Eres capaz de hacer algún tipo de trabajo de soldadura?</string>
     <string name="metQuestion233">¿Eres capaz de tocar una canción en un instrumento inusual?</string>
     <string name="metQuestion234">¿Tienes algún talento para la fotografía?</string>
     <string name="metQuestion235">¿Puedes hacer algún tipo de maquillaje artístico?</string>
@@ -492,12 +492,12 @@
     <string name="metQuestion253">¿Puedes hacer algún tipo de escultura, ya sea con arcilla o materiales reciclados?</string>
     <string name="metQuestion254">¿Tienes algún talento para la narración de historias?</string>
     <string name="metQuestion255">¿Eres bueno en algún tipo de deporte extremo, como escalada?</string>
-    <string name="metQuestion256">¿Puedes hacer algún tipo de malabares con fuego o cuchillos?</string>
+    <string name="metQuestion256">¿Tienes algún talento para la organización de viajes o itinerarios?</string>
     <string name="metQuestion257">¿Tienes habilidad para el diseño de moda o confección de ropa?</string>
     <string name="metQuestion258">¿Eres capaz de identificar constelaciones en el cielo nocturno?</string>
     <string name="metQuestion259">¿Puedes hacer algún tipo de teatro de sombras?</string>
     <string name="metQuestion260">¿Tienes algún talento para la organización y planificación de eventos?</string>
-    <string name="metQuestion261">¿Eres bueno en algún tipo de caligrafía ornamental?</string>
+    <string name="metQuestion261">¿Puedes hacer algún tipo de arte con reciclaje?</string>
     <string name="metQuestion262">¿Puedes hacer algún tipo de reparación electrónica?</string>
     <string name="metQuestion263">¿Tienes habilidad para el maquillaje de efectos especiales?</string>
     <string name="metQuestion264">¿Eres capaz de componer música o escribir canciones?</string>
@@ -531,14 +531,13 @@
     <string name="metQuestion292">¿Puedes hacer algún tipo de coreografía de patinaje sobre hielo?</string>
     <string name="metQuestion293">¿Tienes habilidad para el diseño de tatuajes?</string>
     <string name="metQuestion294">¿Eres capaz de hacer algún tipo de trabajo de plomería o electricidad?</string>
-    <string name="metQuestion295">¿Puedes hacer algún tipo de arte con reciclaje?</string>
-    <string name="metQuestion296">¿Tienes algún talento para la organización de viajes o itinerarios?</string>
-    <string name="metQuestion297">¿Eres bueno en algún tipo de juego de estrategia, como el ajedrez?</string>
-    <string name="metQuestion298">¿Puedes hacer algún tipo de trabajo de cerámica en torno?</string>
-    <string name="metQuestion299">¿Tienes habilidad para la creación de perfumes o fragancias?</string>
-    <string name="metQuestion300">¿Eres capaz de hacer algún tipo de trabajo de soldadura?</string>
-    <string name="metQuestion301">¿Puedes hacer algún tipo de jardinería vertical o hidropónica?</string>
-    <string name="metQuestion302">¿Tienes algún talento para la creación de contenido digital, como blogs o vlogs?</string>
+
+
+
+
+
+
+
     <!-- Know -->
     <string name="knowQuestion1">¿Cuál es mi color favorito?</string>
     <string name="knowQuestion2">¿Cuál es mi libro favorito?</string>
