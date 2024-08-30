@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Questions</string>
+    <string name="app_name">Friends Quizz</string>
     <string name="category">Game Modes</string>
     <string name="whois">Most likely to</string>
     <string name="deep">Deep</string>
