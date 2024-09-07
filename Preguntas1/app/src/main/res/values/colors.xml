@@ -8,30 +8,33 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="background_card1">#fbfef3</color>
+    <color name="background_card2">#feeae3</color>
+
     <color name="background_card">#0097B2</color>
     <color name="background_disable">#6C6C6C</color>
     <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
 
-    <color name="block_whois">#FFBD59</color>
-    <color name="buttom_whois">#FFBD59</color>
-    <color name="block_deep">#C1FF72</color>
-    <color name="buttom_deep">#C1FF72</color>
-    <color name="block_met">#CAAFFF</color>
-    <color name="buttom_met">#CAAFFF</color>
-    <color name="block_plus">#FFDE59</color>
-    <color name="buttom_plus">#FFDE59</color>
-    <color name="block_random">#FFB5E2</color>
-    <color name="buttom_random">#FFB5E2</color>
-    <color name="block_15lines">#FF9B9B</color>
-    <color name="buttom_15lines">#FF9B9B</color>
+    <color name="block_whois">#ffd09f</color>
+    <color name="buttom_whois">#ffd09f</color>
+    <color name="block_deep">#afffce</color>
+    <color name="buttom_deep">#afffce</color>
+    <color name="block_met">#ffeb9c</color>
+    <color name="buttom_met">#ffeb9c</color>
+    <color name="block_plus">#a7f9ff</color>
+    <color name="buttom_plus">#a7f9ff</color>
+    <color name="block_random">#ffbcd6</color>
+    <color name="buttom_random">#ffbcd6</color>
+    <color name="block_15lines">#ff99aa</color>
+    <color name="buttom_15lines">#ff99aa</color>
     <color name="textdark">#545454</color>
-    <color name="textlight">#FFFFFF</color>
+    <color name="textlight">#545454</color>
     <color name="buttomSave">#E6FFA3</color>
-    <color name="block_debate">#AEC8FF</color>
-    <color name="buttom_debate">#AEC8FF</color>
-    <color name="block_select">#9C7D73</color>
-    <color name="buttom_select">#9C7D73</color>
+    <color name="block_debate">#a7e4ff</color>
+    <color name="buttom_debate">#a7e4ff</color>
+    <color name="block_select">#ff99aa</color>
+    <color name="buttom_select">#ff99aa</color>
 
 
 </resources>

@@ -5,11 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_card"
+    android:background="@color/background_card2"
     android:paddingHorizontal="20dp"
 
     android:paddingVertical="60dp"
-    tools:context=".Preguntas.PreguntasActivity">
+    tools:context="app.game.preguntas1.Preguntas.PreguntasActivity">
 
     <TextView
         android:id="@+id/titleQuestion"

@@ -124,7 +124,7 @@
     <string name="whoisQuestion99">Who is the one who always misses the gatherings?</string>
 
     <!-- Deep -->
-    <string name="deepQuestion1">Are you more mental or emotional?</string>
+    <string name="deepQuestion1">One a scale of 1 to 100, how well do you know yourself?</string>
     <string name="deepQuestion2">Are you more mental or emotional?</string>
     <string name="deepQuestion3">Do you find it easy to accept help to achieve your dreams?</string>
     <string name="deepQuestion4">Do you regret not having done something in life?</string>

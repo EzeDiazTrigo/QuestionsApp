@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Friends Quizz</string>
     <string name="category">Modos de Juego</string>
-    <string name="whois">Quien es... Grupal</string>
+    <string name="whois">Quién es... Grupal</string>
     <string name="deep">Profundas</string>
     <string name="next">Generar</string>
     <string name="met">Presentación</string>
@@ -113,15 +113,15 @@
     <string name="whoisQuestion88">¿Quién tiene más probabilidades de escribir un libro?</string>
     <string name="whoisQuestion89">¿Quién tiene más probabilidades de planificar las vacaciones de todo el grupo?</string>
     <string name="whoisQuestion90">¿Quién es más propenso a empezar peleas?</string>
-    <string name="whoisQuestion91">¿Quién es mas probable que pida perdón primero?</string>
-    <string name="whoisQuestion92">¿Quién es mas probable que organice las salidas más divertidas?</string>
-    <string name="whoisQuestion93">¿Quién es más proable que cuente una historia una y otra vez?</string>
-    <string name="whoisQuestion94">¿Quien es el que cocina mejor del grupo?</string>
+    <string name="whoisQuestion91">¿Quién es más probable que pida perdón primero?</string>
+    <string name="whoisQuestion92">¿Quién es más probable que organice las salidas más divertidas?</string>
+    <string name="whoisQuestion93">¿Quién es más probable que cuente una historia una y otra vez?</string>
+    <string name="whoisQuestion94">¿Quién es el que cocina mejor del grupo?</string>
     <string name="whoisQuestion95">¿Quién tiene más probabilidades de comer del plato de otra persona?</string>
-    <string name="whoisQuestion96">¿Quién se duerme mas temprano?</string>
-    <string name="whoisQuestion97">¿Quien es el que siempre propone salidas?</string>
-    <string name="whoisQuestion98">¿Quien es el psicologo del grupo?</string>
-    <string name="whoisQuestion99">¿Quien es el que siempre falta a las juntadas?</string>
+    <string name="whoisQuestion96">¿Quién se duerme más temprano?</string>
+    <string name="whoisQuestion97">¿Quién es el que siempre propone salidas?</string>
+    <string name="whoisQuestion98">¿Quién es el psicologo del grupo?</string>
+    <string name="whoisQuestion99">¿Quién es el que siempre falta a las juntadas?</string>
     <!-- Deep -->
     <string name="deepQuestion1"> Del 1 al 100 ¿Que tanto te conoces a ti mismo?</string>
     <string name="deepQuestion2">¿Eres más mental o emocional?</string>
