@@ -13,6 +13,7 @@
     <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
 
+<<<<<<< Updated upstream
     <color name="block_whois">#FFBD59</color>
     <color name="buttom_whois">#FFBD59</color>
     <color name="block_deep">#C1FF72</color>
@@ -25,6 +26,20 @@
     <color name="buttom_random">#FF9B9B</color>
     <color name="block_15lines">#FFB5E2</color>
     <color name="buttom_15lines">#FFB5E2</color>
+=======
+    <color name="block_whois">#FFC991</color>
+    <color name="buttom_whois">#FFC991</color>
+    <color name="block_deep">#afffce</color>
+    <color name="buttom_deep">#afffce</color>
+    <color name="block_met">#ffeb9c</color>
+    <color name="buttom_met">#ffeb9c</color>
+    <color name="block_plus">#a7f9ff</color>
+    <color name="buttom_plus">#a7f9ff</color>
+    <color name="block_random">#ffbcd6</color>
+    <color name="buttom_random">#ffbcd6</color>
+    <color name="block_15lines">#ff99aa</color>
+    <color name="buttom_15lines">#ff99aa</color>
+>>>>>>> Stashed changes
     <color name="textdark">#545454</color>
     <color name="textlight">#FFFFFF</color>
     <color name="buttomSave">#E6FFA3</color>

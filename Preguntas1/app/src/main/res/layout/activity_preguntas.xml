@@ -18,12 +18,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< Updated upstream
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toTopOf="@id/cvQuestion"
         android:text="@string/whois"
         android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/textlight"/>
+=======
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPreQuest"
+        android:layout_width="130dp"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/block_whois"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cvQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </androidx.cardview.widget.CardView>
+>>>>>>> Stashed changes
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvQuestion"
