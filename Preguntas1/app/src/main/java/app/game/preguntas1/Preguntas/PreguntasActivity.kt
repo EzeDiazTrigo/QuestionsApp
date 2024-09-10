@@ -57,6 +57,7 @@ class PreguntasActivity : AppCompatActivity() {
         val knowQuestionsOriginal: MutableList<String> = mutableListOf()
         val debateQuestonsOriginal: MutableList<String> = mutableListOf()
 
+
         chargeLists(
             context,
             deepQuestionsOriginal,
@@ -73,6 +74,8 @@ class PreguntasActivity : AppCompatActivity() {
         val linesIdeas = linesIdeasOriginal.shuffled()
         val knowQuestions = knowQuestionsOriginal.shuffled()
         val debateQuestions = debateQuestonsOriginal.shuffled()
+        val randomQuestionsOriginal:MutableList<String> = (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions).toMutableList()
+        val randomQuestions:List<String> = randomQuestionsOriginal.shuffled()
         val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
 
         asingIDs()
@@ -101,13 +104,11 @@ class PreguntasActivity : AppCompatActivity() {
                 getString(R.string.met)
             )
 
-            RANDOM_KEY -> randomRandomQuestion(
-                whoIsQuestions,
-                deepQuestions,
-                metQuestions,
-                knowQuestions,
-                linesIdeas,
-                debateQuestions
+            RANDOM_KEY -> initQuestions(
+                randomQuestions,
+                ContextCompat.getColor(this, R.color.textdark),
+                ContextCompat.getColor(this, R.color.block_random),
+                getString(R.string.random)
             )
 
             LINES_KEY -> initQuestions(
@@ -140,7 +141,8 @@ class PreguntasActivity : AppCompatActivity() {
                 linesIdeas,
                 knowQuestions,
                 actualQuestion,
-                debateQuestions
+                debateQuestions,
+                randomQuestions
             )
         }
         cvPreQuest.setOnClickListener {
@@ -152,7 +154,8 @@ class PreguntasActivity : AppCompatActivity() {
                 linesIdeas,
                 knowQuestions,
                 actualQuestion,
-                debateQuestions
+                debateQuestions,
+                randomQuestions
             )
         }
     }
@@ -190,24 +193,14 @@ class PreguntasActivity : AppCompatActivity() {
         linesIdeas: List<String>,
         knowQuestions: List<String>,
         actualQuestion: MutableWrapper<Int>,
-        debateQuestions: List<String>
+        debateQuestions: List<String>,
+        randomQuestions: List<String>
     ) {
         when (type) {
-            WHO_KEY -> {
-                tvQuestion.text = whoIsQuestions[lessActual(actualQuestion)]
-            }
-
+            WHO_KEY -> tvQuestion.text = whoIsQuestions[lessActual(actualQuestion)]
             DEEP_KEY -> tvQuestion.text = deepQuestions[lessActual(actualQuestion)]
             MET_KEY -> tvQuestion.text = metQuestions[lessActual(actualQuestion)]
-            RANDOM_KEY -> randomRandomQuestion(
-                whoIsQuestions,
-                deepQuestions,
-                metQuestions,
-                knowQuestions,
-                linesIdeas,
-                debateQuestions
-            )
-
+            RANDOM_KEY -> tvQuestion.text = randomQuestions[lessActual(actualQuestion)]
             LINES_KEY -> tvQuestion.text = linesIdeas[lessActual(actualQuestion)]
             KNOW_KEY -> tvQuestion.text = knowQuestions[lessActual(actualQuestion)]
             DEBATE_KEY -> tvQuestion.text = debateQuestions[lessActual(actualQuestion)]
@@ -222,35 +215,20 @@ class PreguntasActivity : AppCompatActivity() {
         linesIdeas: List<String>,
         knowQuestions: List<String>,
         actualQuestion: MutableWrapper<Int>,
-        debateQuestions: List<String>
+        debateQuestions: List<String>,
+        randomQuestions: List<String>
     ) {
         when (type) {
-            WHO_KEY -> {
-                tvQuestion.text = whoIsQuestions[addActual(actualQuestion, whoIsQuestions.size)]
-            }
-
-            DEEP_KEY -> tvQuestion.text =
-                deepQuestions[addActual(actualQuestion, deepQuestions.size)]
-
+            WHO_KEY -> tvQuestion.text = whoIsQuestions[addActual(actualQuestion, whoIsQuestions.size)]
+            DEEP_KEY -> tvQuestion.text = deepQuestions[addActual(actualQuestion, deepQuestions.size)]
             MET_KEY -> tvQuestion.text = metQuestions[addActual(actualQuestion, metQuestions.size)]
-            RANDOM_KEY -> randomRandomQuestion(
-                whoIsQuestions,
-                deepQuestions,
-                metQuestions,
-                knowQuestions,
-                linesIdeas,
-                debateQuestions
-            )
-
+            RANDOM_KEY -> tvQuestion.text = randomQuestions[addActual(actualQuestion, randomQuestions.size)]
             LINES_KEY -> tvQuestion.text = linesIdeas[addActual(actualQuestion, linesIdeas.size)]
-            KNOW_KEY -> tvQuestion.text =
-                knowQuestions[addActual(actualQuestion, knowQuestions.size)]
-
-            DEBATE_KEY -> tvQuestion.text =
-                debateQuestions[addActual(actualQuestion, debateQuestions.size)]
+            KNOW_KEY -> tvQuestion.text = knowQuestions[addActual(actualQuestion, knowQuestions.size)]
+            DEBATE_KEY -> tvQuestion.text = debateQuestions[addActual(actualQuestion, debateQuestions.size)]
         }
     }
-
+/*
     private fun randomRandomQuestion(
         whoIsQuestions: List<String>,
         deepQuestions: List<String>,
@@ -259,56 +237,15 @@ class PreguntasActivity : AppCompatActivity() {
         linesIdeas: List<String>,
         debateQuestions: List<String>
     ) {
+
         val randomList = Random.nextInt(0, 6)
-        when (randomList) {
-            0 -> {
-                if (whoIsQuestions.isNotEmpty()) {
-                    val random = Random.nextInt(0, whoIsQuestions.size)
-                    tvQuestion.text = whoIsQuestions[random]
-                }
-            }
 
-            1 -> {
-                if (deepQuestions.isNotEmpty()) {
-                    val random = Random.nextInt(0, deepQuestions.size)
-                    tvQuestion.text = deepQuestions[random]
-                }
-            }
-
-            2 -> {
-                if (metQuestions.isNotEmpty()) {
-                    val random = Random.nextInt(0, metQuestions.size)
-                    tvQuestion.text = metQuestions[random]
-                }
-            }
-
-            3 -> {
-                if (knowQuestions.isNotEmpty()) {
-                    val random = Random.nextInt(0, knowQuestions.size)
-                    tvQuestion.text = knowQuestions[random]
-                }
-            }
-
-            4 -> {
-                if (linesIdeas.isNotEmpty()) {
-                    val random = Random.nextInt(0, linesIdeas.size)
-                    tvQuestion.text = linesIdeas[random]
-                }
-            }
-
-            5 -> {
-                if (debateQuestions.isNotEmpty()) {
-                    val random = Random.nextInt(0, debateQuestions.size)
-                    tvQuestion.text = debateQuestions[random]
-                }
-            }
-        }
         tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
         cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
         cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
         cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
         tvtitleQuestion.text = getString(R.string.random)
-    }
+    }*/
 
     private fun initQuestions(
         questions: List<String>,
