@@ -19,7 +19,8 @@
     <string name="debate">Temas de discusión</string>
     <string name="select">Elecciones</string>
     <string name="selectQuestion">selectQuestions</string>
-    <string name="help">----- | ------------- back | ----next---- ----- | -------------</string>
+    <string name="helpBack">Atras</string>
+    <string name="helpNext">Siguiente</string>
 
     <string name="whoisTest">whois</string>
 

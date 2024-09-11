@@ -4,14 +4,15 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#858585</color>
+    <color name="teal_700">#A8A8A8</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_card1">#fbfef3</color>
     <color name="background_card2">#F4C7B5</color>
 
-    <color name="background_card">#0097B2</color>
+    <color name="background_card">#00B0CA</color>
+    <color name="background_card3">#DC007687</color>
     <color name="background_disable">#6C6C6C</color>
     <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
