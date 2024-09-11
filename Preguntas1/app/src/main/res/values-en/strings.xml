@@ -21,6 +21,7 @@
     <string name="debateQuestion">debateQuestion</string>
     <string name="select">What do you choose?</string>
     <string name="selectQuestion">selectQuestions</string>
+    <string name="help">----- | ------------- back | ----next---- ----- | -------------</string>
 
     <!-- Whosis -->
     <string name="whoisQuestion1">Who is most likely to answer your call at midnight?</string>

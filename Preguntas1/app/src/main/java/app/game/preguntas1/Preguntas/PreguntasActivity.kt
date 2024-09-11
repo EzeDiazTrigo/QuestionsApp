@@ -1,8 +1,10 @@
 package app.game.preguntas1.Preguntas
 
+import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +44,7 @@ class PreguntasActivity : AppCompatActivity() {
     private lateinit var tvtitleQuestion: TextView
     private lateinit var cvPreQuest: CardView
     private lateinit var cvQuestionGeneral: CardView
+    private lateinit var imgQuestion: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -145,6 +148,7 @@ class PreguntasActivity : AppCompatActivity() {
                 randomQuestions
             )
         }
+
         cvPreQuest.setOnClickListener {
             preQuestion(
                 type,
@@ -158,6 +162,10 @@ class PreguntasActivity : AppCompatActivity() {
                 randomQuestions
             )
         }
+
+        imgQuestion.setOnClickListener {
+            showDialog()
+        }
     }
 
     private fun asingIDs() {
@@ -166,6 +174,13 @@ class PreguntasActivity : AppCompatActivity() {
         tvtitleQuestion = findViewById(R.id.titleQuestion)
         cvQuestionGeneral = findViewById(R.id.cvQuestionGeneral)
         cvPreQuest = findViewById(R.id.cvPreQuest)
+        imgQuestion = findViewById(R.id.imgQuestion)
+    }
+
+    private fun showDialog(){
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_new_question)
+        dialog.show()
     }
 
     private fun chargeLists(

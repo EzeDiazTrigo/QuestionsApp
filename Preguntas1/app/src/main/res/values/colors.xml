@@ -9,15 +9,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_card1">#fbfef3</color>
-    <color name="background_card2">#feeae3</color>
+    <color name="background_card2">#F4C7B5</color>
 
     <color name="background_card">#0097B2</color>
     <color name="background_disable">#6C6C6C</color>
     <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
 
-    <color name="block_whois">#ffd09f</color>
-    <color name="buttom_whois">#ffd09f</color>
+    <color name="block_whois">#FFC48A</color>
+    <color name="buttom_whois">#FFC48A</color>
     <color name="block_deep">#afffce</color>
     <color name="buttom_deep">#afffce</color>
     <color name="block_met">#ffeb9c</color>
@@ -31,8 +31,8 @@
     <color name="textdark">#545454</color>
     <color name="textlight">#545454</color>
     <color name="buttomSave">#E6FFA3</color>
-    <color name="block_debate">#a7e4ff</color>
-    <color name="buttom_debate">#a7e4ff</color>
+    <color name="block_debate">#D0B5FF</color>
+    <color name="buttom_debate">#D0B5FF</color>
     <color name="block_select">#ff99aa</color>
     <color name="buttom_select">#ff99aa</color>
 

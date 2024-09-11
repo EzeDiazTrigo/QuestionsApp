@@ -7,7 +7,7 @@
                 android:startColor="@color/background_card2"
                 android:centerColor="@color/background_card1"
                 android:endColor="@color/background_card2"
-                android:type="radial">
+                android:type="linear">
             </gradient>
         </shape>
     </item>
