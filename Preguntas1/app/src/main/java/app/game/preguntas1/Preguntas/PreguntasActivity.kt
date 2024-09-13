@@ -243,24 +243,6 @@ class PreguntasActivity : AppCompatActivity() {
             DEBATE_KEY -> tvQuestion.text = debateQuestions[addActual(actualQuestion, debateQuestions.size)]
         }
     }
-/*
-    private fun randomRandomQuestion(
-        whoIsQuestions: List<String>,
-        deepQuestions: List<String>,
-        metQuestions: List<String>,
-        knowQuestions: List<String>,
-        linesIdeas: List<String>,
-        debateQuestions: List<String>
-    ) {
-
-        val randomList = Random.nextInt(0, 6)
-
-        tvQuestion.setTextColor(ContextCompat.getColor(this, R.color.textdark))
-        cvQuestion.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
-        cvQuestionGeneral.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
-        cvPreQuest.setCardBackgroundColor(ContextCompat.getColor(this, R.color.block_random))
-        tvtitleQuestion.text = getString(R.string.random)
-    }*/
 
     private fun initQuestions(
         questions: List<String>,
