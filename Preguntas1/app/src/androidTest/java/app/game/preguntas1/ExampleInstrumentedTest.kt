@@ -1,4 +1,4 @@
-package com.example.preguntas1
+package app.game.preguntas1
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

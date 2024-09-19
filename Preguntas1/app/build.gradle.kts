@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.preguntas1"
+    namespace = "app.game.preguntas1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.preguntas1"
+        applicationId = "app.game.preguntas1"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -19,7 +19,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

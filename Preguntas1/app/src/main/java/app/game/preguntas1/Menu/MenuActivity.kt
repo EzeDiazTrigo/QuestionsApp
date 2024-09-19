@@ -1,14 +1,12 @@
-package com.example.preguntas1.Menu
+package app.game.preguntas1.Menu
 
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
-import com.example.preguntas1.Preguntas.PreguntasActivity
-import com.example.preguntas1.R
+import app.game.preguntas1.Preguntas.PreguntasActivity
+import app.game.preguntas1.R
 
 class MenuActivity : AppCompatActivity() {
 
@@ -20,6 +18,7 @@ class MenuActivity : AppCompatActivity() {
         const val RANDOM_KEY: String = "RANDOM"
         const val LINES_KEY: String = "LINES"
         const val KNOW_KEY: String = "KNOW_ME"
+        const val DEBATE_KEY: String = "DEBATE"
     }
 
     private lateinit var btnWhois: CardView
@@ -28,7 +27,8 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var btnKnow: CardView
     private lateinit var btnChoose: CardView
     private lateinit var btnRandom: CardView
-    private lateinit var btnAddQuestion: CardView
+    private lateinit var btnDebate: CardView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,12 +38,6 @@ class MenuActivity : AppCompatActivity() {
         initUI()
     }
 
-    private fun showDialog(){
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_new_question)
-        dialog.show()
-    }
-
     private fun initialization(){
         btnWhois = findViewById(R.id.btnWhois)
         btnDeep = findViewById(R.id.btnDeep)
@@ -51,7 +45,7 @@ class MenuActivity : AppCompatActivity() {
         btnKnow = findViewById(R.id.btnKnow)
         btnChoose = findViewById(R.id.btnChoose)
         btnRandom = findViewById(R.id.btnRandom)
-        btnAddQuestion = findViewById(R.id.btnAddQuestion)
+        btnDebate = findViewById(R.id.btnDebate)
     }
 
     private fun initUI(){
@@ -61,7 +55,7 @@ class MenuActivity : AppCompatActivity() {
         btnKnow.setOnClickListener { navigateToQuestions(KNOW_KEY) }
         btnRandom.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
         btnChoose.setOnClickListener  { navigateToQuestions(LINES_KEY) }
-        btnAddQuestion.setOnClickListener  { showDialog() }
+        btnDebate.setOnClickListener { navigateToQuestions(DEBATE_KEY) }
     }
 
     private fun navigateToQuestions(type: String) {

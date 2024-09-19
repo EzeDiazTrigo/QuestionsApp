@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Questions</string>
-    <string name="category">Modo de Juego</string>
-    <string name="whois">Quien es... Grupal</string>
+    <string name="app_name">Friends Quizz</string>
+    <string name="category">Modos de Juego</string>
+    <string name="whois">Quién es... Grupal</string>
     <string name="deep">Profundas</string>
     <string name="next">Generar</string>
     <string name="met">Presentación</string>
@@ -10,8 +10,7 @@
     <string name="lines">¿A quien eligirias para...?</string>
     <string name="add_question">Nueva Pregunta</string>
     <string name="save">Guardar</string>
-<<<<<<< Updated upstream
-=======
+
     <string name="whoisQuestion">whoisQuestion</string>
     <string name="deepQuestion">deepQuestion</string>
     <string name="metQuestion">metQuestion</string>
@@ -21,6 +20,9 @@
     <string name="debate">Temas de discusión</string>
     <string name="select">Elecciones</string>
     <string name="selectQuestion">selectQuestions</string>
+    <string name="helpBack">Atras</string>
+    <string name="helpNext">Siguiente</string>
+
 
     <string name="whoisTest">whois</string>
 
@@ -618,7 +620,7 @@
     <string name="knowQuestion75">¿Prefiero tener el respeto de todos o el amor de unos pocos?</string>
     <string name="knowQuestion76">¿Prefiero que me digan la verdad siempre o ser protegido/a por una mentira?</string>
     <string name="knowQuestion77">¿Prefiero ser conocido/a por mi inteligencia o por mi bondad?</string>
-    <string name="knowQuestion78">¿Preferiría nunca experimentar la felicidad o nunca experimentar el amor?</string>
+    <string name="knowQuestion78">¿Preferiría nunca experimentar la tristeza o nunca experimentar el amor?</string>
     <string name="knowQuestion79">¿Prefiero ser incapaz de mentir o incapaz de confiar?</string>
     <string name="knowQuestion80">¿Preferiría ser recordado/a por una sola cosa increíble o por una vida de bondad?</string>
     <string name="knowQuestion81">¿Prefiero saber la verdad aunque duela o vivir en una feliz ignorancia?</string>
@@ -970,5 +972,4 @@
     <string name="selectQuestion98">Si tuvieras que elegir entre vivir para siempre o morir mañana, ¿qué elegirías?</string>
     <string name="selectQuestion99">Si pudieras cambiar una ley en tu país, ¿cuál sería?</string>
 
->>>>>>> Stashed changes
 </resources>

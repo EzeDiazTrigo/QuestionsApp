@@ -21,6 +21,8 @@
     <string name="debateQuestion">debateQuestion</string>
     <string name="select">What do you choose?</string>
     <string name="selectQuestion">selectQuestions</string>
+    <string name="helpBack">Back</string>
+    <string name="helpNext">Next</string>
 
     <!-- Whosis -->
     <string name="whoisQuestion1">Who is most likely to answer your call at midnight?</string>
@@ -612,7 +614,7 @@
     <string name="knowQuestion75">Would I prefer to have everyone\'s respect or the love of a few?</string>
     <string name="knowQuestion76">Would I prefer to always be told the truth or be protected by a lie?</string>
     <string name="knowQuestion77">Would I prefer to be known for my intelligence or for my kindness?</string>
-    <string name="knowQuestion78">Would I prefer to never experience happiness again or never experience love again?</string>
+    <string name="knowQuestion78">Would I prefer to never experience sadness again or never experience love again?</string>
     <string name="knowQuestion79">Would I prefer to be unable to lie or unable to trust?</string>
     <string name="knowQuestion80">Would I prefer to be remembered for one incredible thing or for a lifetime of kindness?</string>
     <string name="knowQuestion81">Would I prefer to know the truth even if it hurts or live in blissful ignorance?</string>

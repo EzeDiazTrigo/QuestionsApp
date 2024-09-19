@@ -1,4 +1,4 @@
-package com.example.preguntas1
+package app.game.preguntas1
 
 import org.junit.Test
 
