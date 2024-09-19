@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
 import android.widget.ImageView
+
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -46,6 +47,7 @@ class PreguntasActivity : AppCompatActivity() {
     private lateinit var cvQuestionGeneral: CardView
     private lateinit var imgQuestion: ImageView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -59,8 +61,6 @@ class PreguntasActivity : AppCompatActivity() {
         val linesIdeasOriginal: MutableList<String> = mutableListOf()
         val knowQuestionsOriginal: MutableList<String> = mutableListOf()
         val debateQuestonsOriginal: MutableList<String> = mutableListOf()
-
-
         chargeLists(
             context,
             deepQuestionsOriginal,
@@ -77,8 +77,10 @@ class PreguntasActivity : AppCompatActivity() {
         val linesIdeas = linesIdeasOriginal.shuffled()
         val knowQuestions = knowQuestionsOriginal.shuffled()
         val debateQuestions = debateQuestonsOriginal.shuffled()
+
         val randomQuestionsOriginal:MutableList<String> = (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions).toMutableList()
         val randomQuestions:List<String> = randomQuestionsOriginal.shuffled()
+
         val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
 
         asingIDs()
@@ -106,6 +108,7 @@ class PreguntasActivity : AppCompatActivity() {
                 ContextCompat.getColor(this, R.color.block_met),
                 getString(R.string.met)
             )
+
 
             RANDOM_KEY -> initQuestions(
                 randomQuestions,

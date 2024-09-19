@@ -1,4 +1,6 @@
 # QuestionsApp
+<<<<<<< Updated upstream
+=======
 
 ## Proximos pasos
 1. Agregar boton con un "+" y otro con un tacho de basura en cada esquina de abajo de la actividad de preguntas
@@ -9,3 +11,11 @@
    Para esto guardar el numero random de acceso a la ultima pregunta mostrada en una lista, y cada vez que se genere un nuevo numero random se debera verificar que este no pertenesca a la lista de preguntas realizadas.
    De esta forma se evitara que se repita la pregunta y se podra volver para atras a preguntas anteriores
 6. Agregar un boton de reiniciar que vaciara la lista de preguntas realizadas para que se puedan volver a mostrar sin tener que reiniciar la aplicación
+
+
+## Arreglar
+1. Binding para llamar elementos del layout
+2. Themes para los botones
+3. Dark Theme
+4. Modal la primera vez que se utiliza
+>>>>>>> Stashed changes

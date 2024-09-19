@@ -17,8 +17,18 @@
     <color name="background_todo_app">#6D80EC</color>
     <color name="subtitle_text">#CDCDCD</color>
 
-    <color name="block_whois">#FFC48A</color>
-    <color name="buttom_whois">#FFC48A</color>
+    <color name="block_whois">#FFBD59</color>
+    <color name="buttom_whois">#FFBD59</color>
+    <color name="block_deep">#C1FF72</color>
+    <color name="buttom_deep">#C1FF72</color>
+    <color name="block_met">#CAAFFF</color>
+    <color name="buttom_met">#CAAFFF</color>
+    <color name="block_plus">#FFDE59</color>
+    <color name="buttom_plus">#FFDE59</color>
+    <color name="block_random">#FF9B9B</color>
+    <color name="buttom_random">#FF9B9B</color>
+    <color name="block_15lines">#FFB5E2</color>
+    <color name="buttom_15lines">#FFB5E2</color>
     <color name="block_deep">#afffce</color>
     <color name="buttom_deep">#afffce</color>
     <color name="block_met">#ffeb9c</color>

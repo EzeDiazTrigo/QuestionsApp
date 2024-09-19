@@ -10,6 +10,7 @@
     <string name="lines">¿A quien eligirias para...?</string>
     <string name="add_question">Nueva Pregunta</string>
     <string name="save">Guardar</string>
+
     <string name="whoisQuestion">whoisQuestion</string>
     <string name="deepQuestion">deepQuestion</string>
     <string name="metQuestion">metQuestion</string>
@@ -21,6 +22,7 @@
     <string name="selectQuestion">selectQuestions</string>
     <string name="helpBack">Atras</string>
     <string name="helpNext">Siguiente</string>
+
 
     <string name="whoisTest">whois</string>
 

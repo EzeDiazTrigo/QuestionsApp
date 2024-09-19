@@ -15,6 +15,10 @@
         android:id="@+id/titleQuestion"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="60dp"
         android:text="@string/whois"
         android:textColor="@color/textlight"
@@ -24,6 +28,7 @@
         app:layout_constraintBottom_toTopOf="@id/cvQuestion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/textlight"/>
         app:layout_constraintTop_toTopOf="parent"
         />
 
