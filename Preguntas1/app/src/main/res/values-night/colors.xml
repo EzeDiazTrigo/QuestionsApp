@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_card1">#444444</color>
-    <color name="background_card2">#333333</color>
+    <color name="background_card2">#242424</color>
 
     <color name="background_card">#00B0CA</color>
     <color name="background_card3">#DC007687</color>
@@ -25,8 +25,8 @@
     <color name="buttom_met">#ffe066</color>
     <color name="block_plus">#7cf6ff</color>
     <color name="buttom_plus">#7cf6ff</color>
-    <color name="block_random">#ffbcd6</color>
-    <color name="buttom_random">#ffbcd6</color>
+    <color name="block_random">#C1A7FF</color>
+    <color name="buttom_random">#C1A7FF</color>
     <color name="block_15lines">#FFA7CC</color>
     <color name="buttom_15lines">#FFA7CC</color>
     <color name="textdark">#3b3b3b</color>
