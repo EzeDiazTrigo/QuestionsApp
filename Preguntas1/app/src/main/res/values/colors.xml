@@ -19,16 +19,6 @@
 
     <color name="block_whois">#FFBD59</color>
     <color name="buttom_whois">#FFBD59</color>
-    <color name="block_deep">#C1FF72</color>
-    <color name="buttom_deep">#C1FF72</color>
-    <color name="block_met">#CAAFFF</color>
-    <color name="buttom_met">#CAAFFF</color>
-    <color name="block_plus">#FFDE59</color>
-    <color name="buttom_plus">#FFDE59</color>
-    <color name="block_random">#FF9B9B</color>
-    <color name="buttom_random">#FF9B9B</color>
-    <color name="block_15lines">#FFB5E2</color>
-    <color name="buttom_15lines">#FFB5E2</color>
     <color name="block_deep">#afffce</color>
     <color name="buttom_deep">#afffce</color>
     <color name="block_met">#ffeb9c</color>
@@ -41,6 +31,7 @@
     <color name="buttom_15lines">#ff99aa</color>
     <color name="textdark">#545454</color>
     <color name="textlight">#545454</color>
+    <color name="textlight2">#545454</color>
     <color name="buttomSave">#E6FFA3</color>
     <color name="block_debate">#D0B5FF</color>
     <color name="buttom_debate">#D0B5FF</color>

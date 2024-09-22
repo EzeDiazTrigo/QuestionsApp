@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#A8A8A8</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background_card1">#444444</color>
+    <color name="background_card2">#242424</color>
+
+    <color name="background_card">#00B0CA</color>
+    <color name="background_card3">#DC007687</color>
+    <color name="background_disable">#6C6C6C</color>
+    <color name="background_todo_app">#373F78</color>
+    <color name="subtitle_text">#FFFCFC</color>
+
+    <color name="block_whois">#FFBA72</color>
+    <color name="buttom_whois">#FFBA72</color>
+    <color name="block_deep">#73ffa9</color>
+    <color name="buttom_deep">#73ffa9</color>
+    <color name="block_met">#ffe066</color>
+    <color name="buttom_met">#ffe066</color>
+    <color name="block_plus">#7cf6ff</color>
+    <color name="buttom_plus">#7cf6ff</color>
+    <color name="block_random">#C1A7FF</color>
+    <color name="buttom_random">#C1A7FF</color>
+    <color name="block_15lines">#FFA7CC</color>
+    <color name="buttom_15lines">#FFA7CC</color>
+    <color name="textdark">#3b3b3b</color>
+    <color name="textlight">#3b3b3b</color>
+    <color name="textlight2">#FFFFFF</color>
+    <color name="buttomSave">#A3C866</color>
+    <color name="block_debate">#a7e4ff</color>
+    <color name="buttom_debate">#a7e4ff</color>
+    <color name="block_select">#C26877</color>
+    <color name="buttom_select">#C26877</color>
+
+
+</resources>
