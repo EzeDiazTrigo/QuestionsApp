@@ -8,34 +8,35 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_card1">#fbfef3</color>
-    <color name="background_card2">#F4C7B5</color>
+    <color name="background_card1">#444444</color>
+    <color name="background_card2">#444444</color>
 
-    <color name="background_card">#00B0CA</color>
-    <color name="background_card3">#DC007687</color>
-    <color name="background_disable">#6C6C6C</color>
-    <color name="background_todo_app">#6D80EC</color>
-    <color name="subtitle_text">#CDCDCD</color>
+    <color name="background_card">#444444</color>
+    <color name="background_card3">#444444</color>
+    <color name="background_disable">#3A3A3A</color>
+    <color name="background_todo_app">#373F78</color>
+    <color name="subtitle_text">#FFFCFC</color>
 
-    <color name="block_whois">#FFBD59</color>
-    <color name="buttom_whois">#FFBD59</color>
-    <color name="block_deep">#afffce</color>
-    <color name="buttom_deep">#afffce</color>
-    <color name="block_met">#ffeb9c</color>
-    <color name="buttom_met">#ffeb9c</color>
-    <color name="block_plus">#a7f9ff</color>
-    <color name="buttom_plus">#a7f9ff</color>
+    <color name="block_whois">#FFBA72</color>
+    <color name="buttom_whois">#FFBA72</color>
+    <color name="block_deep">#73ffa9</color>
+    <color name="buttom_deep">#73ffa9</color>
+    <color name="block_met">#ffe066</color>
+    <color name="buttom_met">#ffe066</color>
+    <color name="block_plus">#7cf6ff</color>
+    <color name="buttom_plus">#7cf6ff</color>
     <color name="block_random">#ffbcd6</color>
     <color name="buttom_random">#ffbcd6</color>
-    <color name="block_15lines">#ff99aa</color>
-    <color name="buttom_15lines">#ff99aa</color>
-    <color name="textdark">#545454</color>
-    <color name="textlight">#545454</color>
-    <color name="buttomSave">#E6FFA3</color>
-    <color name="block_debate">#D0B5FF</color>
-    <color name="buttom_debate">#D0B5FF</color>
-    <color name="block_select">#ff99aa</color>
-    <color name="buttom_select">#ff99aa</color>
+    <color name="block_15lines">#C687A2</color>
+    <color name="buttom_15lines">#C687A2</color>
+    <color name="textdark">#3b3b3b</color>
+    <color name="textlight">#3b3b3b</color>
+    <color name="textlight2">#FFFFFF</color>
+    <color name="buttomSave">#A3C866</color>
+    <color name="block_debate">#a7e4ff</color>
+    <color name="buttom_debate">#a7e4ff</color>
+    <color name="block_select">#C26877</color>
+    <color name="buttom_select">#C26877</color>
 
 
 </resources>

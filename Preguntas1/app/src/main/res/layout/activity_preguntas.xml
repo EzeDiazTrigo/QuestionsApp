@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toTopOf="@id/cvQuestion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/textlight"
+        android:textColor="@color/textlight2"
         app:layout_constraintTop_toTopOf="parent"
          android:layout_height="wrap_content"/>
 
@@ -94,7 +94,7 @@
         android:id="@+id/imgQuestion"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        app:tint="@color/textdark"
+        app:tint="@color/textlight2"
         android:src="@drawable/ic_question"
         app:layout_constraintTop_toBottomOf="@id/cvQuestionGeneral"
         app:layout_constraintBottom_toBottomOf="parent"
