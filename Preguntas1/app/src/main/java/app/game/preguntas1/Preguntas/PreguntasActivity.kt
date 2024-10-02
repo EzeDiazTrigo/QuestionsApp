@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.View
 import android.widget.ImageView
 
 import android.widget.TextView
@@ -50,7 +51,7 @@ class PreguntasActivity : AppCompatActivity() {
         binding = ActivityPreguntasBinding.inflate(layoutInflater)
         setContentView(binding.root)
         enableEdgeToEdge()
-        
+        hideSystemUI()
 
         val context = applicationContext
         val deepQuestionsOriginal: MutableList<String> = mutableListOf()
@@ -175,6 +176,11 @@ class PreguntasActivity : AppCompatActivity() {
     private fun showDialog(){
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_new_question)
+        dialog.window?.decorView?.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
         dialog.show()
     }
 
@@ -277,4 +283,11 @@ class PreguntasActivity : AppCompatActivity() {
         } while (resourseId != 0)
     }
 
+    private fun hideSystemUI() {
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
+    }
 }
