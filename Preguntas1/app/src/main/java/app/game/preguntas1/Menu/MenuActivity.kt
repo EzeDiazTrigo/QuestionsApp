@@ -47,34 +47,33 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMenu2Binding
-    private var firstTime:Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMenu2Binding.inflate(layoutInflater)
-        enableEdgeToEdge()
-        setContentView(binding.root)
         CoroutineScope(Dispatchers.IO).launch {
-            getSettings().filter { firstTime }.collect{ settingsModel ->
-                if(settingsModel != null){
-                    runOnUiThread{
-                        changeTheme(settingsModel.theme)
+            getSettings().collect { settingsModel ->
+                if (settingsModel != null) {
+                    runOnUiThread {
                         themeDark = !settingsModel.theme
+                        changeTheme(settingsModel.theme)
                     }
                 }
             }
         }
+        binding = ActivityMenu2Binding.inflate(layoutInflater)
+        enableEdgeToEdge()
+        setContentView(binding.root)
         initUI()
 
     }
 
-    private fun initUI(){
+    private fun initUI() {
         binding.btnWhois.setOnClickListener { navigateToQuestions(WHO_KEY) }
         binding.btnDeep.setOnClickListener { navigateToQuestions(DEEP_KEY) }
         binding.btnMet.setOnClickListener { navigateToQuestions(MET_KEY) }
         binding.btnKnow.setOnClickListener { navigateToQuestions(KNOW_KEY) }
-        binding.btnRandom.setOnClickListener  { navigateToQuestions(RANDOM_KEY) }
-        binding.btnChoose.setOnClickListener  { navigateToQuestions(LINES_KEY) }
+        binding.btnRandom.setOnClickListener { navigateToQuestions(RANDOM_KEY) }
+        binding.btnChoose.setOnClickListener { navigateToQuestions(LINES_KEY) }
         binding.btnDebate.setOnClickListener { navigateToQuestions(DEBATE_KEY) }
         binding.imgTheme.setOnClickListener {
             changeTheme(themeDark)
@@ -84,9 +83,9 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun changeTheme(theme : Boolean){
+    private fun changeTheme(theme: Boolean) {
         val myImageView: ImageView = findViewById(R.id.imgTheme)
-        if(theme){
+        if (theme) {
             myImageView.setImageResource(R.drawable.ic_lightmode)
             enableDarkMode()
         } else {
@@ -101,13 +100,13 @@ class MenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private suspend fun saveTheme(key: String, value: Boolean){
+    private suspend fun saveTheme(key: String, value: Boolean) {
         dataStore.edit { preferences ->
             preferences[booleanPreferencesKey(key)] = value
         }
     }
 
-    private fun getSettings(): Flow<SettingsData?>{
+    private fun getSettings(): Flow<SettingsData?> {
         return dataStore.data.map { preferences ->
             SettingsData(
                 theme = preferences[booleanPreferencesKey(THEME_KEY)] ?: false
@@ -115,12 +114,12 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun enableDarkMode(){
+    private fun enableDarkMode() {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
         delegate.applyDayNight()
     }
 
-    private fun disableDarkMode(){
+    private fun disableDarkMode() {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         delegate.applyDayNight()
     }
