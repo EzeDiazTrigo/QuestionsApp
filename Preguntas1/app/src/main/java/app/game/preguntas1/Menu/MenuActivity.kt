@@ -42,6 +42,7 @@ class MenuActivity : AppCompatActivity() {
         const val LINES_KEY: String = "LINES"
         const val KNOW_KEY: String = "KNOW_ME"
         const val DEBATE_KEY: String = "DEBATE"
+        const val IFYOU_KEY: String = "IFYOU"
         const val THEME_KEY: String = "THEME"
         var themeDark: Boolean = false
     }
@@ -75,6 +76,7 @@ class MenuActivity : AppCompatActivity() {
         binding.btnRandom.setOnClickListener { navigateToQuestions(RANDOM_KEY) }
         binding.btnChoose.setOnClickListener { navigateToQuestions(LINES_KEY) }
         binding.btnDebate.setOnClickListener { navigateToQuestions(DEBATE_KEY) }
+        binding.btnIfYou.setOnClickListener { navigateToQuestions(IFYOU_KEY) }
         binding.imgTheme.setOnClickListener {
             changeTheme(themeDark)
             CoroutineScope(Dispatchers.IO).launch {

@@ -10,6 +10,7 @@
     <string name="lines">¿A quien eligirias para...?</string>
     <string name="add_question">Nueva Pregunta</string>
     <string name="save">Guardar</string>
+    <string name="ifyou">Y si...?</string>
 
     <string name="whoisQuestion">whoisQuestion</string>
     <string name="deepQuestion">deepQuestion</string>
@@ -17,6 +18,7 @@
     <string name="knowQuestion">knowQuestion</string>
     <string name="linesQuestion">linesQuestion</string>
     <string name="debateQuestion">debateQuestion</string>
+    <string name="ifYouQuestion">selectQuestion</string>
     <string name="debate">Temas de discusión</string>
     <string name="select">Elecciones</string>
     <string name="selectQuestion">selectQuestions</string>

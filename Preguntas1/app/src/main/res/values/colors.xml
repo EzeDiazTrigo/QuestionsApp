@@ -35,8 +35,8 @@
     <color name="buttomSave">#E6FFA3</color>
     <color name="block_debate">#D0B5FF</color>
     <color name="buttom_debate">#D0B5FF</color>
-    <color name="block_select">#ff99aa</color>
-    <color name="buttom_select">#ff99aa</color>
+    <color name="block_select">#B2DBFF</color>
+    <color name="buttom_select">#B2DBFF</color>
 
 
 </resources>
