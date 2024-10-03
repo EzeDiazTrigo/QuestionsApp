@@ -215,6 +215,7 @@ class PreguntasActivity : AppCompatActivity() {
         randomQuestions: List<String>,
         ifYouQuestions: List<String>
     ) {
+        hideSystemUI()
         when (type) {
             WHO_KEY -> binding.Question.text = whoIsQuestions[lessActual(actualQuestion)]
             DEEP_KEY -> binding.Question.text = deepQuestions[lessActual(actualQuestion)]
@@ -239,6 +240,7 @@ class PreguntasActivity : AppCompatActivity() {
         randomQuestions: List<String>,
         ifYouQuestions: List<String>
     ) {
+        hideSystemUI()
         when (type) {
             WHO_KEY -> binding.Question.text = whoIsQuestions[addActual(actualQuestion, whoIsQuestions.size)]
             DEEP_KEY -> binding.Question.text = deepQuestions[addActual(actualQuestion, deepQuestions.size)]
