@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.View
 import android.widget.ImageView
 
 import android.widget.TextView
@@ -19,6 +20,7 @@ import app.game.preguntas1.Menu.MenuActivity.Companion.RANDOM_KEY
 import app.game.preguntas1.Menu.MenuActivity.Companion.LINES_KEY
 import app.game.preguntas1.Menu.MenuActivity.Companion.KNOW_KEY
 import app.game.preguntas1.Menu.MenuActivity.Companion.DEBATE_KEY
+import app.game.preguntas1.Menu.MenuActivity.Companion.IFYOU_KEY
 import app.game.preguntas1.R
 import app.game.preguntas1.databinding.ActivityPreguntasBinding
 import kotlin.random.Random
@@ -49,7 +51,7 @@ class PreguntasActivity : AppCompatActivity() {
         binding = ActivityPreguntasBinding.inflate(layoutInflater)
         setContentView(binding.root)
         enableEdgeToEdge()
-        
+        hideSystemUI()
 
         val context = applicationContext
         val deepQuestionsOriginal: MutableList<String> = mutableListOf()
@@ -58,6 +60,7 @@ class PreguntasActivity : AppCompatActivity() {
         val linesIdeasOriginal: MutableList<String> = mutableListOf()
         val knowQuestionsOriginal: MutableList<String> = mutableListOf()
         val debateQuestonsOriginal: MutableList<String> = mutableListOf()
+        val ifYouQuestionsOriginal: MutableList<String> = mutableListOf()
         chargeLists(
             context,
             deepQuestionsOriginal,
@@ -65,7 +68,8 @@ class PreguntasActivity : AppCompatActivity() {
             metQuestionsOriginal,
             linesIdeasOriginal,
             knowQuestionsOriginal,
-            debateQuestonsOriginal
+            debateQuestonsOriginal,
+            ifYouQuestionsOriginal
         )
 
         val deepQuestions = deepQuestionsOriginal.shuffled()
@@ -74,8 +78,9 @@ class PreguntasActivity : AppCompatActivity() {
         val linesIdeas = linesIdeasOriginal.shuffled()
         val knowQuestions = knowQuestionsOriginal.shuffled()
         val debateQuestions = debateQuestonsOriginal.shuffled()
+        val ifYouQuestions = ifYouQuestionsOriginal.shuffled()
 
-        val randomQuestionsOriginal:MutableList<String> = (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions).toMutableList()
+        val randomQuestionsOriginal:MutableList<String> = (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions + ifYouQuestions).toMutableList()
         val randomQuestions:List<String> = randomQuestionsOriginal.shuffled()
 
         val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
@@ -124,6 +129,12 @@ class PreguntasActivity : AppCompatActivity() {
                 ContextCompat.getColor(this, R.color.block_debate),
                 getString(R.string.debate)
             )
+
+            IFYOU_KEY -> initQuestions(
+                ifYouQuestions,
+                ContextCompat.getColor(this, R.color.block_select),
+                getString(R.string.ifyou)
+            )
         }
         binding.cvQuestion.setOnClickListener {
             nextQuestion(
@@ -135,7 +146,8 @@ class PreguntasActivity : AppCompatActivity() {
                 knowQuestions,
                 actualQuestion,
                 debateQuestions,
-                randomQuestions
+                randomQuestions,
+                ifYouQuestions
             )
         }
 
@@ -149,7 +161,8 @@ class PreguntasActivity : AppCompatActivity() {
                 knowQuestions,
                 actualQuestion,
                 debateQuestions,
-                randomQuestions
+                randomQuestions,
+                ifYouQuestions
             )
         }
 
@@ -163,6 +176,11 @@ class PreguntasActivity : AppCompatActivity() {
     private fun showDialog(){
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_new_question)
+        dialog.window?.decorView?.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
         dialog.show()
     }
 
@@ -173,7 +191,8 @@ class PreguntasActivity : AppCompatActivity() {
         metQuestionsOriginal: MutableList<String>,
         linesIdeasOriginal: MutableList<String>,
         knowQuestionsOriginal: MutableList<String>,
-        debateQuestionsOriginal: MutableList<String>
+        debateQuestionsOriginal: MutableList<String>,
+        ifYouQuestionsOriginal: MutableList<String>
     ) {
         readStringFiles(deepQuestionsOriginal, context, getString(R.string.deepQuestion))
         readStringFiles(whoIsQuestionsOriginal, context, getString(R.string.whoisQuestion))
@@ -181,6 +200,7 @@ class PreguntasActivity : AppCompatActivity() {
         readStringFiles(linesIdeasOriginal, context, getString(R.string.linesQuestion))
         readStringFiles(knowQuestionsOriginal, context, getString(R.string.knowQuestion))
         readStringFiles(debateQuestionsOriginal, context, getString(R.string.debateQuestion))
+        readStringFiles(ifYouQuestionsOriginal, context, getString(R.string.ifYouQuestion))
     }
 
     private fun preQuestion(
@@ -192,8 +212,10 @@ class PreguntasActivity : AppCompatActivity() {
         knowQuestions: List<String>,
         actualQuestion: MutableWrapper<Int>,
         debateQuestions: List<String>,
-        randomQuestions: List<String>
+        randomQuestions: List<String>,
+        ifYouQuestions: List<String>
     ) {
+        hideSystemUI()
         when (type) {
             WHO_KEY -> binding.Question.text = whoIsQuestions[lessActual(actualQuestion)]
             DEEP_KEY -> binding.Question.text = deepQuestions[lessActual(actualQuestion)]
@@ -202,6 +224,7 @@ class PreguntasActivity : AppCompatActivity() {
             LINES_KEY -> binding.Question.text = linesIdeas[lessActual(actualQuestion)]
             KNOW_KEY -> binding.Question.text = knowQuestions[lessActual(actualQuestion)]
             DEBATE_KEY -> binding.Question.text = debateQuestions[lessActual(actualQuestion)]
+            IFYOU_KEY -> binding.Question.text = ifYouQuestions[lessActual(actualQuestion)]
         }
     }
 
@@ -214,8 +237,10 @@ class PreguntasActivity : AppCompatActivity() {
         knowQuestions: List<String>,
         actualQuestion: MutableWrapper<Int>,
         debateQuestions: List<String>,
-        randomQuestions: List<String>
+        randomQuestions: List<String>,
+        ifYouQuestions: List<String>
     ) {
+        hideSystemUI()
         when (type) {
             WHO_KEY -> binding.Question.text = whoIsQuestions[addActual(actualQuestion, whoIsQuestions.size)]
             DEEP_KEY -> binding.Question.text = deepQuestions[addActual(actualQuestion, deepQuestions.size)]
@@ -224,6 +249,7 @@ class PreguntasActivity : AppCompatActivity() {
             LINES_KEY -> binding.Question.text = linesIdeas[addActual(actualQuestion, linesIdeas.size)]
             KNOW_KEY -> binding.Question.text = knowQuestions[addActual(actualQuestion, knowQuestions.size)]
             DEBATE_KEY -> binding.Question.text = debateQuestions[addActual(actualQuestion, debateQuestions.size)]
+            IFYOU_KEY -> binding.Question.text = ifYouQuestions[addActual(actualQuestion, ifYouQuestions.size)]
         }
     }
 
@@ -259,4 +285,11 @@ class PreguntasActivity : AppCompatActivity() {
         } while (resourseId != 0)
     }
 
+    private fun hideSystemUI() {
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
+    }
 }

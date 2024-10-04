@@ -11,11 +11,13 @@
     <string name="lines">Who would you choose to...?</string>
     <string name="add_question">New Question</string>
     <string name="save">Save</string>
+    <string name="ifyou">What if...?</string>
     <string name="whoisQuestion">whoisQuestion</string>
     <string name="deepQuestion">deepQuestion</string>
     <string name="metQuestion">metQuestion</string>
     <string name="knowQuestion">knowQuestion</string>
     <string name="linesQuestion">linesQuestion</string>
+    <string name="ifYouQuestion">selectQuestion</string>
     <string name="whoisTest">whois</string>
     <string name="debate">Discussion topics</string>
     <string name="debateQuestion">debateQuestion</string>
