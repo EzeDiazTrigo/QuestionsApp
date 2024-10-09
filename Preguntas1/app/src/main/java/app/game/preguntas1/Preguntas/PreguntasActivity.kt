@@ -190,19 +190,6 @@ class PreguntasActivity : AppCompatActivity() {
 
     }
 
-
-
-    /*private fun showDialog(){
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_new_question)
-        dialog.window?.decorView?.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                )
-        dialog.show()
-    }*/
-
     private fun chargeLists(
         context: Context,
         deepQuestionsOriginal: MutableList<String>,
