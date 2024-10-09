@@ -11,8 +11,8 @@
     <color name="background_card1">#444444</color>
     <color name="background_card2">#242424</color>
 
-    <color name="background_card">#00B0CA</color>
-    <color name="background_card3">#DC007687</color>
+    <color name="background_card">#B3C1C1C1</color>
+    <color name="background_card3">#B3858585</color>
     <color name="background_disable">#6C6C6C</color>
     <color name="background_todo_app">#373F78</color>
     <color name="subtitle_text">#FFFCFC</color>
