@@ -61,16 +61,26 @@ class PreguntasActivity : AppCompatActivity() {
         val knowQuestionsOriginal: MutableList<String> = mutableListOf()
         val debateQuestonsOriginal: MutableList<String> = mutableListOf()
         val ifYouQuestionsOriginal: MutableList<String> = mutableListOf()
-        chargeLists(
-            context,
-            deepQuestionsOriginal,
-            whoIsQuestionsOriginal,
-            metQuestionsOriginal,
-            linesIdeasOriginal,
-            knowQuestionsOriginal,
-            debateQuestonsOriginal,
-            ifYouQuestionsOriginal
-        )
+        val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
+
+        when (type) {
+            WHO_KEY -> readStringFiles(whoIsQuestionsOriginal, context, getString(R.string.whoisQuestion))
+            DEEP_KEY -> readStringFiles(deepQuestionsOriginal, context, getString(R.string.deepQuestion))
+            MET_KEY -> readStringFiles(metQuestionsOriginal, context, getString(R.string.metQuestion))
+            LINES_KEY -> readStringFiles(linesIdeasOriginal, context, getString(R.string.linesQuestion))
+            KNOW_KEY -> readStringFiles(knowQuestionsOriginal, context, getString(R.string.knowQuestion))
+            DEBATE_KEY -> readStringFiles(debateQuestonsOriginal, context, getString(R.string.debateQuestion))
+            IFYOU_KEY -> readStringFiles(ifYouQuestionsOriginal, context, getString(R.string.ifYouQuestion))
+            RANDOM_KEY -> {
+                readStringFiles(deepQuestionsOriginal, context, getString(R.string.deepQuestion))
+                readStringFiles(whoIsQuestionsOriginal, context, getString(R.string.whoisQuestion))
+                readStringFiles(metQuestionsOriginal, context, getString(R.string.metQuestion))
+                readStringFiles(linesIdeasOriginal, context, getString(R.string.linesQuestion))
+                readStringFiles(knowQuestionsOriginal, context, getString(R.string.knowQuestion))
+                readStringFiles(debateQuestonsOriginal, context, getString(R.string.debateQuestion))
+                readStringFiles(ifYouQuestionsOriginal, context, getString(R.string.ifYouQuestion))
+            }
+        }
 
         val deepQuestions = deepQuestionsOriginal.shuffled()
         val whoIsQuestions = whoIsQuestionsOriginal.shuffled()
@@ -83,7 +93,6 @@ class PreguntasActivity : AppCompatActivity() {
         val randomQuestionsOriginal:MutableList<String> = (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions + ifYouQuestions).toMutableList()
         val randomQuestions:List<String> = randomQuestionsOriginal.shuffled()
 
-        val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
         var actualQuestion: MutableWrapper<Int> = MutableWrapper(0)
 
         when (type) {
@@ -171,8 +180,6 @@ class PreguntasActivity : AppCompatActivity() {
         }
     }
 
-
-
     private fun showDialog(){
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_new_question)
@@ -182,25 +189,6 @@ class PreguntasActivity : AppCompatActivity() {
                         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 )
         dialog.show()
-    }
-
-    private fun chargeLists(
-        context: Context,
-        deepQuestionsOriginal: MutableList<String>,
-        whoIsQuestionsOriginal: MutableList<String>,
-        metQuestionsOriginal: MutableList<String>,
-        linesIdeasOriginal: MutableList<String>,
-        knowQuestionsOriginal: MutableList<String>,
-        debateQuestionsOriginal: MutableList<String>,
-        ifYouQuestionsOriginal: MutableList<String>
-    ) {
-        readStringFiles(deepQuestionsOriginal, context, getString(R.string.deepQuestion))
-        readStringFiles(whoIsQuestionsOriginal, context, getString(R.string.whoisQuestion))
-        readStringFiles(metQuestionsOriginal, context, getString(R.string.metQuestion))
-        readStringFiles(linesIdeasOriginal, context, getString(R.string.linesQuestion))
-        readStringFiles(knowQuestionsOriginal, context, getString(R.string.knowQuestion))
-        readStringFiles(debateQuestionsOriginal, context, getString(R.string.debateQuestion))
-        readStringFiles(ifYouQuestionsOriginal, context, getString(R.string.ifYouQuestion))
     }
 
     private fun preQuestion(
