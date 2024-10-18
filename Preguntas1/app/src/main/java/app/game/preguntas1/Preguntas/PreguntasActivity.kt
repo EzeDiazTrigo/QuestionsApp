@@ -72,13 +72,48 @@ class PreguntasActivity : AppCompatActivity() {
         val type: String = intent.extras?.getString(TYPE_KEY) ?: ""
 
         when (type) {
-            WHO_KEY -> readStringFiles(whoIsQuestionsOriginal, context, getString(R.string.whoisQuestion))
-            DEEP_KEY -> readStringFiles(deepQuestionsOriginal, context, getString(R.string.deepQuestion))
-            MET_KEY -> readStringFiles(metQuestionsOriginal, context, getString(R.string.metQuestion))
-            LINES_KEY -> readStringFiles(linesIdeasOriginal, context, getString(R.string.linesQuestion))
-            KNOW_KEY -> readStringFiles(knowQuestionsOriginal, context, getString(R.string.knowQuestion))
-            DEBATE_KEY -> readStringFiles(debateQuestonsOriginal, context, getString(R.string.debateQuestion))
-            IFYOU_KEY -> readStringFiles(ifYouQuestionsOriginal, context, getString(R.string.ifYouQuestion))
+            WHO_KEY -> readStringFiles(
+                whoIsQuestionsOriginal,
+                context,
+                getString(R.string.whoisQuestion)
+            )
+
+            DEEP_KEY -> readStringFiles(
+                deepQuestionsOriginal,
+                context,
+                getString(R.string.deepQuestion)
+            )
+
+            MET_KEY -> readStringFiles(
+                metQuestionsOriginal,
+                context,
+                getString(R.string.metQuestion)
+            )
+
+            LINES_KEY -> readStringFiles(
+                linesIdeasOriginal,
+                context,
+                getString(R.string.linesQuestion)
+            )
+
+            KNOW_KEY -> readStringFiles(
+                knowQuestionsOriginal,
+                context,
+                getString(R.string.knowQuestion)
+            )
+
+            DEBATE_KEY -> readStringFiles(
+                debateQuestonsOriginal,
+                context,
+                getString(R.string.debateQuestion)
+            )
+
+            IFYOU_KEY -> readStringFiles(
+                ifYouQuestionsOriginal,
+                context,
+                getString(R.string.ifYouQuestion)
+            )
+
             RANDOM_KEY -> {
                 readStringFiles(deepQuestionsOriginal, context, getString(R.string.deepQuestion))
                 readStringFiles(whoIsQuestionsOriginal, context, getString(R.string.whoisQuestion))
@@ -90,7 +125,6 @@ class PreguntasActivity : AppCompatActivity() {
             }
         }
 
-
         val deepQuestions = deepQuestionsOriginal.shuffled()
         val whoIsQuestions = whoIsQuestionsOriginal.shuffled()
         val metQuestions = metQuestionsOriginal.shuffled()
@@ -99,8 +133,9 @@ class PreguntasActivity : AppCompatActivity() {
         val debateQuestions = debateQuestonsOriginal.shuffled()
         val ifYouQuestions = ifYouQuestionsOriginal.shuffled()
 
-        val randomQuestionsOriginal:MutableList<String> = (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions + ifYouQuestions).toMutableList()
-        val randomQuestions:List<String> = randomQuestionsOriginal.shuffled()
+        val randomQuestionsOriginal: MutableList<String> =
+            (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions + ifYouQuestions).toMutableList()
+        val randomQuestions: List<String> = randomQuestionsOriginal.shuffled()
 
         var actualQuestion: MutableWrapper<Int> = MutableWrapper(0)
 
@@ -122,7 +157,6 @@ class PreguntasActivity : AppCompatActivity() {
                 ContextCompat.getColor(this, R.color.block_met),
                 getString(R.string.met)
             )
-
 
             RANDOM_KEY -> initQuestions(
                 randomQuestions,
@@ -154,34 +188,31 @@ class PreguntasActivity : AppCompatActivity() {
                 getString(R.string.ifyou)
             )
         }
+
         binding.cvQuestion.setOnClickListener {
-            nextQuestion(
-                type,
-                whoIsQuestions,
-                deepQuestions,
-                metQuestions,
-                linesIdeas,
-                knowQuestions,
-                actualQuestion,
-                debateQuestions,
-                randomQuestions,
-                ifYouQuestions
-            )
+            when (type) {
+                WHO_KEY -> nextQuestion(whoIsQuestions, actualQuestion)
+                DEEP_KEY -> nextQuestion(deepQuestions, actualQuestion)
+                MET_KEY -> nextQuestion(metQuestions, actualQuestion)
+                LINES_KEY -> nextQuestion(linesIdeas, actualQuestion)
+                KNOW_KEY -> nextQuestion(knowQuestions, actualQuestion)
+                DEBATE_KEY -> nextQuestion(debateQuestions, actualQuestion)
+                IFYOU_KEY -> nextQuestion(ifYouQuestions, actualQuestion)
+                RANDOM_KEY -> nextQuestion(randomQuestions, actualQuestion)
+            }
         }
 
         binding.cvPreQuest.setOnClickListener {
-            preQuestion(
-                type,
-                whoIsQuestions,
-                deepQuestions,
-                metQuestions,
-                linesIdeas,
-                knowQuestions,
-                actualQuestion,
-                debateQuestions,
-                randomQuestions,
-                ifYouQuestions
-            )
+            when (type) {
+                WHO_KEY -> preQuestion(whoIsQuestions, actualQuestion)
+                DEEP_KEY -> preQuestion(deepQuestions, actualQuestion)
+                MET_KEY -> preQuestion(metQuestions, actualQuestion)
+                LINES_KEY -> preQuestion(linesIdeas, actualQuestion)
+                KNOW_KEY -> preQuestion(knowQuestions, actualQuestion)
+                DEBATE_KEY -> preQuestion(debateQuestions, actualQuestion)
+                IFYOU_KEY -> preQuestion(ifYouQuestions, actualQuestion)
+                RANDOM_KEY -> preQuestion(randomQuestions, actualQuestion)
+            }
         }
 
         binding.imgQuestion.setOnTouchListener { _, event ->
@@ -190,64 +221,30 @@ class PreguntasActivity : AppCompatActivity() {
                     binding.OverlayMain.visibility = View.VISIBLE
                     true
                 }
+
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                     binding.OverlayMain.visibility = View.GONE
                     true
                 }
+
                 else -> false
             }
         }
 
     }
-    
+
     private fun preQuestion(
-        type: String,
-        whoIsQuestions: List<String>,
-        deepQuestions: List<String>,
-        metQuestions: List<String>,
-        linesIdeas: List<String>,
-        knowQuestions: List<String>,
-        actualQuestion: MutableWrapper<Int>,
-        debateQuestions: List<String>,
-        randomQuestions: List<String>,
-        ifYouQuestions: List<String>
+        questionList: List<String>,
+        actualQuestion: MutableWrapper<Int>
     ) {
-        hideSystemUI()
-        when (type) {
-            WHO_KEY -> binding.Question.text = whoIsQuestions[lessActual(actualQuestion)]
-            DEEP_KEY -> binding.Question.text = deepQuestions[lessActual(actualQuestion)]
-            MET_KEY -> binding.Question.text = metQuestions[lessActual(actualQuestion)]
-            RANDOM_KEY -> binding.Question.text = randomQuestions[lessActual(actualQuestion)]
-            LINES_KEY -> binding.Question.text = linesIdeas[lessActual(actualQuestion)]
-            KNOW_KEY -> binding.Question.text = knowQuestions[lessActual(actualQuestion)]
-            DEBATE_KEY -> binding.Question.text = debateQuestions[lessActual(actualQuestion)]
-            IFYOU_KEY -> binding.Question.text = ifYouQuestions[lessActual(actualQuestion)]
-        }
+        binding.Question.text = questionList[lessActual(actualQuestion)]
     }
 
     private fun nextQuestion(
-        type: String,
-        whoIsQuestions: List<String>,
-        deepQuestions: List<String>,
-        metQuestions: List<String>,
-        linesIdeas: List<String>,
-        knowQuestions: List<String>,
-        actualQuestion: MutableWrapper<Int>,
-        debateQuestions: List<String>,
-        randomQuestions: List<String>,
-        ifYouQuestions: List<String>
+        questionList: List<String>,
+        actualQuestion: MutableWrapper<Int>
     ) {
-        hideSystemUI()
-        when (type) {
-            WHO_KEY -> binding.Question.text = whoIsQuestions[addActual(actualQuestion, whoIsQuestions.size)]
-            DEEP_KEY -> binding.Question.text = deepQuestions[addActual(actualQuestion, deepQuestions.size)]
-            MET_KEY -> binding.Question.text = metQuestions[addActual(actualQuestion, metQuestions.size)]
-            RANDOM_KEY -> binding.Question.text = randomQuestions[addActual(actualQuestion, randomQuestions.size)]
-            LINES_KEY -> binding.Question.text = linesIdeas[addActual(actualQuestion, linesIdeas.size)]
-            KNOW_KEY -> binding.Question.text = knowQuestions[addActual(actualQuestion, knowQuestions.size)]
-            DEBATE_KEY -> binding.Question.text = debateQuestions[addActual(actualQuestion, debateQuestions.size)]
-            IFYOU_KEY -> binding.Question.text = ifYouQuestions[addActual(actualQuestion, ifYouQuestions.size)]
-        }
+        binding.Question.text = questionList[addActual(actualQuestion, questionList.size)]
     }
 
     private fun initQuestions(
