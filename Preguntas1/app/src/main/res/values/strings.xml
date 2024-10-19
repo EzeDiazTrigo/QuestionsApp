@@ -1030,4 +1030,53 @@
     <string name="selectQuestion97">Si pudieras conocer el futuro, ¿te gustaría saberlo?</string>
     <string name="selectQuestion98">Si tuvieras que elegir entre vivir para siempre o morir mañana, ¿qué elegirías?</string>
     <string name="selectQuestion99">Si pudieras cambiar una ley en tu país, ¿cuál sería?</string>
+
+    <!-- Challenge -->
+    <string name="yesterday">Ayer</string>
+    <string name="today">Hoy</string>
+    <string name="tomorrow">Mañana</string>
+
+    <string name="d20241019">Envía un mensaje a un amigo con quien no hablas hace tiempo. Pregúntale cómo está o invítale un café.</string>
+    <string name="d20241020">Organiza un desayuno con alguien para esta semana.</string>
+    <string name="d20241021">Organiza para juntarte a comer con un familiar.</string>
+    <string name="d20241022">Invita a alguien a caminar o tomar un café.</string>
+    <string name="d20241023">Comparte una canción que te guste con un amigo.</string>
+    <string name="d20241024">Pregunta a un amigo qué libro o serie te recomendaría.</string>
+    <string name="d20241025">Haz una lista de personas con las que te gustaría reconectar. Escríbele a una.</string>
+    <string name="d20241026">Investiga sobre algo que te haya preguntado un amigo y envíale lo que encontraste.</string>
+    <string name="d20241027">Comparte algo positivo en tus redes sociales. (Puede ser por privado).</string>
+    <string name="d20241028">Envía un mensaje de gratitud a alguien que haya tenido un impacto en tu vida. (Puede ser una foto y sticker también).</string>
+    <string name="d20241029">Organiza un rincón de tu casa.</string>
+    <string name="d20241030">Compra ese artículo que siempre olvidas.</string>
+    <string name="d20241031">Haz una lista de pendientes pequeños y resuelve al menos uno.</string>
+    <string name="d20241101">Prepara tu desayuno favorito para mañana.</string>
+    <string name="d20241102">Anota una idea o proyecto que siempre tengas en mente.</string>
+    <string name="d20241103">Escribe un objetivo pequeño para esta semana.</string>
+    <string name="d20241104">Limpia la bandeja de entrada de tu correo electrónico.</string>
+    <string name="d20241105">Haz algo que llevas posponiendo desde hace días.</string>
+    <string name="d20241106">Ponte ropa que hace mucho no utilizas.</string>
+    <string name="d20241107">Planifica tu día de mañana en 5 minutos.</string>
+    <string name="d20241108">Mira un tutorial introductorio de algo que te gustaría aprender.</string>
+    <string name="d20241109">Escribe sobre un tema que te interese, aunque sea solo para vos.</string>
+    <string name="d20241110">Lee 3 páginas de un libro.</string>
+    <string name="d20241111">Aprende una palabra nueva en otro idioma.</string>
+    <string name="d20241112">Escucha un podcast corto.</string>
+    <string name="d20241113">Dibuja algo, como una flor o una figura geométrica.</string>
+    <string name="d20241114">Investiga sobre un tema curioso que siempre te ha intrigado.</string>
+    <string name="d20241115">Dedica 10 minutos a aprender algo relacionado con tu trabajo o estudios.</string>
+    <string name="d20241116">Descubre un canal de YouTube educativo y mira un video.</string>
+    <string name="d20241117">Aprende una receta sencilla y prepárala.</string>
+    <string name="d20241118">Guárdate una lista de reproducción sobre algo que te gustaría aprender.</string>
+    <string name="d20241119">Escucha una canción que te levante el ánimo.</string>
+    <string name="d20241120">Dedica 5 minutos a estirar tus músculos.</string>
+    <string name="d20241121">Date una ducha relajante escuchando música tranquila.</string>
+    <string name="d20241122">Desconéctate del celular por 30 minutos.</string>
+    <string name="d20241123">Piensa en 3 cosas por las que te sientas agradecido hoy.</string>
+    <string name="d20241124">Da un paseo corto al aire libre.</string>
+    <string name="d20241125">Tómate 10 minutos para tomar una bebida que disfrutes (té, café, jugo).</string>
+    <string name="d20241126">Ordena algo de tu habitación antes de acostarte.</string>
+    <string name="d20241127">Medita 5 minutos.</string>
+    <string name="d20241128">Ve a dormir 30 minutos antes de lo habitual.</string>
+
+
 </resources>

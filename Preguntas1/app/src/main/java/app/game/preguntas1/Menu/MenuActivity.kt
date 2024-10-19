@@ -20,6 +20,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
+import app.game.preguntas1.daily.DailyChallengeActivity
 import app.game.preguntas1.databinding.ActivityMenu2Binding
 import app.game.preguntas1.databinding.ActivityMenuBinding
 import app.game.preguntas1.databinding.ActivityPreguntasBinding
@@ -29,6 +30,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -79,12 +81,18 @@ class MenuActivity : AppCompatActivity() {
         binding.btnChoose.setOnClickListener { navigateToQuestions(LINES_KEY) }
         binding.btnDebate.setOnClickListener { navigateToQuestions(DEBATE_KEY) }
         binding.btnIfYou.setOnClickListener { navigateToQuestions(IFYOU_KEY) }
+        binding.btnDailyChallenge?.setOnClickListener { navigateToChallenge() }
         binding.imgTheme.setOnClickListener {
             changeTheme(themeDark)
             CoroutineScope(Dispatchers.IO).launch {
                 saveTheme(THEME_KEY, themeDark)
             }
         }
+    }
+
+    private fun navigateToChallenge() {
+        val intent = Intent(this, DailyChallengeActivity::class.java)
+        startActivity(intent)
     }
 
     private fun changeTheme(theme: Boolean) {

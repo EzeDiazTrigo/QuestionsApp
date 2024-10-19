@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:paddingHorizontal="30dp"
-    android:paddingVertical="40dp">
+    >
 
 
     <ScrollView
@@ -16,6 +15,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="40dp"
             >
     <!-- Title -->
 
@@ -79,7 +80,7 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/cvStreakPoints"
         tools:ignore="MissingConstraints"
-        tools:text="Ayer" />
+        android:text="@string/yesterday"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -99,6 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvYesterday">
 
         <CheckBox
+            android:id="@+id/cbYesterday"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center|right"
@@ -139,7 +141,7 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/cvCheckYesterday"
         tools:ignore="MissingConstraints"
-        tools:text="Hoy" />
+        android:text="@string/today" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -159,6 +161,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvToday">
 
         <CheckBox
+            android:id="@+id/cbToday"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center|right"
@@ -199,7 +202,7 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/cvCheckToday"
         tools:ignore="MissingConstraints"
-        tools:text="Mañana" />
+        android:text="@string/tomorrow"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -219,10 +222,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTomorrow">
 
         <CheckBox
+            android:id="@+id/cbTomorrow"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center|right"
-            android:layout_marginEnd="5dp" />
+            android:layout_marginEnd="5dp"
+            android:enabled="false"/>
 
     </androidx.cardview.widget.CardView>
 
