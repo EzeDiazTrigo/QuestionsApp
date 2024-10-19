@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Friends Quizz</string>
-    <string name="category">Modos de Juego</string>
+    <string name="category">Elige tu dinámica</string>
     <string name="whois">Quién es... Grupal</string>
     <string name="deep">Profundas</string>
     <string name="next">Generar</string>
@@ -11,6 +11,7 @@
     <string name="add_question">Nueva Pregunta</string>
     <string name="save">Guardar</string>
     <string name="ifyou">Y si...?</string>
+    <string name="challengeTitle">Reto Diario</string>
 
     <string name="whoisQuestion">whoisQuestion</string>
     <string name="deepQuestion">deepQuestion</string>
@@ -606,11 +607,6 @@
     <string name="metQuestion252">¿Puedes hacer algún tipo de coreografía de patinaje sobre hielo?</string>
     <string name="metQuestion253">¿Tienes habilidad para el diseño de tatuajes?</string>
     <string name="metQuestion254">¿Eres capaz de hacer algún tipo de trabajo de plomería o electricidad?</string>
-
-
-
-
-
 
 
     <!-- Know -->

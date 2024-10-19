@@ -13,10 +13,13 @@
         android:theme="@style/Theme.Preguntas1"
         tools:targetApi="31">
         <activity
-            android:name="app.game.preguntas1.Preguntas.PreguntasActivity"
+            android:name=".daily.DailyChallengeActivity"
             android:exported="false" />
         <activity
-            android:name="app.game.preguntas1.Menu.MenuActivity"
+            android:name=".Preguntas.PreguntasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Menu.MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
