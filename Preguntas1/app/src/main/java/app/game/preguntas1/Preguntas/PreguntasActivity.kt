@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 
@@ -23,6 +25,7 @@ import app.game.preguntas1.Menu.MenuActivity.Companion.DEBATE_KEY
 import app.game.preguntas1.Menu.MenuActivity.Companion.IFYOU_KEY
 import app.game.preguntas1.R
 import app.game.preguntas1.databinding.ActivityPreguntasBinding
+import app.game.preguntas1.databinding.DialogNewQuestionBinding
 import kotlin.random.Random
 
 data class MutableWrapper<Int>(var value: Int)
@@ -44,14 +47,19 @@ fun lessActual(wrapper: MutableWrapper<Int>): Int {
 class PreguntasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPreguntasBinding
+    private lateinit var overlayBinding: DialogNewQuestionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityPreguntasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        overlayBinding = DialogNewQuestionBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         hideSystemUI()
+
+        binding.frameMain?.addView(overlayBinding.root)
+        overlayBinding.root.visibility = View.GONE
 
         val context = applicationContext
         val deepQuestionsOriginal: MutableList<String> = mutableListOf()
@@ -166,22 +174,20 @@ class PreguntasActivity : AppCompatActivity() {
             )
         }
 
-        binding.imgQuestion.setOnClickListener {
-            showDialog()
+        binding.imgQuestion.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    binding.OverlayMain.visibility = View.VISIBLE
+                    true
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    binding.OverlayMain.visibility = View.GONE
+                    true
+                }
+                else -> false
+            }
         }
-    }
 
-
-
-    private fun showDialog(){
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_new_question)
-        dialog.window?.decorView?.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                )
-        dialog.show()
     }
 
     private fun chargeLists(
