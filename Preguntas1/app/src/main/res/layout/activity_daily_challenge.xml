@@ -12,7 +12,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height=""
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
     <!-- Title -->
 
     <TextView
@@ -242,5 +246,6 @@
             tools:text="esta es una pregunta de prueba bababababababbab ababababbababababbaba" />
 
     </androidx.cardview.widget.CardView>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
