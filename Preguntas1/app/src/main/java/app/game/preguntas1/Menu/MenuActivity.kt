@@ -19,6 +19,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import app.game.preguntas1.daily.DailyChallengeActivity
 import app.game.preguntas1.databinding.ActivityMenu2Binding
@@ -30,7 +31,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.util.Date
+import java.util.Locale
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -47,7 +51,9 @@ class MenuActivity : AppCompatActivity() {
         const val DEBATE_KEY: String = "DEBATE"
         const val IFYOU_KEY: String = "IFYOU"
         const val THEME_KEY: String = "THEME"
+        const val CURRENT_KEY = "current_date"
         var themeDark: Boolean = false
+        var currentDate: String = "20240101"
     }
 
     private lateinit var binding: ActivityMenu2Binding
@@ -61,8 +67,16 @@ class MenuActivity : AppCompatActivity() {
                     runOnUiThread {
                         themeDark = !settingsModel.theme
                         changeTheme(settingsModel.theme)
+                        currentDate = settingsModel.currentDate
                     }
                 }
+            }
+        }
+        val today = getTodayDate()
+        if(currentDate != today){
+            currentDate = today
+            CoroutineScope(Dispatchers.IO).launch {
+                saveDate(CURRENT_KEY,currentDate)
             }
         }
         binding = ActivityMenu2Binding.inflate(layoutInflater)
@@ -70,6 +84,12 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
         initUI()
 
+    }
+
+    fun getTodayDate(): String {
+        val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
+        val TodayDate = Date()
+        return dateFormat.format(TodayDate)
     }
 
     private fun initUI() {
@@ -118,10 +138,17 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    private suspend fun saveDate(key: String, value: String) {
+        dataStore.edit { preferences ->
+            preferences[stringPreferencesKey(key)] = value
+        }
+    }
+
     private fun getSettings(): Flow<SettingsData?> {
         return dataStore.data.map { preferences ->
             SettingsData(
-                theme = preferences[booleanPreferencesKey(THEME_KEY)] ?: false
+                theme = preferences[booleanPreferencesKey(THEME_KEY)] ?: false,
+                currentDate = preferences[stringPreferencesKey(CURRENT_KEY)] ?:""
             )
         }
     }

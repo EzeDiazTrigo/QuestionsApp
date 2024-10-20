@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import androidx.core.content.ContextCompat
 import androidx.datastore.preferences.core.stringPreferencesKey
+import app.game.preguntas1.Menu.MenuActivity.Companion.currentDate
 
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "ChallengeData")
@@ -64,7 +65,7 @@ class DailyChallengeActivity : AppCompatActivity() {
             getStreak().filter { firstTime }.collect { ChallengeData ->
                 if (ChallengeData != null) {
                     runOnUiThread {
-                        streakNow = ChallengeData.streak-1
+                        streakNow = ChallengeData.streak
                         binding.cbYesterday.isChecked = ChallengeData.cbYesterday
                         binding.cbToday.isChecked = ChallengeData.cbToday
                         lastDate = ChallengeData.lastDate
@@ -75,7 +76,69 @@ class DailyChallengeActivity : AppCompatActivity() {
                 }
             }
         }
+        //Resetear la racha - borrar antes de mergear
+        /*CoroutineScope(Dispatchers.IO).launch {
+            resetStreak()
+        }*/
         initUI()
+    }
+
+    private suspend fun resetStreak() {
+        dataStore.edit { preferences ->
+            preferences[intPreferencesKey(STREAK_DAYS)] = 0
+        }
+    }
+
+    private fun upDateStreakColor() {
+        if (streakNow > 1) {
+            binding.cvStreakPoints.setCardBackgroundColor(getColor(R.color.background_fireStreak))
+            binding.streakPoints.setTextColor(getColor(R.color.text_fireStreak))
+            binding.imgFire.setColorFilter(
+                ContextCompat.getColor(this, R.color.text_fireStreak),
+                android.graphics.PorterDuff.Mode.SRC_IN
+            )
+        } else {
+            binding.cvStreakPoints.setCardBackgroundColor(getColor(R.color.background_ZeroStreak))
+            binding.streakPoints.setTextColor(getColor(R.color.text_ZeroStreak))
+            binding.imgFire.setColorFilter(
+                ContextCompat.getColor(this, R.color.text_ZeroStreak),
+                android.graphics.PorterDuff.Mode.SRC_IN
+            )
+        }
+    }
+
+    private fun readChallenge(
+        context: Context,
+        yesterday: String,
+        today: String,
+        tomorrow: String
+    ) {
+        val yesterdayResId =
+            context.resources.getIdentifier("d$yesterday", "string", context.packageName)
+        val todayResId = context.resources.getIdentifier("d$today", "string", context.packageName)
+        val tomorrowResId =
+            context.resources.getIdentifier("d$tomorrow", "string", context.packageName)
+
+        if (yesterdayResId != 0) {
+            binding.tvChallengeYesterday.text = context.getString(yesterdayResId)
+        } else {
+            binding.tvChallengeYesterday.text = "N/A"
+        }
+        if (todayResId != 0) {
+            binding.tvChallegeToday.text = context.getString(todayResId)
+        } else {
+            binding.tvChallegeToday.text = "N/A"
+        }
+        if (tomorrowResId != 0) {
+            binding.tvChallengeTomorrow.text = context.getString(tomorrowResId)
+        } else {
+            binding.tvChallengeTomorrow.text = "N/A"
+        }
+    }
+
+
+    private fun initUI() {
+        binding.cbTomorrow.isChecked = false
         binding.streakPoints.text = streakNow.toString()
         binding.cbYesterday.setOnCheckedChangeListener { _, value ->
             CoroutineScope(Dispatchers.IO).launch {
@@ -108,7 +171,7 @@ class DailyChallengeActivity : AppCompatActivity() {
                 streakNow++
                 upDateStreakColor()
             } else {
-                if((streakNow-1) < 0){
+                if ((streakNow - 1) < 0) {
                     streakNow = 0
                 } else {
                     streakNow--
@@ -117,75 +180,14 @@ class DailyChallengeActivity : AppCompatActivity() {
             }
             binding.streakPoints.text = streakNow.toString()
         }
-
-    }
-
-    private fun upDateStreakColor(){
-        if(streakNow > 1){
-            binding.cvStreakPoints.setCardBackgroundColor(getColor(R.color.background_fireStreak))
-            binding.streakPoints.setTextColor(getColor(R.color.text_fireStreak))
-            binding.imgFire.setColorFilter(
-                ContextCompat.getColor(this, R.color.text_fireStreak),
-                android.graphics.PorterDuff.Mode.SRC_IN
-            )
-        }else{
-            binding.cvStreakPoints.setCardBackgroundColor(getColor(R.color.background_ZeroStreak))
-            binding.streakPoints.setTextColor(getColor(R.color.text_ZeroStreak))
-            binding.imgFire.setColorFilter(
-                ContextCompat.getColor(this, R.color.text_ZeroStreak),
-                android.graphics.PorterDuff.Mode.SRC_IN
-            )
+        if(currentDate != getTodayDate()){
+            updateUIForNewDay()
         }
     }
 
-    private fun readChallenge(
-        context: Context,
-        yesterday: String,
-        today: String,
-        tomorrow: String
-    ) {
-        val yesterdayResId =
-            context.resources.getIdentifier("d$yesterday", "string", context.packageName)
-        val todayResId = context.resources.getIdentifier("d$today", "string", context.packageName)
-        val tomorrowResId = context.resources.getIdentifier("d$tomorrow", "string", context.packageName)
-
-        if (yesterdayResId != 0) {
-            binding.tvChallengeYesterday.text = context.getString(yesterdayResId)
-        } else {
-            binding.tvChallengeYesterday.text = "N/A"
-        }
-        if (todayResId != 0) {
-            binding.tvChallegeToday.text = context.getString(todayResId)
-        } else{
-            binding.tvChallegeToday.text = "N/A"
-        }
-        if (tomorrowResId != 0) {
-            binding.tvChallengeTomorrow.text = context.getString(tomorrowResId)
-        } else{
-            binding.tvChallengeTomorrow.text = "N/A"
-        }
-    }
-
-
-    private fun initUI() {
-        binding.cbTomorrow.isChecked = false
-        /*
-        binding.cbYesterday.setOnCheckedChangeListener { _, value ->
-
-        }
-        binding.cbToday.setOnCheckedChangeListener { _, value ->
-            CoroutineScope(Dispatchers.IO).launch {
-                saveCheckboxs(TODAY_KEY, value)
-                saveStreak(streakNow)
-            }
-        }
-        binding.cbToday.setOnCheckedChangeListener { _, value ->
-            CoroutineScope(Dispatchers.IO).launch {
-                saveCheckboxs(TODAY_KEY, value)
-                saveStreak(streakNow)
-            }
-        }
-        */
+    private fun updateUIForNewDay() {
+        binding.cbYesterday.isChecked = binding.cbToday.isChecked
+        binding.cbToday.isChecked = false
     }
 
     private suspend fun saveStreak(value: Int) {
