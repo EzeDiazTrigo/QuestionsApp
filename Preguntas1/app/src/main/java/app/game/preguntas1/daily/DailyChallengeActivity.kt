@@ -30,6 +30,7 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.core.content.ContextCompat
+import androidx.datastore.preferences.core.stringPreferencesKey
 
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "ChallengeData")
@@ -40,12 +41,17 @@ class DailyChallengeActivity : AppCompatActivity() {
         const val STREAK_DAYS = "streak_days"
         const val YESTERDAY_KEY = "yesterday"
         const val TODAY_KEY = "today"
-        const val TOMORROW_KEY = "tomorrow"
+        const val LAST_DATE = "last_date"
+        const val LAST_DATE_TEMP = "last_date_temp"
+        const val LAST_DATE_TEMP_AUX = "last_date_temp_aux"
     }
 
     private lateinit var binding: ActivityDailyChallengeBinding
     private var firstTime: Boolean = true
     private var streakNow: Int = 0
+    private var lastDate: String = "20241018"
+    private var tempLastDate: String = "20241017"
+    private var tempLastDateAux: String = "20241016"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +59,7 @@ class DailyChallengeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
         val context = applicationContext
-        readChallenge(context, getYesterdayDate(), getTodayDate(), getTomorrowDate())
+        readChallenge(context, getAnyDate(-1), getTodayDate(), getAnyDate(1))
         CoroutineScope(Dispatchers.IO).launch {
             getStreak().filter { firstTime }.collect { ChallengeData ->
                 if (ChallengeData != null) {
@@ -61,7 +67,9 @@ class DailyChallengeActivity : AppCompatActivity() {
                         streakNow = ChallengeData.streak
                         binding.cbYesterday.isChecked = ChallengeData.cbYesterday
                         binding.cbToday.isChecked = ChallengeData.cbToday
-                        binding.cbTomorrow.isChecked = ChallengeData.cbTomorrow
+                        lastDate = ChallengeData.lastDate
+                        tempLastDate = ChallengeData.tempLastDate
+                        tempLastDateAux = ChallengeData.tempLastDateAux
                         firstTime = !firstTime
                     }
                 }
@@ -69,19 +77,26 @@ class DailyChallengeActivity : AppCompatActivity() {
         }
         initUI()
         binding.streakPoints.text = streakNow.toString()
-        binding.cbYesterday.setOnCheckedChangeListener{ _, value ->
-            if(value){
+        binding.cbYesterday.setOnCheckedChangeListener { _, value ->
+            if (value) {
                 streakNow++
-            }else{
+                CoroutineScope(Dispatchers.IO).launch {
+                    saveLastDate(LAST_DATE, getTodayDate())
+                    saveLastDate(LAST_DATE_TEMP, lastDate)
+                    saveLastDate(LAST_DATE_TEMP_AUX, tempLastDate)
+                }
+
+            } else {
                 streakNow--
             }
             binding.streakPoints.text = streakNow.toString()
         }
 
-        binding.cbToday.setOnCheckedChangeListener{ _, value ->
-            if(value){
+        binding.cbToday.setOnCheckedChangeListener { _, value ->
+            if (value) {
                 streakNow++
-            }else{
+
+            } else {
                 streakNow--
             }
             binding.streakPoints.text = streakNow.toString()
@@ -89,32 +104,41 @@ class DailyChallengeActivity : AppCompatActivity() {
 
     }
 
-    private fun readChallenge(context: Context, yesterday: String, today: String, tomorrow: String){
-        val yesterdayDate = context.resources.getIdentifier("$yesterday", "string", context.packageName)
-        val todayDate = context.resources.getIdentifier("$today", "string", context.packageName)
-        val tomorrowDate = context.resources.getIdentifier("$tomorrow", "string", context.packageName)
-        binding.tvToday.text = todayDate.toString()
-        binding.tvYesterday.text = yesterdayDate.toString()
-        binding.tvTomorrow.text = tomorrowDate.toString()
+    private fun readChallenge(
+        context: Context,
+        yesterday: String,
+        today: String,
+        tomorrow: String
+    ) {
+        val yesterdayResId =
+            context.resources.getIdentifier(yesterday, "string", context.packageName)
+        val todayResId = context.resources.getIdentifier(today, "string", context.packageName)
+        val tomorrowResId = context.resources.getIdentifier(tomorrow, "string", context.packageName)
+        binding.tvYesterday.text =
+            if (yesterdayResId != 0) context.getString(yesterdayResId) else "N/A"
+        binding.tvToday.text = if (todayResId != 0) context.getString(todayResId) else "N/A"
+        binding.tvTomorrow.text =
+            if (tomorrowResId != 0) context.getString(tomorrowResId) else "N/A"
     }
+
 
     private fun initUI() {
-
-        binding.cbYesterday.setOnCheckedChangeListener{ _, value ->
+        binding.cbTomorrow.isChecked = false
+        binding.cbYesterday.setOnCheckedChangeListener { _, value ->
             CoroutineScope(Dispatchers.IO).launch {
                 saveCheckboxs(YESTERDAY_KEY, value)
                 saveStreak(streakNow)
             }
         }
-        binding.cbToday.setOnCheckedChangeListener{ _, value ->
+        binding.cbToday.setOnCheckedChangeListener { _, value ->
             CoroutineScope(Dispatchers.IO).launch {
                 saveCheckboxs(TODAY_KEY, value)
                 saveStreak(streakNow)
             }
         }
-        binding.cbTomorrow.setOnCheckedChangeListener{ _, value ->
+        binding.cbToday.setOnCheckedChangeListener { _, value ->
             CoroutineScope(Dispatchers.IO).launch {
-                saveCheckboxs(TOMORROW_KEY, value)
+                saveCheckboxs(TODAY_KEY, value)
                 saveStreak(streakNow)
             }
         }
@@ -126,9 +150,15 @@ class DailyChallengeActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun saveCheckboxs(key: String, value: Boolean){
-        dataStore.edit{preferences ->
+    private suspend fun saveCheckboxs(key: String, value: Boolean) {
+        dataStore.edit { preferences ->
             preferences[booleanPreferencesKey(key)] = value
+        }
+    }
+
+    private suspend fun saveLastDate(key: String, date: String) {
+        dataStore.edit { preferences ->
+            preferences[stringPreferencesKey(key)] = date
         }
     }
 
@@ -138,7 +168,9 @@ class DailyChallengeActivity : AppCompatActivity() {
                 streak = preferences[intPreferencesKey(STREAK_DAYS)] ?: 0,
                 cbYesterday = preferences[booleanPreferencesKey(YESTERDAY_KEY)] ?: false,
                 cbToday = preferences[booleanPreferencesKey(TODAY_KEY)] ?: false,
-                cbTomorrow = preferences[booleanPreferencesKey(TOMORROW_KEY)] ?: false
+                lastDate = preferences[stringPreferencesKey(LAST_DATE)] ?: "",
+                tempLastDate = preferences[stringPreferencesKey(LAST_DATE_TEMP)] ?: "",
+                tempLastDateAux = preferences[stringPreferencesKey(LAST_DATE_TEMP_AUX)] ?: ""
             )
         }
     }
@@ -149,7 +181,7 @@ class DailyChallengeActivity : AppCompatActivity() {
         return dateFormat.format(TodayDate)
     }
 
-    fun getTomorrowDate(): String {
+    fun getAnyDate(move: Int): String {
         val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_YEAR, 1)
@@ -157,13 +189,9 @@ class DailyChallengeActivity : AppCompatActivity() {
         return dateFormat.format(tomorrowDate)
     }
 
-    fun getYesterdayDate(): String {
-        val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
-        val calendar = Calendar.getInstance()
-        calendar.add(Calendar.DAY_OF_YEAR, -1)
-        val yesterdayDate: Date = calendar.time
-        return dateFormat.format(yesterdayDate)
-    }
 
 }
+
+
+
 
