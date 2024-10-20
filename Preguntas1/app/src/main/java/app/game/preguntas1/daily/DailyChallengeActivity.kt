@@ -2,6 +2,7 @@ package app.game.preguntas1.daily
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -53,6 +54,7 @@ class DailyChallengeActivity : AppCompatActivity() {
     private var lastDate: String = "20241018"
     private var tempLastDate: String = "20241017"
     private var tempLastDateAux: String = "20241016"
+    private var initializingCheckboxes = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,12 +68,16 @@ class DailyChallengeActivity : AppCompatActivity() {
                 if (ChallengeData != null) {
                     runOnUiThread {
                         streakNow = ChallengeData.streak
+                        binding.streakPoints.text = streakNow.toString()
+                        upDateStreakColor()
+                        hideSystemUI()
                         binding.cbYesterday.isChecked = ChallengeData.cbYesterday
                         binding.cbToday.isChecked = ChallengeData.cbToday
                         lastDate = ChallengeData.lastDate
                         tempLastDate = ChallengeData.tempLastDate
                         tempLastDateAux = ChallengeData.tempLastDateAux
                         firstTime = !firstTime
+                        initializingCheckboxes = !initializingCheckboxes
                     }
                 }
             }
@@ -81,6 +87,19 @@ class DailyChallengeActivity : AppCompatActivity() {
             resetStreak()
         }*/
         initUI()
+        initButtons()
+        if(currentDate != getTodayDate()){
+            updateUIForNewDay()
+        }
+    }
+
+    private fun initButtons() {
+        binding.tvChallengeYesterday.setOnClickListener{
+            binding.cbYesterday.isChecked = !binding.cbYesterday.isChecked
+        }
+        binding.tvChallegeToday.setOnClickListener{
+            binding.cbToday.isChecked = !binding.cbToday.isChecked
+        }
     }
 
     private suspend fun resetStreak() {
@@ -136,52 +155,40 @@ class DailyChallengeActivity : AppCompatActivity() {
         }
     }
 
-
     private fun initUI() {
-        binding.cbTomorrow.isChecked = false
         binding.streakPoints.text = streakNow.toString()
+        // Asegúrate de que no se esté sumando nada al abrir la app
         binding.cbYesterday.setOnCheckedChangeListener { _, value ->
+            if (!initializingCheckboxes) { // Solo suma/resta si no estamos inicializando
+                if (value) {
+                    streakNow++
+                } else {
+                    streakNow = maxOf(0, streakNow - 1)
+                }
+            }
             CoroutineScope(Dispatchers.IO).launch {
                 saveCheckboxs(YESTERDAY_KEY, value)
                 saveStreak(streakNow)
             }
-            if (value) {
-                streakNow++
-                upDateStreakColor()
-                tempLastDateAux = tempLastDate
-                tempLastDate = lastDate
-                CoroutineScope(Dispatchers.IO).launch {
-                    saveLastDate(LAST_DATE, getTodayDate())
-                    saveLastDate(LAST_DATE_TEMP, lastDate)
-                    saveLastDate(LAST_DATE_TEMP_AUX, tempLastDate)
-                }
-            } else {
-                streakNow--
-                upDateStreakColor()
-            }
             binding.streakPoints.text = streakNow.toString()
+            upDateStreakColor() // Actualiza el color de la UI
         }
 
         binding.cbToday.setOnCheckedChangeListener { _, value ->
+            if (!initializingCheckboxes) { // Solo suma/resta si no estamos inicializando
+                if (value) {
+                    streakNow++
+                } else {
+                    streakNow = maxOf(0, streakNow - 1)
+                }
+            }
             CoroutineScope(Dispatchers.IO).launch {
                 saveCheckboxs(TODAY_KEY, value)
                 saveStreak(streakNow)
             }
-            if (value) {
-                streakNow++
-                upDateStreakColor()
-            } else {
-                if ((streakNow - 1) < 0) {
-                    streakNow = 0
-                } else {
-                    streakNow--
-                }
-                upDateStreakColor()
-            }
             binding.streakPoints.text = streakNow.toString()
-        }
-        if(currentDate != getTodayDate()){
-            updateUIForNewDay()
+            upDateStreakColor() // Actualiza el color de la UI
+
         }
     }
 
@@ -233,6 +240,14 @@ class DailyChallengeActivity : AppCompatActivity() {
         calendar.add(Calendar.DAY_OF_YEAR, 1)
         val tomorrowDate: Date = calendar.time
         return dateFormat.format(tomorrowDate)
+    }
+
+    private fun hideSystemUI() {
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
     }
 
 

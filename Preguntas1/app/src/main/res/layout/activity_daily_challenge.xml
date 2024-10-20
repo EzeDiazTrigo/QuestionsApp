@@ -242,7 +242,8 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center|right"
                     android:layout_marginEnd="5dp"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:buttonTint="@color/checkbox_tomorrow"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -267,9 +268,17 @@
                     android:gravity="center"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:textColor="@color/checkbox_tomorrow"
                     tools:text="esta es una pregunta de prueba bababababababbab ababababbababababbaba" />
 
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cvCheckTomorrow"
+                
+                tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

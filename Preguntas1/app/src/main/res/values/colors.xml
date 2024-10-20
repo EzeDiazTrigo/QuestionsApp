@@ -46,6 +46,7 @@
     <color name="background_yesterday">#afffce</color>
     <color name="background_tomorrow">#B2DBFF</color>
     <color name="background_today">#D0B5FF</color>
+    <color name="checkbox_tomorrow">#929292</color>
 
 
 
