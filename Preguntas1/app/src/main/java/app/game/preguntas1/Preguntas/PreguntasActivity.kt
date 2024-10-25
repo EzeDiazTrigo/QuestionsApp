@@ -126,21 +126,23 @@ class PreguntasActivity : AppCompatActivity() {
         }
 
         val deepQuestions = deepQuestionsOriginal.shuffled()
-        val whoIsQuestions = whoIsQuestionsOriginal.shuffled()
+        var whoIsQuestions: MutableMap<String, Int> = whoIsQuestionsOriginal.associateWith { 0 }.toMutableMap()
         val metQuestions = metQuestionsOriginal.shuffled()
-        val linesIdeas = linesIdeasOriginal.shuffled()
+        var linesIdeas: MutableMap<String, Int> = linesIdeasOriginal.associateWith { 0 }.toMutableMap()
         val knowQuestions = knowQuestionsOriginal.shuffled()
         val debateQuestions = debateQuestonsOriginal.shuffled()
         val ifYouQuestions = ifYouQuestionsOriginal.shuffled()
+        whoIsQuestions.keys.shuffled()
+        linesIdeas.keys.shuffled()
 
         val randomQuestionsOriginal: MutableList<String> =
-            (deepQuestions + whoIsQuestions + metQuestions + linesIdeas + knowQuestions + debateQuestions + ifYouQuestions).toMutableList()
+            (deepQuestionsOriginal + whoIsQuestionsOriginal + metQuestionsOriginal + linesIdeasOriginal + knowQuestionsOriginal + debateQuestonsOriginal + ifYouQuestionsOriginal).toMutableList()
         val randomQuestions: List<String> = randomQuestionsOriginal.shuffled()
 
         var actualQuestion: MutableWrapper<Int> = MutableWrapper(0)
 
         when (type) {
-            WHO_KEY -> initQuestions(
+            WHO_KEY -> initQuestionsMap(
                 whoIsQuestions,
                 ContextCompat.getColor(this, R.color.block_whois),
                 getString(R.string.whois)
@@ -164,7 +166,7 @@ class PreguntasActivity : AppCompatActivity() {
                 getString(R.string.random)
             )
 
-            LINES_KEY -> initQuestions(
+            LINES_KEY -> initQuestionsMap(
                 linesIdeas,
                 ContextCompat.getColor(this, R.color.block_15lines),
                 getString(R.string.lines)
@@ -191,10 +193,10 @@ class PreguntasActivity : AppCompatActivity() {
 
         binding.cvQuestion.setOnClickListener {
             when (type) {
-                WHO_KEY -> nextQuestion(whoIsQuestions, actualQuestion)
+                WHO_KEY -> nextQuestionMap(whoIsQuestions, actualQuestion)
                 DEEP_KEY -> nextQuestion(deepQuestions, actualQuestion)
                 MET_KEY -> nextQuestion(metQuestions, actualQuestion)
-                LINES_KEY -> nextQuestion(linesIdeas, actualQuestion)
+                LINES_KEY -> nextQuestionMap(linesIdeas, actualQuestion)
                 KNOW_KEY -> nextQuestion(knowQuestions, actualQuestion)
                 DEBATE_KEY -> nextQuestion(debateQuestions, actualQuestion)
                 IFYOU_KEY -> nextQuestion(ifYouQuestions, actualQuestion)
@@ -204,10 +206,10 @@ class PreguntasActivity : AppCompatActivity() {
 
         binding.cvPreQuest.setOnClickListener {
             when (type) {
-                WHO_KEY -> preQuestion(whoIsQuestions, actualQuestion)
+                WHO_KEY -> preQuestionMap(whoIsQuestions, actualQuestion)
                 DEEP_KEY -> preQuestion(deepQuestions, actualQuestion)
                 MET_KEY -> preQuestion(metQuestions, actualQuestion)
-                LINES_KEY -> preQuestion(linesIdeas, actualQuestion)
+                LINES_KEY -> preQuestionMap(linesIdeas, actualQuestion)
                 KNOW_KEY -> preQuestion(knowQuestions, actualQuestion)
                 DEBATE_KEY -> preQuestion(debateQuestions, actualQuestion)
                 IFYOU_KEY -> preQuestion(ifYouQuestions, actualQuestion)
@@ -240,11 +242,25 @@ class PreguntasActivity : AppCompatActivity() {
         binding.Question.text = questionList[lessActual(actualQuestion)]
     }
 
+    private fun preQuestionMap(
+        questionMap: MutableMap<String, Int>,
+        actualQuestion: MutableWrapper<Int>
+    ) {
+        binding.Question.text  = questionMap.keys.elementAt(lessActual(actualQuestion))
+    }
+
     private fun nextQuestion(
         questionList: List<String>,
         actualQuestion: MutableWrapper<Int>
     ) {
         binding.Question.text = questionList[addActual(actualQuestion, questionList.size)]
+    }
+
+    private fun nextQuestionMap(
+        questionMap: MutableMap<String, Int>,
+        actualQuestion: MutableWrapper<Int>
+    ) {
+        binding.Question.text  = questionMap.keys.elementAt(lessActual(actualQuestion))
     }
 
     private fun initQuestions(
@@ -253,6 +269,19 @@ class PreguntasActivity : AppCompatActivity() {
         title: String
     ) {
         binding.Question.text = questions[0]
+        binding.cvQuestion.setCardBackgroundColor(colorTheme)
+        binding.cvQuestionGeneral.setCardBackgroundColor(colorTheme)
+        binding.cvPreQuest.setCardBackgroundColor(colorTheme)
+        binding.titleQuestion.text = title
+        binding.titleQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
+    }
+
+    private fun initQuestionsMap(
+        questions: MutableMap<String, Int>,
+        colorTheme: Int,
+        title: String
+    ) {
+        binding.Question.text = questions.keys.elementAt(0)
         binding.cvQuestion.setCardBackgroundColor(colorTheme)
         binding.cvQuestionGeneral.setCardBackgroundColor(colorTheme)
         binding.cvPreQuest.setCardBackgroundColor(colorTheme)

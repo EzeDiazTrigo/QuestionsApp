@@ -12,5 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/background_todo_app</item>
         <!-- Customize your theme here. -->
+        <item name="android:radioButtonStyle">@style/CustomRadioButton</item>
     </style>
 </resources>
