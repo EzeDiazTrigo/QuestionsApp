@@ -73,10 +73,10 @@ class PreguntasActivity : AppCompatActivity() {
 
         when (type) {
             WHO_KEY -> readStringFiles(
-                whoIsQuestionsOriginal,
-                context,
-                getString(R.string.whoisQuestion)
-            )
+                    whoIsQuestionsOriginal,
+                    context,
+                    getString(R.string.whoisQuestion)
+                )
 
             DEEP_KEY -> readStringFiles(
                 deepQuestionsOriginal,

@@ -67,18 +67,11 @@ class MenuActivity : AppCompatActivity() {
                     runOnUiThread {
                         themeDark = !settingsModel.theme
                         changeTheme(settingsModel.theme)
-                        currentDate = settingsModel.currentDate
                     }
                 }
             }
         }
         val today = getTodayDate()
-        if(currentDate != today){
-            currentDate = today
-            CoroutineScope(Dispatchers.IO).launch {
-                saveDate(CURRENT_KEY,currentDate)
-            }
-        }
         binding = ActivityMenu2Binding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
