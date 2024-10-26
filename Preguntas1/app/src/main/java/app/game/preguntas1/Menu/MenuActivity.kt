@@ -53,7 +53,6 @@ class MenuActivity : AppCompatActivity() {
         const val THEME_KEY: String = "THEME"
         const val CURRENT_KEY = "current_date"
         var themeDark: Boolean = false
-        var currentDate: String = "20240101"
     }
 
     private lateinit var binding: ActivityMenu2Binding
@@ -71,7 +70,6 @@ class MenuActivity : AppCompatActivity() {
                 }
             }
         }
-        val today = getTodayDate()
         binding = ActivityMenu2Binding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)

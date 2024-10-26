@@ -32,10 +32,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 import androidx.core.content.ContextCompat
 import androidx.datastore.preferences.core.stringPreferencesKey
-import app.game.preguntas1.Menu.MenuActivity.Companion.currentDate
+import app.game.preguntas1.Menu.MenuActivity.Companion.CURRENT_KEY
 
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "ChallengeData")
+
+val Context.challengeDataStore: DataStore<Preferences> by preferencesDataStore(name = "ChallengeData")
+val Context.settingsDataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 
 class DailyChallengeActivity : AppCompatActivity() {
 
@@ -46,6 +49,7 @@ class DailyChallengeActivity : AppCompatActivity() {
         const val LAST_DATE = "last_date"
         const val LAST_DATE_TEMP = "last_date_temp"
         const val LAST_DATE_TEMP_AUX = "last_date_temp_aux"
+        const val LASTE_USED_DATE = "last_used_date"
     }
 
     private lateinit var binding: ActivityDailyChallengeBinding
@@ -55,6 +59,7 @@ class DailyChallengeActivity : AppCompatActivity() {
     private var tempLastDate: String = "20241017"
     private var tempLastDateAux: String = "20241016"
     private var initializingCheckboxes = true
+    private var currentDate: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,15 +86,37 @@ class DailyChallengeActivity : AppCompatActivity() {
                     }
                 }
             }
+            getSettings().collect { settingsModel ->
+                if (settingsModel != null) {
+                    runOnUiThread {
+                        if(settingsModel.currentDate != getTodayDate()){
+                            binding.cbYesterday.isChecked = binding.cbToday.isChecked
+                            binding.cbToday.isChecked = false
+                        }
+                    }
+                }
+            }
         }
         //Resetear la racha - borrar antes de mergear
         /*CoroutineScope(Dispatchers.IO).launch {
             resetStreak()
         }*/
+
         initUI()
         initButtons()
-        if(currentDate != getTodayDate()){
-            updateUIForNewDay()
+        CoroutineScope(Dispatchers.IO).launch {
+            saveLastDate(LASTE_USED_DATE, getTodayDate())
+        }
+    }
+
+
+
+    private fun getSettings(): Flow<SettingsData?> {
+        return dataStore.data.map { preferences ->
+            SettingsData(
+                theme = preferences[booleanPreferencesKey(THEME_KEY)] ?: false,
+                currentDate = preferences[stringPreferencesKey(CURRENT_KEY)] ?:""
+            )
         }
     }
 
@@ -237,7 +264,7 @@ class DailyChallengeActivity : AppCompatActivity() {
     fun getAnyDate(move: Int): String {
         val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
         val calendar = Calendar.getInstance()
-        calendar.add(Calendar.DAY_OF_YEAR, 1)
+        calendar.add(Calendar.DAY_OF_YEAR, move)
         val tomorrowDate: Date = calendar.time
         return dateFormat.format(tomorrowDate)
     }
