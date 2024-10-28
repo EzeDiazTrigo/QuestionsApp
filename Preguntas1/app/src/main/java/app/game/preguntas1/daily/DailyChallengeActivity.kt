@@ -31,9 +31,12 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.core.content.ContextCompat
+import androidx.datastore.preferences.PreferencesProto.PreferenceMapOrBuilder
 import androidx.datastore.preferences.core.stringPreferencesKey
 import app.game.preguntas1.Menu.MenuActivity.Companion.CURRENT_KEY
-
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
+import com.google.gson.Gson
+import kotlinx.coroutines.withContext
 
 
 val Context.challengeDataStore: DataStore<Preferences> by preferencesDataStore(name = "ChallengeData")
@@ -46,20 +49,14 @@ class DailyChallengeActivity : AppCompatActivity() {
         const val STREAK_DAYS = "streak_days"
         const val YESTERDAY_KEY = "yesterday"
         const val TODAY_KEY = "today"
-        const val LAST_DATE = "last_date"
-        const val LAST_DATE_TEMP = "last_date_temp"
-        const val LAST_DATE_TEMP_AUX = "last_date_temp_aux"
-        const val LASTE_USED_DATE = "last_used_date"
+        const val CHALLENGE_HISTORY_KEY = "challenge_history"
+        const val LAST_USED_DATE = "last_used_date"
     }
 
     private lateinit var binding: ActivityDailyChallengeBinding
-    private var firstTime: Boolean = true
     private var streakNow: Int = 0
-    private var lastDate: String = "20241018"
-    private var tempLastDate: String = "20241017"
-    private var tempLastDateAux: String = "20241016"
-    private var initializingCheckboxes = true
-    private var currentDate: String = ""
+    private var initializingCheckboxes: Boolean = true
+    private var historialChallenges: MutableMap<String, Boolean> = mutableMapOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,47 +66,30 @@ class DailyChallengeActivity : AppCompatActivity() {
         val context = applicationContext
         readChallenge(context, getAnyDate(-1), getTodayDate(), getAnyDate(1))
         CoroutineScope(Dispatchers.IO).launch {
-            getStreak().filter { firstTime }.collect { ChallengeData ->
+            getStreak().filter { initializingCheckboxes }.collect { ChallengeData ->
                 if (ChallengeData != null) {
                     runOnUiThread {
                         streakNow = ChallengeData.streak
                         binding.streakPoints.text = streakNow.toString()
                         upDateStreakColor()
                         hideSystemUI()
-                        binding.cbYesterday.isChecked = ChallengeData.cbYesterday
-                        binding.cbToday.isChecked = ChallengeData.cbToday
-                        lastDate = ChallengeData.lastDate
-                        tempLastDate = ChallengeData.tempLastDate
-                        tempLastDateAux = ChallengeData.tempLastDateAux
-                        firstTime = !firstTime
+                        historialChallenges = ChallengeData.challengeHistory
+                        binding.cbYesterday.isChecked = historialChallenges[getAnyDate(-1)] == true
+                        binding.cbToday.isChecked = historialChallenges[getTodayDate()] == true
                         initializingCheckboxes = !initializingCheckboxes
                     }
                 }
             }
-            getSettings().collect { settingsModel ->
-                if (settingsModel != null) {
-                    runOnUiThread {
-                        if(settingsModel.currentDate != getTodayDate()){
-                            binding.cbYesterday.isChecked = binding.cbToday.isChecked
-                            binding.cbToday.isChecked = false
-                        }
-                    }
-                }
-            }
         }
+
         //Resetear la racha - borrar antes de mergear
         /*CoroutineScope(Dispatchers.IO).launch {
             resetStreak()
         }*/
 
-        initUI()
+        initUI(historialChallenges)
         initButtons()
-        CoroutineScope(Dispatchers.IO).launch {
-            saveLastDate(LASTE_USED_DATE, getTodayDate())
-        }
     }
-
-
 
     private fun getSettings(): Flow<SettingsData?> {
         return dataStore.data.map { preferences ->
@@ -182,40 +162,40 @@ class DailyChallengeActivity : AppCompatActivity() {
         }
     }
 
-    private fun initUI() {
+    private fun initUI(historialChallenges: MutableMap<String, Boolean>) {
         binding.streakPoints.text = streakNow.toString()
-        // Asegúrate de que no se esté sumando nada al abrir la app
         binding.cbYesterday.setOnCheckedChangeListener { _, value ->
-            if (!initializingCheckboxes) { // Solo suma/resta si no estamos inicializando
+            if (!initializingCheckboxes) {
                 if (value) {
                     streakNow++
                 } else {
                     streakNow = maxOf(0, streakNow - 1)
                 }
             }
+            historialChallenges.put(getTodayDate(), value)
             CoroutineScope(Dispatchers.IO).launch {
-                saveCheckboxs(YESTERDAY_KEY, value)
+                saveChallengeHistory(historialChallenges)
                 saveStreak(streakNow)
             }
             binding.streakPoints.text = streakNow.toString()
-            upDateStreakColor() // Actualiza el color de la UI
+            upDateStreakColor()
         }
 
         binding.cbToday.setOnCheckedChangeListener { _, value ->
-            if (!initializingCheckboxes) { // Solo suma/resta si no estamos inicializando
+            if (!initializingCheckboxes) {
                 if (value) {
                     streakNow++
                 } else {
                     streakNow = maxOf(0, streakNow - 1)
                 }
             }
+            historialChallenges.put(getTodayDate(), value)
             CoroutineScope(Dispatchers.IO).launch {
-                saveCheckboxs(TODAY_KEY, value)
+                saveChallengeHistory(historialChallenges)
                 saveStreak(streakNow)
             }
             binding.streakPoints.text = streakNow.toString()
-            upDateStreakColor() // Actualiza el color de la UI
-
+            upDateStreakColor()
         }
     }
 
@@ -230,27 +210,28 @@ class DailyChallengeActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun saveCheckboxs(key: String, value: Boolean) {
-        dataStore.edit { preferences ->
-            preferences[booleanPreferencesKey(key)] = value
-        }
-    }
+    private suspend fun saveChallengeHistory(challengeHistory: MutableMap<String, Boolean>) {
+        val json = Gson().toJson(challengeHistory)
+        val challengeHistoryKey = stringPreferencesKey(CHALLENGE_HISTORY_KEY)
 
-    private suspend fun saveLastDate(key: String, date: String) {
-        dataStore.edit { preferences ->
-            preferences[stringPreferencesKey(key)] = date
+        withContext(Dispatchers.IO) {
+            challengeDataStore.edit { preferences ->
+                preferences[challengeHistoryKey] = json
+            }
         }
     }
 
     private fun getStreak(): Flow<ChallengeData?> {
-        return dataStore.data.map { preferences ->
+        return challengeDataStore.data.map { preferences ->
+            val streak = preferences[intPreferencesKey(STREAK_DAYS)] ?: 0
+            val challengeHistoryJson = preferences[stringPreferencesKey(CHALLENGE_HISTORY_KEY)] ?: "{}"
+            val challengeHistory: MutableMap<String, Boolean> = Gson().fromJson(
+                challengeHistoryJson, object : TypeToken<MutableMap<String, Boolean>>() {}.type
+            )
+
             ChallengeData(
-                streak = preferences[intPreferencesKey(STREAK_DAYS)] ?: 0,
-                cbYesterday = preferences[booleanPreferencesKey(YESTERDAY_KEY)] ?: false,
-                cbToday = preferences[booleanPreferencesKey(TODAY_KEY)] ?: false,
-                lastDate = preferences[stringPreferencesKey(LAST_DATE)] ?: "",
-                tempLastDate = preferences[stringPreferencesKey(LAST_DATE_TEMP)] ?: "",
-                tempLastDateAux = preferences[stringPreferencesKey(LAST_DATE_TEMP_AUX)] ?: ""
+                streak = streak,
+                challengeHistory = challengeHistory
             )
         }
     }
